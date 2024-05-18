@@ -26,15 +26,33 @@
         </div>
     </div>
     
+    <script id="data">
+    var polylinePath = [
+        new naver.maps.LatLng(35.16509312890069, 129.12682856179742),
+        new naver.maps.LatLng(35.16532735950285, 129.12626558012514),
+    ];
+
+    </script>
 
     <!-- 지도 내부 조작을 위한 스크립트 -->
-    <script>
+    <script id="code">
         
         var map = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(35.1335487, 129.1059875),
         });
         
         var bicycleLayer = new naver.maps.BicycleLayer();
+
+        var polyline = new naver.maps.Polyline({
+            path: polylinePath,
+            strokeColor: '#00CA00',
+            strokeOpacity: 0.8,
+            strokeWeight: 6,
+            zIndex: 2,
+            clickable: true,
+            map: map
+        });
+
         
 
         // btn이 id=bicycle 인 DOM 객체를 나타냄
@@ -63,6 +81,35 @@
             }
         });
         
+        /*폴리라인에 대한 이벤트 함수*/
+        naver.maps.Event.addListener(polyline, "mouseover", function () {
+            polyline.setOptions({
+                strokeWeight: 20
+            });
+        });
+
+        naver.maps.Event.addListener(polyline, "mouseout", function () {
+            polyline.setOptions({
+                strokeWeight: 6
+            });
+        });
+
+        naver.maps.Event.addListener(polyline, "mousedown", function () {
+            polyline.setOptions({
+                strokeWeight: 20
+            });
+        });
+    
+        naver.maps.Event.addListener(polyline, "mouseup", function () {
+            polyline.setOptions({
+                strokeWeight: 6
+            });
+        });
+
+        naver.maps.Event.addListener(polyline, "click", function () {
+            alert('수영강 코스입니다.');
+        });
+    
         // 시작하면 한번 하는 함수
         naver.maps.Event.once(map, 'init', function() {
             bicycleLayer.setMap(map);
