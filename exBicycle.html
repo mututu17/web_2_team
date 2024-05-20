@@ -6,8 +6,8 @@
     <title>Map Test</title>
     <script src="js/jquery-1.9.1.js"></script>
     <!--USERID 바꾸기!!-->
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=USERID"></script>
-    </head>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=y9k548hkvt&submodules=drawing"></script>
+</head>
 <body>
     <!--자전거 레이어 ON/OFF 버튼 CSS-->
     <style type="txt/css">
@@ -62,7 +62,7 @@
         });
         
         var bicycleLayer = new naver.maps.BicycleLayer();
-
+        
         var polyline = new naver.maps.Polyline({
             path: polylinePath,
             strokeColor: '#00CA00',
@@ -73,6 +73,11 @@
             map: map
         });
 
+        // 변경점!
+        naver.maps.onJSContentLoaded = function() {
+            var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
+        };
+        
         
 
         // btn이 id=bicycle 인 DOM 객체를 나타냄
@@ -134,6 +139,8 @@
         naver.maps.Event.once(map, 'init', function() {
             bicycleLayer.setMap(map);
         });
+
+        
     </script>
 </body>
 </html>
