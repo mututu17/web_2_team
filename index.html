@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초안</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav id="buttonbar">
+            <ul>
+                <li id="logo"><a href="javascript:void(0)" onclick="window.location.reload()"><img src="./images/bike_logo.png" alt="로고" width="30" height="30"></a></li>
+                <li>
+                    <select id="거리순" class="combo-box">
+                        <option value="" disabled selected>거리순</option>
+                        <option value="0 ~ 3 km">0 ~ 3 km</option>
+                        <option value="3 ~ 6 km">3 ~ 6 km</option>
+                        <option value="6 ~ ... km">6 ~ ... km</option>
+                    </select>
+                </li>
+                <li>
+                    <select id="목적지" class="combo-box">
+                        <option value="" disabled selected>목적지 선택</option>
+                        <option value="광안리">광안리</option>
+                        <option value="해운대">해운대</option>
+                        <option value="송정">송정</option>
+                        <option value="부경대">부경대</option>
+                    </select>
+                </li>
+                <li>
+                    <select id="추천코스" class="combo-box">
+                        <option value="" disabled selected>추천 코스</option>
+                        <option value="코스 A">코스 A</option>
+                        <option value="코스 B">코스 B</option>
+                        <option value="코스 C">코스 C</option>
+                    </select>
+                </li>
+                <li>
+                    <select id="풍경" class="combo-box">
+                        <option value="" disabled selected>풍경</option>
+                        <option value="산">산</option>
+                        <option value="바다">바다</option>
+                        <option value="도심">도심</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+        <div class="output">
+            <span id = "거리순-span">거리순</span>
+            <span id = "목적지-span">목적지</span>
+            <span id = "추천코스-span">추천코스</span>
+            <span id = "풍경-span">풍경</span>
+        </div>
+    </header>
+    <div class="content">
+        <main>
+            <div id="map-container">
+                <img src="./images/map.png" alt="지도" id="map">
+            </div>
+        </main>
+        <aside class="sidebar" id="sidebar">
+            <button class="toggle" onclick="toggleNav()">닫기</button>
+            <p id="selected-option">목적지</p>
+            <a href="#" id="link" target="_blank"><img src="#" id="image" width="180", height="180"></a>
+            <p>참고자료</p>
+            <a href="#" id="linkT" target="_blank">링크</a>
+        </aside>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
