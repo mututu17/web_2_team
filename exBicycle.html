@@ -6,7 +6,7 @@
     <title>Map Test</title>
     <script src="js/jquery-1.9.1.js"></script>
     <!--USERID 바꾸기!!-->
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=y9k548hkvt&submodules=drawing"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=USERID&submodules=drawing"></script>
 </head>
 <body>
     <!--자전거 레이어 ON/OFF 버튼 CSS-->
@@ -78,8 +78,6 @@
             var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
         };
         
-        
-
         // btn이 id=bicycle 인 DOM 객체를 나타냄
         var btn = $('#bicycle');
 
