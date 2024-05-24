@@ -1,0 +1,390 @@
+$mobile: 768px;
+$laptop: 1020px;
+$desktop: 1400px;
+// 기기별 변수 설정
+@mixin tablet {
+    @media (min-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (min-width: #{$laptop}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 반응형으로 100% */
+}
+// ==========================================================================메뉴 CSS=========================================================================
+header {
+    // 모바일일 때는 아무것도 적용 안됨
+
+    @include laptop {
+        display:block;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-bottom: 1px solid #ccc; /* 수평선 */
+        height: 70px; 
+    }
+    @include desktop {
+        display:block;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-bottom: 1px solid #ccc; /* 수평선 */
+        height: 70px; 
+    }
+}
+
+// buttonbar id의 자식 ul
+#buttonbar > ul {
+    // 모바일일 때
+    display:none;
+    // 노트북일 때
+    @include laptop {
+        display: inline;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center; 
+    }
+    // 데스크톱일 때
+    @include desktop {
+        display: inline;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+}
+// buttonbar id의 자식 ul의 자식 li
+#buttonbar > ui > li {
+    display: none;
+
+    @include laptop {
+        display: inline;
+        margin-right: 20px;
+        position: relative;
+    }
+    @include desktop {
+        display: inline;
+        margin-right: 20px;
+        position: relative;
+    }     
+}
+
+.combo-box {
+    display: none;
+
+    @include laptop {
+        display: inline;
+        width: 150px;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+
+    @include desktop {
+        display: inline;
+        width: 150px;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+}
+
+// 모바일 메뉴 시작
+// 헤더부분
+.wrapper {
+    width:100%;
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+.container{
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+   
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+.head{
+    width:100%;
+    height:50px;
+    border-bottom:1px solid #e1e1e1;
+    position:relative;
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.body{                       //몸체 영역 클래스명은 임의로 작성
+    height:400px;
+    position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
+    overflow: hidden;
+}
+
+.slide-open{
+    position:absolute;
+    top:0;
+    right:0;
+    width:50px;
+    height:50px;
+    border: none;
+    cursor:pointer;
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+// 메뉴 버거 버튼 css
+.burgur{ //몸체 (가운데 라인)
+    left: 15px;
+    top: 23px;
+    position: absolute;         //부모요소 버튼의 영역안에서 자유롭게 위치
+    width: 20px;                //메뉴버튼의 가로폭
+    height: 2px;                //메뉴버튼 한줄의 높이
+    background: #000000;        //검정색
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+.burgur .top-line{ //윗 라인
+    width: 20px;
+    height: 2px;
+    background-color: #000000;
+    bottom: -5px; //가운데 라인을 기준으로 위로 5px만큼 떨어짐
+    position: absolute; 
+    left: 0;
+    -webkit-transition:  -webkit-transform .3s;
+    transition: transform .3s; 
+    //transition - 지정한 속성 변경이 일어날 때 애니메이션 속도를 지정한 속도만큼 조절
+    //transform이 0.3초 에 걸쳐 완료
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+// 버튼 눌렀을때 css
+.burgur .bot-line { //아랫 라인
+    width: 20px;
+    height: 2px;
+    background-color: #000000;
+    top: -5px;  //가운데 라인을 기준으로 아래로 5px만큼 떨어짐
+    position: absolute;
+    left: 0;
+    -webkit-transition:  -webkit-transform .3s;
+    transition: transform .3s;
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.burgur.on { //클릭이벤트가 발생했을 때 on클래스를 추가하여 css를 변경
+    width: 0; //가운데 라인을 없애기 위해 가로값을 0을 주어 감춤
+}
+
+//translateY - 해당 요소의 y축을 지정한 만큼 이동
+//rotate     - 요소를 지정한 만큼 회전 
+
+.burgur.on .bot-line {
+    -webkit-transform: translateY(5px) rotate(135deg);
+    transform: translateY(5px) rotate(135deg);
+    
+}
+.burgur.on .top-line{
+    -webkit-transform: translateY(-5px) rotate(-135deg);
+    transform: translateY(-5px) rotate(-135deg);
+}
+
+// 좌측 슬라이드 메뉴 css
+.slide{
+    width:100%;
+    position:absolute;
+    left:-100%;                    //좌측에 위치 시키기 위해 현 가로폭의 -100%만큼 왼쪽으로 이동
+    top:0;                         //슬라이드 메뉴의 경우 화면에 꽉차게 해야 하는데
+    right:0;                       //모바일 웹은 화면의 높이가 일정하지 않을 일이 많아
+    bottom:0;                      //전,후,좌,우 전체 0을 주면 화면에 가득 차게 됩니다.
+    
+    -webkit-transition: left .3s;  //애니메이션 css 브라우저별로 작동시키기 위해 다 적어주는게 좋다
+    -moz-transition: left .3s;     //left 속성에 대해 0.3초 동안 애니메이션 실행
+    -ms-transition: left .3s;
+    -o-transition: left .3s;
+    transition: left .3s;
+    background-color:#cccccc;
+}
+
+.slide-title{
+    width:100%;
+    height:100px;
+    font-size:42px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom:1px solid #e1e1e1;
+}
+
+.slide.on{
+    left:0;
+}
+
+.slide ul li{
+    display:inline-block;
+    width:100%;
+    padding:10px;
+    border-bottom:1px solid #e1e1e1;
+}
+
+.content_mobile {
+    height:100%;
+    font-size:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+    
+}
+// ==========================================================================메뉴 CSS END=========================================================================
+
+
+.content {
+    display: none;
+
+    @include laptop {
+        display: flex; 
+        flex: 1;
+    }
+
+    @include desktop {
+        display: flex; 
+        flex: 1;
+    }
+    
+}
+
+.sidebar {
+    display: none;
+
+    @include laptop {
+        display: block;
+        width: 200px;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-right: 1px solid #ccc;
+        height: 100%;
+    }
+
+    @include desktop {
+        display: block;
+        width: 200px;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-right: 1px solid #ccc;
+        height: 100%;
+    }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+#map-container {
+   position: relative;
+   width: 80%;
+   height: 80%;
+}
+
+#map {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.output span {
+    display: none;
+
+    @include laptop {
+        display: inline;
+        position: relative;
+        top: 5px;
+        left: 60px;
+        margin: 50px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 3px;
+    }
+    
+    @include desktop {
+        display: inline;
+        position: relative;
+        top: 5px;
+        left: 60px;
+        margin: 50px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 3px;
+    }
+}
+
+

@@ -62,3 +62,34 @@ document.querySelectorAll('.combo-box').forEach(function(select) {
         }
     });
 });
+
+// 버튼 애니메이션 jQuery
+// $(function(){
+//     $("#slide-open").click(function(){
+
+//         if($("#burgur").hasClass('on')){
+//         //메뉴버튼이 "on" 클래스를 포함할 경우 "on"클래스를 제거
+//           $("#burgur").removeClass('on');
+//         } else{
+//         //메뉴버튼이 "on" 클래스를 포함하지 않을 경우 "on"클래스를 추가
+//           $("#burgur").addClass('on');
+        
+//         }
+//     });
+// });
+
+// 버튼 애니메이션 jQuery
+$("#slide-open").click(function(){  //버튼 클릭 시
+
+    if($("#burgur").hasClass('on')){ //메뉴가 X 상태일때
+
+      $("#burgur").removeClass('on'); //메뉴 원복
+      $("#slide").removeClass('on');  //슬라이드 메뉴 원복
+    
+    } else{
+
+      $("#burgur").addClass('on');    //메뉴 3줄
+      $("#slide").addClass('on');     //슬라이드 메뉴 감춤
+    
+    }
+});
