@@ -20,8 +20,6 @@ $desktop: 1400px;
     }
 }
 
-
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -149,7 +147,7 @@ header {
 }
 
 .body{                       //몸체 영역 클래스명은 임의로 작성
-    height:400px;
+    height:500px;
     position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
     overflow: hidden;
 }
@@ -157,7 +155,7 @@ header {
 .slide-open{
     position:absolute;
     top:0;
-    right:0;
+    left:0;
     width:50px;
     height:50px;
     border: none;
@@ -246,8 +244,14 @@ header {
 }
 
 // 좌측 슬라이드 메뉴 css
-.slide{
-    width:100%;
+
+// 필터 사이드바 드롭다운
+.filter {
+    width: 250px;
+    height: 150vh;
+    color: black;
+    padding-top: 20px;
+
     position:absolute;
     left:-100%;                    //좌측에 위치 시키기 위해 현 가로폭의 -100%만큼 왼쪽으로 이동
     top:0;                         //슬라이드 메뉴의 경우 화면에 꽉차게 해야 하는데
@@ -259,28 +263,50 @@ header {
     -ms-transition: left .3s;
     -o-transition: left .3s;
     transition: left .3s;
-    background-color:#cccccc;
+    background-color:#F0F9FC;
+}
+// 필터가 열려있을때를 표현
+.filter.on{
+    left: 0;
+}
+// 필터 각각의 항목 표현
+.filter-item {
+    margin: 10px 0;
 }
 
-.slide-title{
-    width:100%;
-    height:100px;
-    font-size:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-bottom:1px solid #e1e1e1;
+// 필터 버튼의 css를 설정
+.filter-item button {
+    background-color: #F0F9FC;
+    color:  black;
+    border: none;
+    border-bottom: 1px solid rgba(199, 187, 187, 0.906);
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+}
+// hover: 클릭되었을때
+.filter-item button:hover {
+    background-color: #F0F9FC;
 }
 
-.slide.on{
-    left:0;
+.filter-dropdown-container {
+    display: none;
+    background-color: #F0F9FC;
+    padding-left: 15px;
 }
 
-.slide ul li{
-    display:inline-block;
-    width:100%;
-    padding:10px;
-    border-bottom:1px solid #e1e1e1;
+.filter-dropdown-container a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.filter-dropdown-container a:hover {
+    background-color: #c7eaf5;
 }
 
 .content_mobile {

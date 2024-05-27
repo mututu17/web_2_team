@@ -63,6 +63,7 @@ document.querySelectorAll('.combo-box').forEach(function(select) {
     });
 });
 
+// ==================================================================================모바일 슬라이드 애니매이션 JQUERY===================================================================================================
 // 버튼 애니메이션 jQuery
 // $(function(){
 //     $("#slide-open").click(function(){
@@ -78,18 +79,27 @@ document.querySelectorAll('.combo-box').forEach(function(select) {
 //     });
 // });
 
-// 버튼 애니메이션 jQuery
-$("#slide-open").click(function(){  //버튼 클릭 시
+// 슬라이드 애니메이션 
+$("#slide-open").on("click", function(){  //버튼 클릭 시
 
     if($("#burgur").hasClass('on')){ //메뉴가 X 상태일때
 
       $("#burgur").removeClass('on'); //메뉴 원복
-      $("#slide").removeClass('on');  //슬라이드 메뉴 원복
+      $("#filter").removeClass('on');  //슬라이드 메뉴 원복
     
     } else{
 
       $("#burgur").addClass('on');    //메뉴 3줄
-      $("#slide").addClass('on');     //슬라이드 메뉴 감춤
+      $("#filter").addClass('on');     //슬라이드 메뉴 감춤
     
     }
+});
+
+//필터 사이드바 드롭다운
+// scripts.js
+$(document).ready(function() {
+    $('.filter-dropdown-btn').on('click', function() {
+        $(this).toggleClass('active');
+        $(this).next('.filter-dropdown-container').slideToggle();
+    });
 });
