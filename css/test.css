@@ -298,7 +298,7 @@ body {
     flex: 1;
   }
 }
-
+/* 사이드 메뉴바 - 호버, 위치는 왼쪽으로 */ 
 @media (min-width: 1020px) { 
   .side-bar{
     background-color: #f4f4f4;
