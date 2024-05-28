@@ -103,3 +103,10 @@ $(document).ready(function() {
         $(this).next('.filter-dropdown-container').slideToggle();
     });
 });
+
+$(document).ready(function() {
+    $('.filter-comboBox_1').on('change', function() {
+        var selectedValue = $(this).val();
+        alert('선택된 값: ' + selectedValue);
+    });
+});
