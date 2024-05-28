@@ -299,30 +299,175 @@ body {
   }
 }
 
-.sidebar {
-  display: none;
-}
-@media (min-width: 1020px) {
-  .sidebar {
-    display: block;
-    width: 200px;
+@media (min-width: 1020px) { 
+  .side-bar{
     background-color: #f4f4f4;
-    padding: 10px;
-    border-right: 1px solid #ccc;
+    position: absolute;
+    top:70;
+    left:-200px;
+    width: 230px;
     height: 100%;
+    transition: left 0.5s, background-color 0.5s;  
   }
-}
-@media (min-width: 1400px) {
-  .sidebar {
-    display: block;
-    width: 200px;
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-right: 1px solid #ccc;
-    height: 100%;
+  .side-bar:hover{
+      left:0%;
+      background-color:#F0F9FC;
+      transition: left 0.5s, background-color 0.5s;  
+  }
+  .side-bar>.icon>div{
+      text-align:right;
+      padding: 10px;
+      color: black;
+  }
+  .side-bar:hover>.icon>div:last-child{
+      display:block;
+      color: black;
+  }
+
+  .side-bar:hover>.icon>div:first-child{
+      display:none;
+  }
+  .side-bar>.icon>div:last-child{
+      display:none;
+  }
+  .side-bar>.information {
+    position:relative;
+  }
+  .side-bar>.information {
+      display:block;
+      font-weight:bold;
+      padding:15px;
   }
 }
 
+/* 사이드바 펼침 레이아웃, 그러나 옆으로 페이지가 확장되어 일단 폐기 */
+/*@media (min-width: 1400px) { 
+  .toggle-aside input{
+    display: none;
+  }
+  .toggle-aside > input + label{
+      position: relative;
+  }
+  .toggle-aside input[type=checkbox] + label::after {
+      position: absolute;
+      content: "▶";
+      background-color: #F0F9FC;
+      padding: 5px;
+      border-radius: 0px 0 0 15px;
+      font-size: 1.5em;
+      right: 0px;
+      line-height: 1;
+      box-shadow: 1px 8px 5px -7px rgba(0,0,0,0.5);
+      width: 40px;
+      box-sizing: border-box;
+      transition: right 0.5s, background-color 0.5s;
+  }
+  .toggle-aside input[type=checkbox]:checked + label::after {
+    right:-240px;
+    background-color: #F0F9FC;
+    content: "◀";
+    color: #000;
+    transition: right 0.5s, background-color 0.5s; 
+  }
+  .toggle-aside input[type=checkbox]:checked + label + .information{
+    right:-240px;
+    background-color: #F0F9FC;
+    transition: right 0.5s, background-color 0.5s; 
+  }
+  .toggle-aside>.information{
+    position:relative;
+  }
+  .toggle-aside>.information{
+    background-color: #F0F9FC;
+    right: 0px;
+    width: 180px;
+    height: 100%;
+    padding: 30px;
+    transition: right 0.5s, background-color 0.5s;
+  }
+}
+*/
+
+/* 사이드 메뉴바 - 호버
+  .side-bar{
+    background-color: lightgray;
+    position: absolute;
+    top:70;
+    left:-200px;
+    width: 230px;
+    height: 100%;
+    transition: left 0.5s, background-color 0.5s;  
+  }
+  .side-bar:hover{
+      left:0%;
+      background-color:#F0F9FC;
+      transition: left 0.5s, background-color 0.5s;  
+  }
+  .side-bar>.icon>div{
+      text-align:right;
+      padding: 10px;
+      color: black;
+  }
+  .side-bar:hover>.icon>div:last-child{
+      display:block;
+      color: black;
+  }
+
+  .side-bar:hover>.icon>div:first-child{
+      display:none;
+  }
+  .side-bar>.icon>div:last-child{
+      display:none;
+  }
+  .side-bar>.information {
+    position:relative;
+  }
+  .side-bar>.information {
+      display:block;
+      font-weight:bold;
+      padding:15px;
+  }
+*/
+@media (min-width: 1400px) {
+  .side-bar{
+    background-color: #f4f4f4;
+    position: absolute;
+    top:70;
+    left:-200px;
+    width: 230px;
+    height: 100%;
+    transition: left 0.5s, background-color 0.5s;  
+  }
+  .side-bar:hover{
+      left:0%;
+      background-color:#F0F9FC;
+      transition: left 0.5s, background-color 0.5s;  
+  }
+  .side-bar>.icon>div{
+      text-align:right;
+      padding: 10px;
+      color: black;
+  }
+  .side-bar:hover>.icon>div:last-child{
+      display:block;
+      color: black;
+  }
+
+  .side-bar:hover>.icon>div:first-child{
+      display:none;
+  }
+  .side-bar>.icon>div:last-child{
+      display:none;
+  }
+  .side-bar>.information {
+    position:relative;
+  }
+  .side-bar>.information {
+      display:block;
+      font-weight:bold;
+      padding:15px;
+  }
+}
 main {
   flex: 1;
   display: flex;

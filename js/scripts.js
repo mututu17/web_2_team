@@ -12,14 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function toggleNav() {
-    var sidebar = document.getElementById("sidebar");
-    var button = document.querySelector(".toggle");
-    if (sidebar.style.width === "200px") {
-        button.innerText = "열기";
+    var sidebar = document.getElementById("side-bar");
+    var button = document.querySelector(".icon");
+    if (sidebar.style.width == "220px") {
+        button.innerText = "▼";
         sidebar.style.width = "20px";
+        
     } else {
-        button.innerText = "닫기";
-        sidebar.style.width = "200px";
+        button.innerText = "▶";
+        sidebar.style.width = "220px";
     }
 }
 document.querySelectorAll('.combo-box').forEach(function(select) {
