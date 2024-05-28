@@ -8,27 +8,40 @@ body {
   height: 100vh; /* 반응형으로 100% */
 }
 
-@media (min-width: 1020px) {
+
+
+
+@media (min-width: 1020px) { 
   header {
     display: block;
-    background-color: #f4f4f4;
+    background-image: url("images/bikegrond.png"); /*사진출력이 안됨. 사진관련 오류 수정 필요.*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 10px;
-    border-bottom: 1px solid #ccc; /* 수평선 */
-    height: 70px;
+    border-bottom: 1px solid #ffffff; /* 수평선 */
+    height: 130px;
   }
 }
 @media (min-width: 1400px) {
   header {
     display: block;
-    background-color: #f4f4f4;
+    background-image: url("images/bikegrond.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 10px;
-    border-bottom: 1px solid #ccc; /* 수평선 */
-    height: 70px;
+    border-bottom: 1px solid #ffffff; /* 수평선 */
+    height: 130px;
   }
 }
 
+
+
+
 #buttonbar > ul {
   display: none;
+  text-decoration: none;
 }
 @media (min-width: 1020px) {
   #buttonbar > ul {
@@ -69,15 +82,24 @@ body {
   }
 }
 
+
+
+
+
+
+
 .combo-box {
   display: none;
+  margin: 10px;
+  background-color: #F0F9FC;
+   
 }
 @media (min-width: 1020px) {
   .combo-box {
     display: inline;
     width: 150px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
   }
 }
 @media (min-width: 1400px) {
@@ -85,9 +107,17 @@ body {
     display: inline;
     width: 150px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
   }
 }
+
+
+
+
+
+
+
+
 
 .wrapper {
   width: 100%;
@@ -119,6 +149,10 @@ body {
   }
 }
 
+
+
+
+
 .head {
   width: 100%;
   height: 50px;
@@ -136,11 +170,21 @@ body {
   }
 }
 
+
+
+
+
+
 .body {
   height: 400px;
   position: relative;
   overflow: hidden;
 }
+
+
+
+
+
 
 .slide-open {
   position: absolute;
@@ -161,6 +205,10 @@ body {
     display: none;
   }
 }
+
+
+
+
 
 .burgur {
   left: 15px;
@@ -233,6 +281,12 @@ body {
   transform: translateY(-5px) rotate(-135deg);
 }
 
+
+
+
+
+
+
 .slide {
   width: 100%;
   position: absolute;
@@ -299,6 +353,14 @@ body {
   }
 }
 
+
+
+
+
+
+
+
+
 .sidebar {
   display: none;
 }
@@ -306,7 +368,7 @@ body {
   .sidebar {
     display: block;
     width: 200px;
-    background-color: #f4f4f4;
+    background-color: #F0F9FC;
     padding: 10px;
     border-right: 1px solid #ccc;
     height: 100%;
@@ -316,12 +378,18 @@ body {
   .sidebar {
     display: block;
     width: 200px;
-    background-color: #f4f4f4;
+    background-color: #F0F9FC;
     padding: 10px;
     border-right: 1px solid #ccc;
     height: 100%;
   }
 }
+
+
+
+
+
+
 
 main {
   flex: 1;
@@ -333,6 +401,7 @@ main {
 
 #map-container {
   position: relative;
+  border: 10px solid #F0F9FC;
   width: 80%;
   height: 80%;
 }
@@ -343,6 +412,12 @@ main {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+
+
+
+
+
 
 .output span {
   display: none;
@@ -371,5 +446,95 @@ main {
     padding: 5px;
     border: 1px solid #000;
     border-radius: 3px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.navbar_main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  color: #000;
+  z-index: 999;
+  animation: navbarBottom 1s forwards;
+}
+
+.navbar_links {
+  margin-right: 10%;
+}
+
+.navbar_links a {
+  text-decoration: none;
+  color: #000;
+  margin-right: 4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navbar_links a:last-child {
+  margin-right: 0;
+}
+
+.navbar_links a::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #792626;
+  transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+.navbar_links a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.navbar_logo {
+  margin-left: 10%;
+  text-decoration: none;
+  color: #000;
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
+.navbar_scroll {
+  background-color: #fff;
+  z-index: 5;
+  border-bottom: 1px solid gray;
+}
+
+.navbar_scroll div a {
+  color: black;
+}
+
+.navbar_scroll a {
+  color: black;
+}
+
+@keyframes navbarBottom {
+  0% {
+    transform: translateY(-70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
