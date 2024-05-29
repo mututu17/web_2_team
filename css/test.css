@@ -240,8 +240,8 @@ header {
 }
 
 .filter {
-  width: 100%;
-  height: 100vh;
+  width: 90%;
+  height: 95%;
   color: black;
   padding-top: 20px;
   position: absolute;
@@ -251,6 +251,9 @@ header {
   bottom: 0;
   transition: left 0.3s;
   background-color: #F0F9FC;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .filter.on {
@@ -280,6 +283,22 @@ header {
 .filter-comboBox:hover {
   border-color: #f00;
   background-color: #b5e1f0;
+}
+
+#mobile-aside {
+  position: relative;
+  padding-top: 25px;
+}
+
+.mobile-summary {
+  background-color: #F0F9FC;
+  border-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 315px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .content {

@@ -64,7 +64,20 @@ document.querySelectorAll('.combo-box').forEach(function(select) {
 });
 
 // ==================================================================================모바일 슬라이드 애니매이션 JQUERY===================================================================================================
+// 버튼 애니메이션 jQuery
+// $(function(){
+//     $("#slide-open").click(function(){
 
+//         if($("#burgur").hasClass('on')){
+//         //메뉴버튼이 "on" 클래스를 포함할 경우 "on"클래스를 제거
+//           $("#burgur").removeClass('on');
+//         } else{
+//         //메뉴버튼이 "on" 클래스를 포함하지 않을 경우 "on"클래스를 추가
+//           $("#burgur").addClass('on');
+        
+//         }
+//     });
+// });
 
 // 슬라이드 애니메이션 
 $("#slide-open").on("click", function(){  //버튼 클릭 시
@@ -82,3 +95,18 @@ $("#slide-open").on("click", function(){  //버튼 클릭 시
     }
 });
 
+//필터 사이드바 드롭다운
+// scripts.js
+$(document).ready(function() {
+    $('.filter-dropdown-btn').on('click', function() {
+        $(this).toggleClass('active');
+        $(this).next('.filter-dropdown-container').slideToggle();
+    });
+});
+
+$(document).ready(function() {
+    $('.filter-comboBox_1').on('change', function() {
+        var selectedValue = $(this).val();
+        alert('선택된 값: ' + selectedValue);
+    });
+});
