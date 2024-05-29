@@ -94,19 +94,3 @@ $("#slide-open").on("click", function(){  //버튼 클릭 시
     
     }
 });
-
-//필터 사이드바 드롭다운
-// scripts.js
-$(document).ready(function() {
-    $('.filter-dropdown-btn').on('click', function() {
-        $(this).toggleClass('active');
-        $(this).next('.filter-dropdown-container').slideToggle();
-    });
-});
-
-$(document).ready(function() {
-    $('.filter-comboBox_1').on('change', function() {
-        var selectedValue = $(this).val();
-        alert('선택된 값: ' + selectedValue);
-    });
-});
