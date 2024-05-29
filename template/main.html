@@ -99,228 +99,249 @@
 
             
             <script id="polyline-data">
-                var polylinePath = new Array(100);
-                //<!--수영강 좌표-->
-                polylinePath[0] = [
-                new naver.maps.LatLng(35.16651994428058, 129.12492786885343),
-                new naver.maps.LatLng(35.170958777178, 129.12222329082113),
-                new naver.maps.LatLng(35.17286388547741, 129.12105910401624),
-                new naver.maps.LatLng(35.17550898903027, 129.1187139152225),
-                new naver.maps.LatLng(35.17670557434158, 129.11821321560998),
-                new naver.maps.LatLng(35.17712651056232, 129.11809788062234),
-                new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
-                new naver.maps.LatLng(35.18111488274443 , 129.11778127820347),
-                new naver.maps.LatLng(35.18587322019679 , 129.1159275694985),
-                new naver.maps.LatLng(35.186399216133054 , 129.1156229891022),
-                new naver.maps.LatLng(35.18950866433023 , 129.1147162550351),
-                new naver.maps.LatLng(35.19373472193521 , 129.11376761884807),
-                new naver.maps.LatLng(35.1941721957518 , 129.11375580772264),
-                new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                new naver.maps.LatLng(35.195628007480146 , 129.11393625741638),
-                new naver.maps.LatLng(35.19695364934315 , 129.11428635081145),
-                //new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                //new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                //new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                //new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                //new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                //new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
-                ];
-               
-                polylinePath[1] = [
-                new naver.maps.LatLng(35.0813442605595, 128.8809178951565),
-                new naver.maps.LatLng(35.081387264248924, 128.88105044057838),
-                new naver.maps.LatLng(35.081448625591904, 128.88116148135254),
-                new naver.maps.LatLng(35.08150964668522, 128.8812944408473),
-                new naver.maps.LatLng(35.08157542717089, 128.8814110650602),
-                new naver.maps.LatLng(35.08165047151596, 128.88151145743382),
-                new naver.maps.LatLng(35.08179248669416, 128.88165175956482),
-                new naver.maps.LatLng(35.08191240489244, 128.88176414648623),
-                new naver.maps.LatLng(35.082064109090524, 128.88186081908123),
-                new naver.maps.LatLng(35.082377376754884, 128.88199957540905),
-                new naver.maps.LatLng(35.08263344798125, 128.88204931199414),
-                new naver.maps.LatLng(35.08309281345271, 128.8820653480749),
-                new naver.maps.LatLng(35.08401889643444, 128.88205921775625 ),
-                new naver.maps.LatLng(35.084874905611485, 128.88206792310473),
-                new naver.maps.LatLng(35.08540889153101, 128.8820664885044),
-                new naver.maps.LatLng(35.0865083941388,128.88206434429142),
-                new naver.maps.LatLng(35.08732437374447, 128.88203923941555),
-                new naver.maps.LatLng(35.08880658095843, 128.88205685500034),
-                ];
-                polylinePath[2] = [
-                new naver.maps.LatLng(35.11754919013186, 129.09544338607233),
-                new naver.maps.LatLng(35.12014903334905, 129.0976569509538 ),
-                new naver.maps.LatLng(35.12091990641405, 129.09828544385982),
-                new naver.maps.LatLng(35.121225568342076, 129.09845780574355),
-                new naver.maps.LatLng(35.12162576218216, 129.0986353365983),
-                new naver.maps.LatLng(35.12190994903553, 129.09874682571686),
-                new naver.maps.LatLng(35.123055750099226,129.09919028075817),
-                new naver.maps.LatLng(35.12326187975037, 129.09925589719597),
-                new naver.maps.LatLng(35.123534568859284, 129.09930047823286),
-                new naver.maps.LatLng(35.12369106167024, 129.09938080625042),
-                new naver.maps.LatLng(35.12418519621754 , 129.099537355528),
-                new naver.maps.LatLng(35.1249182599026, 129.09987700458214 ),
-                new naver.maps.LatLng(35.12516546464855, 129.10004239613372),
-                new naver.maps.LatLng(35.125777132776406, 129.1004968489404 ),
-                new naver.maps.LatLng(35.125968181771896, 129.10065257519207),
-                ];
-                polylinePath[3] = [
-                new naver.maps.LatLng(35.04532562229725, 128.96890545826358),
-                new naver.maps.LatLng(35.04615152406731, 128.96854722331912),
-                new naver.maps.LatLng(35.04754756208802, 128.96776432500207),
-                new naver.maps.LatLng(35.04929119148167, 128.96193504271858),
-                new naver.maps.LatLng(35.04955076425574, 128.96093030947574),
-                new naver.maps.LatLng(35.049751492121075, 128.9603597741043),
-                ];
-                polylinePath[4] = [
-                new naver.maps.LatLng(35.154969915268495, 128.96840347605087),
-                new naver.maps.LatLng(35.15494862161571, 128.9684660568617),
-                new naver.maps.LatLng(35.15492454102756, 128.9685614890245),
-                new naver.maps.LatLng(35.15491401733999, 128.96865450461993),
-                new naver.maps.LatLng(35.154916916834054, 128.96875333010692 ),
-                new naver.maps.LatLng(35.15493381898742, 128.96882231774492),
-                new naver.maps.LatLng(35.15499973162955, 128.96892540520702),
-                new naver.maps.LatLng(35.155074117468715, 128.96906161566673 ),
-                new naver.maps.LatLng(35.15508593572058, 128.96916614277364),
-                new naver.maps.LatLng(35.155061988340634, 128.96925334843783),
-                new naver.maps.LatLng(35.15492873784038, 128.96941198579103 ),
-                new naver.maps.LatLng(35.154851810882036, 128.96943207692343),
-                new naver.maps.LatLng(35.15479591053752,  128.96940604041612),
-                new naver.maps.LatLng(35.154735951934846, 128.96935247406233),
-                new naver.maps.LatLng( 35.154687744084505, 128.96926901581722),
-                new naver.maps.LatLng(35.1546498819287, 128.9691035109838),
-                new naver.maps.LatLng(35.15463846481809, 128.96897430529714),
-                new naver.maps.LatLng(35.154649479083915, 128.96885112665848),
-                new naver.maps.LatLng(35.15469026040225, 128.96869849010412),
-                new naver.maps.LatLng(35.15481967439683, 128.96849861143403),
-                new naver.maps.LatLng(35.15524395131034, 128.9681769052048),
-                new naver.maps.LatLng(35.15567054831933, 128.96798967023238),
-                new naver.maps.LatLng(35.15610700382447, 128.96802761754594),
-                new naver.maps.LatLng(35.15652089722998, 128.96834483489653 ),
-                new naver.maps.LatLng(35.157136362825106, 128.96901256759102),
-                new naver.maps.LatLng(35.15773411997841, 128.96938360646146),
-                new naver.maps.LatLng(35.15826832764963, 128.9695062193285),
-                new naver.maps.LatLng(35.159069950941344, 128.96967094602033),
-                new naver.maps.LatLng(35.159144692470406, 128.9697852258702),
-                new naver.maps.LatLng(35.15934844400271, 128.9705555369521),
-                new naver.maps.LatLng(35.159515986314055, 128.9707817916292),
-                new naver.maps.LatLng(35.15997049776619, 128.97109453035335),
-                new naver.maps.LatLng(35.16016827749698, 128.97112399386927),
-                new naver.maps.LatLng(35.16073735918803, 128.97104170879462 ),
-                new naver.maps.LatLng(35.16101804304237, 128.97096069329666),
-                new naver.maps.LatLng(35.161448924916535, 128.97078728176075),
-                new naver.maps.LatLng(35.16293609182405, 128.97049669508087),
-                new naver.maps.LatLng(35.16425669218399, 128.970473689477),
-                new naver.maps.LatLng(35.16476967390427, 128.970239148706),
-                new naver.maps.LatLng(35.16566420930691, 128.97037047433372 ),
-                new naver.maps.LatLng(35.16700531815771, 128.97074853103518),
-                new naver.maps.LatLng(35.16767049944938, 128.97085238193227 ),
-                new naver.maps.LatLng(35.16991020649492, 128.97083510795733),
-                new naver.maps.LatLng(35.17095989297366, 128.97056960919778),
-                new naver.maps.LatLng(35.172113399760356, 128.97001576822478),
-                new naver.maps.LatLng(35.175422537860904, 128.97045782123251),
-                new naver.maps.LatLng(35.17659325422327, 128.97023089561557),
-                new naver.maps.LatLng(35.177038751637674, 128.9746923414626),
-                ];
-                polylinePath[5] = [
-                new naver.maps.LatLng(35.15154796440745, 128.95461374735305),
-                new naver.maps.LatLng(35.151159025095694, 128.95651637809374),
-                new naver.maps.LatLng(35.149415278728874, 128.95581629523107),
-                new naver.maps.LatLng(35.14980292694963, 128.9538533232064),
-                new naver.maps.LatLng(35.15154845116213, 128.95458358483089),
-                new naver.maps.LatLng(35.15157724616426, 128.95447454941484),
-                new naver.maps.LatLng(35.151936345735855, 128.95442004807742),
-                new naver.maps.LatLng(35.153583171544504, 128.95512329244048 ),
-                new naver.maps.LatLng(35.15509027413438, 128.95582870796082),
-                new naver.maps.LatLng(35.1666167355229, 128.96054391034357),
-                ];
-                polylinePath[6] = [
-                new naver.maps.LatLng(35.21730088802181, 128.99050846290092),
-                new naver.maps.LatLng(35.21653823582418, 128.99003137630748),
-                new naver.maps.LatLng(35.216345830008095, 128.98981254758803),
-                new naver.maps.LatLng(35.21467165821593, 128.98886850228914),
-                new naver.maps.LatLng(35.21266323733163, 128.9874249650266),
-                new naver.maps.LatLng(35.21148588385952, 128.98640802296907),
-                new naver.maps.LatLng(35.21086360322982, 128.985887764258),
-                new naver.maps.LatLng(35.2103054583978, 128.98544044733973),
-                new naver.maps.LatLng(35.20959150819945, 128.9844650398741),
-                new naver.maps.LatLng(35.2057110077585, 128.97791729738748),
-                new naver.maps.LatLng(35.20144473519528, 128.97151730591304),
-                new naver.maps.LatLng(35.19949741995236, 128.968796882417),
-                new naver.maps.LatLng(35.19476993561008, 128.96413230261055),
-                ];
-                polylinePath[7] = [
-                new naver.maps.LatLng(35.215869299723195, 129.0019047150971),
-                new naver.maps.LatLng(35.21606818870067, 129.00050403095267),
-                new naver.maps.LatLng(35.21625219021118, 129.0000034195279),
-                new naver.maps.LatLng(35.21733827403005, 129.00012890173804),
-                new naver.maps.LatLng(35.2182461451272, 129.00054101863893),
-                new naver.maps.LatLng(35.21976534420837, 129.00131407274083),
-                new naver.maps.LatLng(35.22018510629611, 129.00140674300462),
-                new naver.maps.LatLng(35.220689009156125,129.00145206355714),
-                new naver.maps.LatLng(35.22109699410123, 129.00171191727196),
-                new naver.maps.LatLng(35.2215581995154, 129.00243156913496),
-                new naver.maps.LatLng(35.222093281245456, 129.00304322706026),
-                new naver.maps.LatLng(35.2231414904569, 129.00341492561242),
-                new naver.maps.LatLng(35.22415493857035, 129.00370890487062),
-                new naver.maps.LatLng(35.22499613358309, 129.00352092933866),
-                new naver.maps.LatLng(35.2256454346302, 129.00349296650265),
-                new naver.maps.LatLng(35.22639867860964, 129.00290196593048),
-                new naver.maps.LatLng(35.22729802220529, 129.00301193545397),
-                new naver.maps.LatLng(35.228141993911656, 129.0029283503363),
-                new naver.maps.LatLng(35.229375682858205, 129.00325521743449),
-                new naver.maps.LatLng(35.23056464359438, 129.00328994679137),
-                new naver.maps.LatLng(35.23161504576266, 129.00312082878662),
-                new naver.maps.LatLng(35.2318276016676, 129.00334571835774),
-                new naver.maps.LatLng(35.23212182393306, 129.00380875600314 ),
-                new naver.maps.LatLng(35.232677862805986, 129.00397070838653),
-                new naver.maps.LatLng(35.23389311101515, 129.00350635366746),
-                new naver.maps.LatLng(35.23474281778174, 129.00362061481735),
-                new naver.maps.LatLng(35.235653488883656, 129.0038626905734),
-                ];
-                polylinePath[8] = [
-                
-                new naver.maps.LatLng(35.293070355765245, 129.26003751169642),
-                new naver.maps.LatLng(35.293816225826006, 129.2603879826253),
-                new naver.maps.LatLng(35.293901478172955, 129.26040684040464),
-                new naver.maps.LatLng(35.29392369372616, 129.2603141551574),
-                new naver.maps.LatLng(35.29395030203474, 129.26032576665364),
-                new naver.maps.LatLng(35.29395505462469, 129.25958950736094),
-                new naver.maps.LatLng(35.293859878731084, 129.25949893359515),
-                new naver.maps.LatLng(35.293536162754364, 129.25946245544114),
-                new naver.maps.LatLng(35.29286674751944, 129.25899871660363),
-                new naver.maps.LatLng(35.291845368962356, 129.25844277427714),
-                new naver.maps.LatLng(35.29002315606729, 129.2573425543036),
-                ];
-                polylinePath[9] = [
-                new naver.maps.LatLng(35.15656400296564, 129.15442352998417),
-                new naver.maps.LatLng(35.15680545707502, 129.15478102395826 ),
-                new naver.maps.LatLng(35.157091158097984, 129.15505739226919),
-                new naver.maps.LatLng(35.158359342092545, 129.15785053045647),
-                new naver.maps.LatLng(35.15876460981525, 129.15938098699752),
-                new naver.maps.LatLng(35.159520348339086, 129.16348841602576),
-                new naver.maps.LatLng(35.15966874745148, 129.16476521829765),
-                new naver.maps.LatLng(35.15951665698633, 129.1684810341256),
-                new naver.maps.LatLng(35.15919651833369, 129.17000326069925),
-                ];
-               /* polylinePath[2] = [
-                
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                new naver.maps.LatLng(, ),
-                ];
-                */
+                var bikeload0 = {
+                    polylinePath :
+                    [new naver.maps.LatLng(35.16651994428058, 129.12492786885343),
+                    new naver.maps.LatLng(35.170958777178, 129.12222329082113),
+                    new naver.maps.LatLng(35.17286388547741, 129.12105910401624),
+                    new naver.maps.LatLng(35.17550898903027, 129.1187139152225),
+                    new naver.maps.LatLng(35.17670557434158, 129.11821321560998),
+                    new naver.maps.LatLng(35.17712651056232, 129.11809788062234),
+                    new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
+                    new naver.maps.LatLng(35.18111488274443 , 129.11778127820347),
+                    new naver.maps.LatLng(35.18587322019679 , 129.1159275694985),
+                    new naver.maps.LatLng(35.186399216133054 , 129.1156229891022),
+                    new naver.maps.LatLng(35.18950866433023 , 129.1147162550351),
+                    new naver.maps.LatLng(35.19373472193521 , 129.11376761884807),
+                    new naver.maps.LatLng(35.1941721957518 , 129.11375580772264),
+                    new naver.maps.LatLng(35.19537559910043 , 129.11398294312045),
+                    new naver.maps.LatLng(35.195628007480146 , 129.11393625741638),
+                    new naver.maps.LatLng(35.19695364934315 , 129.11428635081145),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload1 = {
+                    polylinePath :
+                    [ new naver.maps.LatLng(35.0813442605595, 128.8809178951565),
+                    new naver.maps.LatLng(35.081387264248924, 128.88105044057838),
+                    new naver.maps.LatLng(35.081448625591904, 128.88116148135254),
+                    new naver.maps.LatLng(35.08150964668522, 128.8812944408473),
+                    new naver.maps.LatLng(35.08157542717089, 128.8814110650602),
+                    new naver.maps.LatLng(35.08165047151596, 128.88151145743382),
+                    new naver.maps.LatLng(35.08179248669416, 128.88165175956482),
+                    new naver.maps.LatLng(35.08191240489244, 128.88176414648623),
+                    new naver.maps.LatLng(35.082064109090524, 128.88186081908123),
+                    new naver.maps.LatLng(35.082377376754884, 128.88199957540905),
+                    new naver.maps.LatLng(35.08263344798125, 128.88204931199414),
+                    new naver.maps.LatLng(35.08309281345271, 128.8820653480749),
+                    new naver.maps.LatLng(35.08401889643444, 128.88205921775625 ),
+                    new naver.maps.LatLng(35.084874905611485, 128.88206792310473),
+                    new naver.maps.LatLng(35.08540889153101, 128.8820664885044),
+                    new naver.maps.LatLng(35.0865083941388,128.88206434429142),
+                    new naver.maps.LatLng(35.08732437374447, 128.88203923941555),
+                    new naver.maps.LatLng(35.08880658095843, 128.88205685500034),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload2 = {
+                    polylinePath :
+                    [  new naver.maps.LatLng(35.11754919013186, 129.09544338607233),
+                    new naver.maps.LatLng(35.12014903334905, 129.0976569509538 ),
+                    new naver.maps.LatLng(35.12091990641405, 129.09828544385982),
+                    new naver.maps.LatLng(35.121225568342076, 129.09845780574355),
+                    new naver.maps.LatLng(35.12162576218216, 129.0986353365983),
+                    new naver.maps.LatLng(35.12190994903553, 129.09874682571686),
+                    new naver.maps.LatLng(35.123055750099226,129.09919028075817),
+                    new naver.maps.LatLng(35.12326187975037, 129.09925589719597),
+                    new naver.maps.LatLng(35.123534568859284, 129.09930047823286),
+                    new naver.maps.LatLng(35.12369106167024, 129.09938080625042),
+                    new naver.maps.LatLng(35.12418519621754 , 129.099537355528),
+                    new naver.maps.LatLng(35.1249182599026, 129.09987700458214 ),
+                    new naver.maps.LatLng(35.12516546464855, 129.10004239613372),
+                    new naver.maps.LatLng(35.125777132776406, 129.1004968489404 ),
+                    new naver.maps.LatLng(35.125968181771896, 129.10065257519207),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload3 = {
+                    polylinePath :
+                    [ new naver.maps.LatLng(35.04532562229725, 128.96890545826358),
+                    new naver.maps.LatLng(35.04615152406731, 128.96854722331912),
+                    new naver.maps.LatLng(35.04754756208802, 128.96776432500207),
+                    new naver.maps.LatLng(35.04929119148167, 128.96193504271858),
+                    new naver.maps.LatLng(35.04955076425574, 128.96093030947574),
+                    new naver.maps.LatLng(35.049751492121075, 128.9603597741043),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload4 = {
+                    polylinePath :
+                    [  new naver.maps.LatLng(35.154969915268495, 128.96840347605087),
+                    new naver.maps.LatLng(35.15494862161571, 128.9684660568617),
+                    new naver.maps.LatLng(35.15492454102756, 128.9685614890245),
+                    new naver.maps.LatLng(35.15491401733999, 128.96865450461993),
+                    new naver.maps.LatLng(35.154916916834054, 128.96875333010692 ),
+                    new naver.maps.LatLng(35.15493381898742, 128.96882231774492),
+                    new naver.maps.LatLng(35.15499973162955, 128.96892540520702),
+                    new naver.maps.LatLng(35.155074117468715, 128.96906161566673 ),
+                    new naver.maps.LatLng(35.15508593572058, 128.96916614277364),
+                    new naver.maps.LatLng(35.155061988340634, 128.96925334843783),
+                    new naver.maps.LatLng(35.15492873784038, 128.96941198579103 ),
+                    new naver.maps.LatLng(35.154851810882036, 128.96943207692343),
+                    new naver.maps.LatLng(35.15479591053752,  128.96940604041612),
+                    new naver.maps.LatLng(35.154735951934846, 128.96935247406233),
+                    new naver.maps.LatLng( 35.154687744084505, 128.96926901581722),
+                    new naver.maps.LatLng(35.1546498819287, 128.9691035109838),
+                    new naver.maps.LatLng(35.15463846481809, 128.96897430529714),
+                    new naver.maps.LatLng(35.154649479083915, 128.96885112665848),
+                    new naver.maps.LatLng(35.15469026040225, 128.96869849010412),
+                    new naver.maps.LatLng(35.15481967439683, 128.96849861143403),
+                    new naver.maps.LatLng(35.15524395131034, 128.9681769052048),
+                    new naver.maps.LatLng(35.15567054831933, 128.96798967023238),
+                    new naver.maps.LatLng(35.15610700382447, 128.96802761754594),
+                    new naver.maps.LatLng(35.15652089722998, 128.96834483489653 ),
+                    new naver.maps.LatLng(35.157136362825106, 128.96901256759102),
+                    new naver.maps.LatLng(35.15773411997841, 128.96938360646146),
+                    new naver.maps.LatLng(35.15826832764963, 128.9695062193285),
+                    new naver.maps.LatLng(35.159069950941344, 128.96967094602033),
+                    new naver.maps.LatLng(35.159144692470406, 128.9697852258702),
+                    new naver.maps.LatLng(35.15934844400271, 128.9705555369521),
+                    new naver.maps.LatLng(35.159515986314055, 128.9707817916292),
+                    new naver.maps.LatLng(35.15997049776619, 128.97109453035335),
+                    new naver.maps.LatLng(35.16016827749698, 128.97112399386927),
+                    new naver.maps.LatLng(35.16073735918803, 128.97104170879462 ),
+                    new naver.maps.LatLng(35.16101804304237, 128.97096069329666),
+                    new naver.maps.LatLng(35.161448924916535, 128.97078728176075),
+                    new naver.maps.LatLng(35.16293609182405, 128.97049669508087),
+                    new naver.maps.LatLng(35.16425669218399, 128.970473689477),
+                    new naver.maps.LatLng(35.16476967390427, 128.970239148706),
+                    new naver.maps.LatLng(35.16566420930691, 128.97037047433372 ),
+                    new naver.maps.LatLng(35.16700531815771, 128.97074853103518),
+                    new naver.maps.LatLng(35.16767049944938, 128.97085238193227 ),
+                    new naver.maps.LatLng(35.16991020649492, 128.97083510795733),
+                    new naver.maps.LatLng(35.17095989297366, 128.97056960919778),
+                    new naver.maps.LatLng(35.172113399760356, 128.97001576822478),
+                    new naver.maps.LatLng(35.175422537860904, 128.97045782123251),
+                    new naver.maps.LatLng(35.17659325422327, 128.97023089561557),
+                    new naver.maps.LatLng(35.177038751637674, 128.9746923414626),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload5 = {
+                    polylinePath :
+                    [  new naver.maps.LatLng(35.15154796440745, 128.95461374735305),
+                    new naver.maps.LatLng(35.151159025095694, 128.95651637809374),
+                    new naver.maps.LatLng(35.149415278728874, 128.95581629523107),
+                    new naver.maps.LatLng(35.14980292694963, 128.9538533232064),
+                    new naver.maps.LatLng(35.15154845116213, 128.95458358483089),
+                    new naver.maps.LatLng(35.15157724616426, 128.95447454941484),
+                    new naver.maps.LatLng(35.151936345735855, 128.95442004807742),
+                    new naver.maps.LatLng(35.153583171544504, 128.95512329244048 ),
+                    new naver.maps.LatLng(35.15509027413438, 128.95582870796082),
+                    new naver.maps.LatLng(35.1666167355229, 128.96054391034357),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload6 = {
+                    polylinePath :
+                    [   new naver.maps.LatLng(35.21730088802181, 128.99050846290092),
+                    new naver.maps.LatLng(35.21653823582418, 128.99003137630748),
+                    new naver.maps.LatLng(35.216345830008095, 128.98981254758803),
+                    new naver.maps.LatLng(35.21467165821593, 128.98886850228914),
+                    new naver.maps.LatLng(35.21266323733163, 128.9874249650266),
+                    new naver.maps.LatLng(35.21148588385952, 128.98640802296907),
+                    new naver.maps.LatLng(35.21086360322982, 128.985887764258),
+                    new naver.maps.LatLng(35.2103054583978, 128.98544044733973),
+                    new naver.maps.LatLng(35.20959150819945, 128.9844650398741),
+                    new naver.maps.LatLng(35.2057110077585, 128.97791729738748),
+                    new naver.maps.LatLng(35.20144473519528, 128.97151730591304),
+                    new naver.maps.LatLng(35.19949741995236, 128.968796882417),
+                    new naver.maps.LatLng(35.19476993561008, 128.96413230261055),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload7 = {
+                    polylinePath :
+                    [  new naver.maps.LatLng(35.215869299723195, 129.0019047150971),
+                    new naver.maps.LatLng(35.21606818870067, 129.00050403095267),
+                    new naver.maps.LatLng(35.21625219021118, 129.0000034195279),
+                    new naver.maps.LatLng(35.21733827403005, 129.00012890173804),
+                    new naver.maps.LatLng(35.2182461451272, 129.00054101863893),
+                    new naver.maps.LatLng(35.21976534420837, 129.00131407274083),
+                    new naver.maps.LatLng(35.22018510629611, 129.00140674300462),
+                    new naver.maps.LatLng(35.220689009156125,129.00145206355714),
+                    new naver.maps.LatLng(35.22109699410123, 129.00171191727196),
+                    new naver.maps.LatLng(35.2215581995154, 129.00243156913496),
+                    new naver.maps.LatLng(35.222093281245456, 129.00304322706026),
+                    new naver.maps.LatLng(35.2231414904569, 129.00341492561242),
+                    new naver.maps.LatLng(35.22415493857035, 129.00370890487062),
+                    new naver.maps.LatLng(35.22499613358309, 129.00352092933866),
+                    new naver.maps.LatLng(35.2256454346302, 129.00349296650265),
+                    new naver.maps.LatLng(35.22639867860964, 129.00290196593048),
+                    new naver.maps.LatLng(35.22729802220529, 129.00301193545397),
+                    new naver.maps.LatLng(35.228141993911656, 129.0029283503363),
+                    new naver.maps.LatLng(35.229375682858205, 129.00325521743449),
+                    new naver.maps.LatLng(35.23056464359438, 129.00328994679137),
+                    new naver.maps.LatLng(35.23161504576266, 129.00312082878662),
+                    new naver.maps.LatLng(35.2318276016676, 129.00334571835774),
+                    new naver.maps.LatLng(35.23212182393306, 129.00380875600314 ),
+                    new naver.maps.LatLng(35.232677862805986, 129.00397070838653),
+                    new naver.maps.LatLng(35.23389311101515, 129.00350635366746),
+                    new naver.maps.LatLng(35.23474281778174, 129.00362061481735),
+                    new naver.maps.LatLng(35.235653488883656, 129.0038626905734),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload8 = {
+                    polylinePath :
+                    [  new naver.maps.LatLng(35.293070355765245, 129.26003751169642),
+                    new naver.maps.LatLng(35.293816225826006, 129.2603879826253),
+                    new naver.maps.LatLng(35.293901478172955, 129.26040684040464),
+                    new naver.maps.LatLng(35.29392369372616, 129.2603141551574),
+                    new naver.maps.LatLng(35.29395030203474, 129.26032576665364),
+                    new naver.maps.LatLng(35.29395505462469, 129.25958950736094),
+                    new naver.maps.LatLng(35.293859878731084, 129.25949893359515),
+                    new naver.maps.LatLng(35.293536162754364, 129.25946245544114),
+                    new naver.maps.LatLng(35.29286674751944, 129.25899871660363),
+                    new naver.maps.LatLng(35.291845368962356, 129.25844277427714),
+                    new naver.maps.LatLng(35.29002315606729, 129.2573425543036),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
+                var bikeload9 = {
+                    polylinePath :
+                    [ new naver.maps.LatLng(35.15656400296564, 129.15442352998417),
+                    new naver.maps.LatLng(35.15680545707502, 129.15478102395826 ),
+                    new naver.maps.LatLng(35.157091158097984, 129.15505739226919),
+                    new naver.maps.LatLng(35.158359342092545, 129.15785053045647),
+                    new naver.maps.LatLng(35.15876460981525, 129.15938098699752),
+                    new naver.maps.LatLng(35.159520348339086, 129.16348841602576),
+                    new naver.maps.LatLng(35.15966874745148, 129.16476521829765),
+                    new naver.maps.LatLng(35.15951665698633, 129.1684810341256),
+                    new naver.maps.LatLng(35.15919651833369, 129.17000326069925),],
+                    gugunNm : "해운대구",
+                    startSpot : "좌동1282",
+                    endSpot : "좌동1459-6",
+                    total : 123
+                }
             </script>
 
             <!-- 지도 내부 조작을 위한 스크립트 -->
@@ -329,380 +350,62 @@
                     center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
                 });
 
-                var bicycleLayer = new naver.maps.BicycleLayer();
-              
-                var polyline0 = new naver.maps.Polyline({
-                    path: polylinePath[0],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline1 = new naver.maps.Polyline({
-                    path: polylinePath[1],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline2 = new naver.maps.Polyline({
-                    path: polylinePath[2],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline3 = new naver.maps.Polyline({
-                    path: polylinePath[3],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline4 = new naver.maps.Polyline({
-                    path: polylinePath[4],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline5 = new naver.maps.Polyline({
-                    path: polylinePath[5],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline6 = new naver.maps.Polyline({
-                    path: polylinePath[6],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline7 = new naver.maps.Polyline({
-                    path: polylinePath[7],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline8 = new naver.maps.Polyline({
-                    path: polylinePath[8],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                var polyline9 = new naver.maps.Polyline({
-                    path: polylinePath[9],
-                    strokeColor: '#00CA00',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 6,
-                    zIndex: 2,
-                    clickable: true,
-                    map: map
-                });
-                              /*폴리라인에 대한 이벤트 함수*/
-                naver.maps.Event.addListener(polyline0, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
+               //추천 코스 관련
+                var polyline = new Array(100);
+                //추천코스 화면에 표시
+                for (let i = 0; i < 100; i++) {
+                    let bikeload = window['bikeload' + i];
+                     if (!bikeload) break; 
+                        polyline[i] = new naver.maps.Polyline({
+                        path: bikeload.polylinePath,
+                        strokeColor: '#00CA00',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 6,
+                        zIndex: 2,
+                        clickable: true,
+                        map: map
+                    }); 
+                    addPolylineEvents(polyline[i], bikeload);
+                }
+
+                //자전거 도로 클릭시 변화하는 코드를 함수로 정의
+                function addPolylineEvents(polyline, bikeload) {
+                    naver.maps.Event.addListener(polyline, "mouseover", function () {
+                        polyline.setOptions({
+                            strokeWeight: 20
+                        });
                     });
-                });
                 
-                naver.maps.Event.addListener(polyline0, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
+                    naver.maps.Event.addListener(polyline, "mouseout", function () {
+                        polyline.setOptions({
+                            strokeWeight: 6
+                        });
                     });
-                });
-
-                naver.maps.Event.addListener(polyline0, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline0, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline0, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-
-                naver.maps.Event.addListener(polyline1, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
                 
-                naver.maps.Event.addListener(polyline1, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
+                    naver.maps.Event.addListener(polyline, "mousedown", function () {
+                        polyline.setOptions({
+                            strokeWeight: 20
+                        });
                     });
-                });
-
-                naver.maps.Event.addListener(polyline1, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline1, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline1, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline2, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
                 
-                naver.maps.Event.addListener(polyline2, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
+                    naver.maps.Event.addListener(polyline, "mouseup", function () {
+                        polyline.setOptions({
+                            strokeWeight: 6
+                        });
                     });
-                });
-
-                naver.maps.Event.addListener(polyline2, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline2, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline2, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline3, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
                 
-                naver.maps.Event.addListener(polyline3, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
+                    naver.maps.Event.addListener(polyline, "click", function () {
+                        alert(`${bikeload.gugunNm}\n${bikeload.startSpot}\n${bikeload.endSpot}\n${bikeload.total}`);
                     });
-                });
+                }
 
-                naver.maps.Event.addListener(polyline3, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline3, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline3, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline4, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-                
-                naver.maps.Event.addListener(polyline4, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline4, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline4, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline4, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline5, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-                
-                naver.maps.Event.addListener(polyline5, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline5, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline5, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline5, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline6, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-                
-                naver.maps.Event.addListener(polyline6, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline6, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline6, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline6, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline7, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-                
-                naver.maps.Event.addListener(polyline7, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline7, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline7, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline7, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline8, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-                
-                naver.maps.Event.addListener(polyline8, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline8, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline8, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline8, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-                naver.maps.Event.addListener(polyline9, "mouseover", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-                
-                naver.maps.Event.addListener(polyline9, "mouseout", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline9, "mousedown", function () {
-                    polyline.setOptions({
-                        strokeWeight: 20
-                    });
-                });
-    
-                naver.maps.Event.addListener(polyline9, "mouseup", function () {
-                    polyline.setOptions({
-                        strokeWeight: 6
-                    });
-                });
-
-                naver.maps.Event.addListener(polyline9, "click", function () {
-                    alert('수영강 코스입니다.');
-                });
-
-
-
-
-
-                // 변경점!
+                // 그리기 기능 관련
                 naver.maps.onJSContentLoaded = function() {
                     var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
                 };
 
+                //자전거 도로 표시 관련
+                var bicycleLayer = new naver.maps.BicycleLayer();
                 // btn이 id=bicycle 인 DOM 객체를 나타냄
                 var btn = $('#bicycle');
 
@@ -728,12 +431,11 @@
                         bicycleLayer.setMap(map);   // 추가
                     }
                 });
-
-
-                // 시작하면 한번 하는 함수
-                naver.maps.Event.once(map, 'init', function() {
+                 // 시작하면 한번 하는 함수
+                 naver.maps.Event.once(map, 'init', function() {
                     bicycleLayer.setMap(map);
                 });
+
             </script>
 
         </main>
