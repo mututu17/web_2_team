@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=USERID&submodules=drawing"></script>
 </head>
 <body>
-    <header>
+    <header id="desktop-header">
         <nav id="buttonbar">
             <ul>
                 <li id="logo"><a href="javascript:void(0)" onclick="window.location.reload()"><img src="../images/bike_logo.png" alt="로고" width="30" height="30"></a></li>
@@ -48,10 +48,21 @@
                     </select>
                 </li>
             </ul>
-            <!--모바일-->
-        <div class="wrapper">
-            <div class="container">
-                <div class="head">
+    </nav>
+        <div class="output">
+            <span id = "거리순-span">거리순</span>
+            <span id = "목적지-span">목적지</span>
+            <span id = "추천코스-span">추천코스</span>
+            <span id = "풍경-span">풍경</span>
+        </div>
+    </header>
+<!--모바일-->
+<!--모바일 헤더-->
+    
+    <div class="wrapper">
+        <div class="container">
+            <header id="mobile-header">
+                <div class="mobile-head">
                     <div class="slide-open" id="slide-open">
                         <span class="burgur" id="burgur">
                             <span class="top-line"></span>
@@ -59,9 +70,13 @@
                         </span>
                     </div>
                 </div>
-                <div class="body">
-                    <div class="content_mobile">
-                        컨텐츠
+            </header>
+            <main id="mobile-main">
+                <div class="mobile-body">
+                    <!--모바일 컨텐츠(지도) 시작-->
+                    <div id="map-container">
+                        <div id="map">
+                        </div>
                     </div>
                     <!--모바일 필터 메뉴 시작-->
                     <div class="filter" id="filter">
@@ -90,19 +105,12 @@
                             </select>
                         </div>
                     </div>
-                    <!--모바일 필터 메뉴 끝-->
                 </div>
-            </div>
-        </div>
-            <!--모바일 끝-->
-    </nav>
-        <div class="output">
-            <span id = "거리순-span">거리순</span>
-            <span id = "목적지-span">목적지</span>
-            <span id = "추천코스-span">추천코스</span>
-            <span id = "풍경-span">풍경</span>
-        </div>
-    </header>
+            </main>  
+            <!--여기에 아래 부가 요소들 설정-->
+        </div>    
+    </div>
+    <!--모바일 끝-->
     <!--===============================================================================================지도 시작==========================================================================================-->
     <div class="content">
         <main>

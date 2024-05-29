@@ -2,6 +2,7 @@ $mobile: 768px;
 $laptop: 1020px;
 $desktop: 1400px;
 // 기기별 변수 설정
+// 설정 다시
 @mixin tablet {
     @media (min-width: #{$mobile}) {
         @content;
@@ -33,6 +34,7 @@ body {
 // ==========================================================================메뉴 CSS=========================================================================
 header {
     // 모바일일 때는 아무것도 적용 안됨
+    display:block;
 
     @include laptop {
         display:block;
@@ -133,11 +135,14 @@ header {
         display: none;
     }
 }
-.head{
+// ===============================================모바일 헤더부분 설정=================================
+.mobile-head{
+    position: fixed;
     width:100%;
     height:50px;
     border-bottom:1px solid #e1e1e1;
     position:relative;
+    z-index: 2;
 
     @include laptop {
         display: none;
@@ -146,12 +151,6 @@ header {
     @include desktop {
         display: none;
     }
-}
-
-.body{                       //몸체 영역 클래스명은 임의로 작성
-    height:500px;
-    position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
-    overflow: hidden;
 }
 
 .slide-open{
@@ -171,6 +170,9 @@ header {
         display: none;
     }
 }
+
+
+
 // 메뉴 버거 버튼 css
 .burgur{ //몸체 (가운데 라인)
     left: 15px;
@@ -244,13 +246,24 @@ header {
     -webkit-transform: translateY(-5px) rotate(-135deg);
     transform: translateY(-5px) rotate(-135deg);
 }
+// ============================================모바일 헤더 끝========================================
+
+// ============================================모바일 바디 시작======================================
+// 모바일 바디부분, 여기엔 지도와 사이드바가 들어감
+.mobile-body{                       //몸체 영역 클래스명은 임의로 작성
+    height:500px;
+    position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
+    overflow: hidden;
+    z-index:1;
+}
+
 
 // 좌측 슬라이드 메뉴 css
 
 // --------------------------필터 사이드바 드롭다운 시작-------------------------
 .filter {
-    width: 250px;
-    height: 150vh;
+    width: 100%;
+    height: 100vh;
     color: black;
     padding-top: 20px;
 
@@ -298,22 +311,7 @@ header {
 }
 // --------------------------필터 사이드바 드롭다운 끝-------------------------
 
-.content_mobile {
-    height:100%;
-    font-size:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 
-    @include laptop {
-        display: none;
-    }
-
-    @include desktop {
-        display: none;
-    }
-    
-}
 // ==========================================================================메뉴 CSS END=========================================================================
 
 
@@ -355,17 +353,46 @@ header {
 }
 
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+   
+    
     background-color: #fff;
+
+    @include laptop {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+    @include desktop {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+    
 }
 
+// 지도를 담는 div 태그
 #map-container {
-   position: relative;
-   width: 80%;
-   height: 80%;
+    // 모바일
+    // 상하좌우 중앙정렬
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 80%;
+    height: 100%;
+
+    // 데스크톱
+    @include desktop {
+        position: relative;
+        width: 80%;
+        height: 80%;
+    }
 }
 
 #map {
