@@ -403,31 +403,31 @@ main {
 .map-container {
     // 모바일
     // 상하좌우 중앙정렬
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
     
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
 
     // 데스크톱
     @include desktop {
         position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
         width: 80%;
         height: 80%;
     }
 }
 
-#map {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-}
 // 지도 가변 크기 조절
-#map-mobile{
+#map-mobile {
     display: block;
-    height: 400px;
+    height: 100%;
+    width: 100%;
 
     @include laptop {
         display: none;
@@ -437,7 +437,7 @@ main {
     }
 }
 
-#map-desktop{
+#map-desktop {
     display: none;
 
     @include laptop {
