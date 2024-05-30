@@ -321,21 +321,94 @@ header {
     display: none;
 
     @include laptop {
-        display: block;
-        width: 200px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-        height: 100%;
+        .toggle-aside input{
+            display: none;
+        }
+        .toggle-aside > input + label{
+            position: relative;
+        }
+        .toggle-aside input[type=checkbox] + label::after {
+            position: fixed;
+            content: "◀";
+            background-color: #F0F9FC;
+            padding: 5px;
+            border-radius: 0px 0 15 0px;
+            font-size: 1.5em;
+            top: 50px;
+            left: 240px;
+            line-height: 1;
+            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
+            width: 40px;
+            box-sizing: border-box;
+            transition: left 0.5s, background-color 0.5s;
+        }
+        .toggle-aside input[type=checkbox]:checked + label::after {
+            left: 0px;
+            background-color: #F0F9FC;
+            content: "▶";
+            color: #000;
+            transition: left 0.5s, background-color 0.5s; 
+        }
+        .toggle-aside input[type=checkbox]:checked + label + .information{
+            left:-240px;
+            background-color: #F0F9FC;
+            transition: left 0.5s, background-color 0.5s; 
+        }
+        .toggle-aside>.information{
+            position: absolute;
+            background-color: #F0F9FC;
+            left: 0px;
+            width: 180px;
+            height: 100%;
+            padding: 30px;
+            transition: left 0.5s, background-color 0.5s;
+        }
     }
 
     @include desktop {
-        display: block;
-        width: 200px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-        height: 100%;
+        .toggle-aside input{
+            display: none;
+        }
+        .toggle-aside > input + label{
+            position: relative;
+        }
+        .toggle-aside input[type=checkbox] + label::after {
+            position: fixed;
+            content: "◀";
+            background-color: #F0F9FC;
+            padding: 5px;
+            border-radius: 0px 0 15 0px;
+            font-size: 1.5em;
+            top: 70px;
+            bottom: 0px;
+            left: 240px;
+            line-height: 1;
+            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
+            width: 40px;
+            box-sizing: border-box;
+            transition: left 0.5s, background-color 0.5s;
+        }
+        .toggle-aside input[type=checkbox]:checked + label::after {
+            left: 0px;
+            background-color: #F0F9FC;
+            content: "▶";
+            color: #000;
+            transition: left 0.5s, background-color 0.5s; 
+        }
+        .toggle-aside input[type=checkbox]:checked + label + .information{
+            left:-240px;
+            background-color: #F0F9FC;
+            transition: left 0.5s, background-color 0.5s; 
+        }
+        .toggle-aside>.information{
+            position: absolute;
+            background-color: #F0F9FC;
+            left: 0px;
+            width: 180px;
+            height: 100%;
+            padding: 30px;
+            transition: left 0.5s, background-color 0.5s;
+        }
     }
 }
 

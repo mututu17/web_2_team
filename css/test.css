@@ -300,43 +300,47 @@ body {
 }
 /* 사이드 메뉴바 - 호버, 위치는 왼쪽으로 */ 
 @media (min-width: 1020px) { 
-  .side-bar{
-    background-color: #f4f4f4;
+  .toggle-aside input{
+    display: none;
+  }
+  .toggle-aside > input + label{
+    position: relative;
+  }
+  .toggle-aside input[type=checkbox] + label::after {
+      position: fixed;
+      content: "◀";
+      background-color: #F0F9FC;
+      padding: 5px;
+      border-radius: 0px 0 15 0px;
+      font-size: 1.5em;
+      top: 70px;
+      left: 240px;
+      line-height: 1;
+      box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
+      width: 40px;
+      box-sizing: border-box;
+      transition: left 0.5s, background-color 0.5s;
+  }
+  .toggle-aside input[type=checkbox]:checked + label::after {
+    left: 0px;
+    background-color: #F0F9FC;
+    content: "▶";
+    color: #000;
+    transition: left 0.5s, background-color 0.5s; 
+  }
+  .toggle-aside input[type=checkbox]:checked + label + .information{
+    left:-240px;
+    background-color: #F0F9FC;
+    transition: left 0.5s, background-color 0.5s; 
+  }
+  .toggle-aside>.information{
     position: absolute;
-    top:70;
-    left:-200px;
-    width: 230px;
+    background-color: #F0F9FC;
+    left: 0px;
+    width: 180px;
     height: 100%;
-    transition: left 0.5s, background-color 0.5s;  
-  }
-  .side-bar:hover{
-      left:0%;
-      background-color:#F0F9FC;
-      transition: left 0.5s, background-color 0.5s;  
-  }
-  .side-bar>.icon>div{
-      text-align:right;
-      padding: 10px;
-      color: black;
-  }
-  .side-bar:hover>.icon>div:last-child{
-      display:block;
-      color: black;
-  }
-
-  .side-bar:hover>.icon>div:first-child{
-      display:none;
-  }
-  .side-bar>.icon>div:last-child{
-      display:none;
-  }
-  .side-bar>.information {
-    position:relative;
-  }
-  .side-bar>.information {
-      display:block;
-      font-weight:bold;
-      padding:15px;
+    padding: 30px;
+    transition: left 0.5s, background-color 0.5s;
   }
 }
 
@@ -388,86 +392,6 @@ body {
 }
 */
 
-/* 사이드 메뉴바 - 호버
-  .side-bar{
-    background-color: lightgray;
-    position: absolute;
-    top:70;
-    left:-200px;
-    width: 230px;
-    height: 100%;
-    transition: left 0.5s, background-color 0.5s;  
-  }
-  .side-bar:hover{
-      left:0%;
-      background-color:#F0F9FC;
-      transition: left 0.5s, background-color 0.5s;  
-  }
-  .side-bar>.icon>div{
-      text-align:right;
-      padding: 10px;
-      color: black;
-  }
-  .side-bar:hover>.icon>div:last-child{
-      display:block;
-      color: black;
-  }
-
-  .side-bar:hover>.icon>div:first-child{
-      display:none;
-  }
-  .side-bar>.icon>div:last-child{
-      display:none;
-  }
-  .side-bar>.information {
-    position:relative;
-  }
-  .side-bar>.information {
-      display:block;
-      font-weight:bold;
-      padding:15px;
-  }
-*/
-@media (min-width: 1400px) {
-  .side-bar{
-    background-color: #f4f4f4;
-    position: absolute;
-    top:70;
-    left:-200px;
-    width: 230px;
-    height: 100%;
-    transition: left 0.5s, background-color 0.5s;  
-  }
-  .side-bar:hover{
-      left:0%;
-      background-color:#F0F9FC;
-      transition: left 0.5s, background-color 0.5s;  
-  }
-  .side-bar>.icon>div{
-      text-align:right;
-      padding: 10px;
-      color: black;
-  }
-  .side-bar:hover>.icon>div:last-child{
-      display:block;
-      color: black;
-  }
-
-  .side-bar:hover>.icon>div:first-child{
-      display:none;
-  }
-  .side-bar>.icon>div:last-child{
-      display:none;
-  }
-  .side-bar>.information {
-    position:relative;
-  }
-  .side-bar>.information {
-      display:block;
-      font-weight:bold;
-      padding:15px;
-  }
-}
 main {
   flex: 1;
   display: flex;

@@ -213,20 +213,18 @@
         </main>
     
     <!--=======================================================================================지도 끝========================================================================================================-->
-        <!--변경점: class명 변경, toggleNav() 함수 사용 X-->
-        <aside class="side-bar">
-            <div class="icon"> 
-                <div>▼</div>
-                <div>▶</div>
-            </div>
+        
+    <!--변경점: class명 변경, toggleNav() 함수 사용 X-->
+        <div class="toggle-aside">
+            <input type="checkbox" id="aside-check-1"> 
+            <label for="aside-check-1"></label>
             <nav class="information">
                 <p id="selected-option">목적지</p>
-                <a href="#" id="link" target="_blank"><img src="#" id="image" width="180", height="180"></a>
+                <a href="#" id="link" target="_blank"><img src="#" id="image" width="150", height="150"></a>
                 <p>참고자료</p>
                 <a href="#" id="linkT" target="_blank">링크</a>
             </nav>
-          
-        </aside>
+        </div>
     </div>
     <script src="../js/scripts.js"></script>
 </body>
