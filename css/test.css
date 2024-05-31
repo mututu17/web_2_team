@@ -1,94 +1,160 @@
 @charset "UTF-8";
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* 반응형으로 100% */
+  height: 200vh; /* 반응형으로 100% */ /*임시로 늘림*/
 }
 
 #desktop-header {
   display: none;
 }
 @media (min-width: 1020px) {
-  #desktop-header {
+  header {
+    position: sticky;
+
     display: block;
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-bottom: 1px solid #ccc; /* 수평선 */
-    height: 70px;
+    background: linear-gradient(to bottom, #8ee3ff, #ffffff);
+    border-bottom: 1px solid #F0F9FC; /* 수평선 */
+    height: 200px;
   }
 }
 @media (min-width: 1400px) {
-  #desktop-header {
+  header {
+    position: sticky;
     display: block;
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-bottom: 1px solid #ccc; /* 수평선 */
-    height: 70px;
+    background: linear-gradient(to bottom, #8ee3ff, #ffffff);
+    border-bottom: 1px solid #ffffff; /* 수평선 */
+    height: 200px;
   }
 }
 
-#buttonbar > ul {
+.navbar {
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  padding: 0 60px;
+  align-items: center;
+  animation: navbarBottom 1s forwards;
+}
+.navbar a {
+  position: fixed;
+  font-family: "Anta", sans-serif;
+  text-decoration: none;
+  vertical-align: text-top;
+  position: relative;
+  font-weight: 600;
+  color: #070068;
+  margin-left: 15px;
+  top: 30px;
+  font-size: 90px;
+}
+
+.navbar_logo {
   display: none;
 }
 @media (min-width: 1020px) {
-  #buttonbar > ul {
+  .navbar_logo {
     display: inline;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
   }
 }
 @media (min-width: 1400px) {
-  #buttonbar > ul {
+  .navbar_logo {
     display: inline;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
   }
 }
 
-#buttonbar > ui > li {
+.navbar_menu a {
   display: none;
 }
 @media (min-width: 1020px) {
-  #buttonbar > ui > li {
+  .navbar_menu a {
     display: inline;
-    margin-right: 20px;
-    position: relative;
+    list-style: none;
+    font-size: 2rem;
+    margin-right: 2rem;
+    right: 50px;
+    border-left: 3px solid #f2f5ff;
+    padding: 0px 40px;
+    margin: 30px 0px;
   }
 }
 @media (min-width: 1400px) {
-  #buttonbar > ui > li {
+  .navbar_menu a {
     display: inline;
-    margin-right: 20px;
-    position: relative;
+    list-style: none;
+    font-size: 2rem;
+    margin-right: 2rem;
+    right: 50px;
+    border-left: 3px solid #f2f5ff;
+    padding: 0px 40px;
+    margin: 30px 0px;
   }
+}
+
+.navbar_menu a:hover {
+  color: #ff0000;
+}
+
+.navbar_menu a:first-child {
+  border-left: none;
+}
+
+@keyframes navbarBottom {
+  0% {
+    transform: translateY(-70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.filters {
+  display: flex;
+  list-style: none;
+  font-size: medium;
 }
 
 .combo-box {
   display: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 @media (min-width: 1020px) {
   .combo-box {
     display: inline;
-    width: 150px;
-    padding: 5px;
-    border: 1px solid #ccc;
+    width: 80hv;
+    height: 100hv;
+    font-size: 15px;
+    padding: 0.6rem 0.5rem;
+    color: #030029;
+    border: 1px solid #ffffff;
+    margin-right: 10px;
+    background-color: #ffffff;
+    border-radius: 20px 20px 20px 20px;
+    font-family: "Noto Sans KR", sans-serif;
   }
 }
 @media (min-width: 1400px) {
   .combo-box {
     display: inline;
-    width: 150px;
-    padding: 5px;
-    border: 1px solid #ccc;
+    width: 150hv;
+    height: 3rem;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 0 2rem;
+    color: #030031;
+    border: 1px solid #ffffff;
+    margin-right: 40px;
+    background-color: #ffffff;
+    border-radius: 20px 20px 20px 20px;
+    font-family: "Noto Sans KR", sans-serif;
   }
 }
 
@@ -389,6 +455,7 @@ body {
   }
 }
 @media (min-width: 1400px) {
+
   .toggle-aside .toggle-aside input {
     display: none;
   }
@@ -454,6 +521,7 @@ main {
     background-color: #fff;
   }
 }
+
 
 #map-container-desktop {
   display: none;

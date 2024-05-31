@@ -1,5 +1,4 @@
 
-
 body {
      font-family: Arial, sans-serif;
      margin: 0;
@@ -10,10 +9,10 @@ body {
  }
  
  header {
-     background-color: #f4f4f4;
+     background-image: url("/images/header.png");
      padding: 10px;
      border-bottom: 1px solid #ccc; /* 수평선 */
-     height: 70px; 
+     height: 150px; 
  }
  
  #buttonbar ul {
