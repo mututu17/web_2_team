@@ -381,25 +381,97 @@ body {
     
 }
 
-.sidebar {
+.toggle-aside {
     display: none;
 
     @include laptop {
-        display: block;
-        width: 200px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-        height: 100%;
+        .toggle-aside input{
+            display: none; // checkbox 안보이게
+        }
+        .toggle-aside > input + label{
+            left: 0px;
+            position: absolute; // 라벨이 사이드바에 고정
+        }
+        .toggle-aside input[type=checkbox] + label::after {
+            position: absolute; // 라벨이 사이드바에 고정
+            content: "◀"; // 사이드바가 나와있을 경우 라벨 모양
+            background-color: #F0F9FC; // 라벨 부분 배경색
+            padding: 5px;
+            border-radius: 0px 0 15 0px;  // 라벨 우측 하단 부분을 둥글게
+            font-size: 1.5em;
+            left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
+            line-height: 1; // 라벨 세로 길이
+            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            width: 40px; // 박스 폭
+            box-sizing: border-box;
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        .toggle-aside input[type=checkbox]:checked + label::after {
+            left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            content: "▶"; // 사이드바가 숨겨져 있을 경우 라벨 모양
+            color: #000; // 라벨 색
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        .toggle-aside input[type=checkbox]:checked + label + .information{
+            left:-240px; // 체크 이후 사이드바 위치 변화 - 사이드바 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
+        .toggle-aside>.information{
+            position: absolute; // 위치 고정
+            background-color: #F0F9FC; // 배경색
+            left: 0px; // 좌측에 딱 붙게 설정
+            width: 180px; // 폭
+            height: 100%; // 높이
+            padding: 30px; // 패딩
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
     }
 
     @include desktop {
-        display: block;
-        width: 200px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-        height: 100%;
+        .toggle-aside input{
+            display: none; // checkbox 안보이게
+        }
+        .toggle-aside > input + label{
+            left: 0px;
+            position: absolute; // 라벨이 사이드바에 고정
+        }
+        .toggle-aside input[type=checkbox] + label::after {
+            position: absolute; // 라벨이 사이드바에 고정
+            content: "◀"; // 사이드바가 나와있을 경우 라벨 모양
+            background-color: #F0F9FC; // 라벨 부분 배경색
+            padding: 5px;
+            border-radius: 0px 0 15 0px;  // 라벨 우측 하단 부분을 둥글게
+            font-size: 1.5em;
+            left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
+            line-height: 1; // 라벨 세로 길이
+            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            width: 40px; // 박스 폭
+            box-sizing: border-box;
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        .toggle-aside input[type=checkbox]:checked + label::after {
+            left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            content: "▶"; // 사이드바가 숨겨져 있을 경우 라벨 모양
+            color: #000; // 라벨 색
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        .toggle-aside input[type=checkbox]:checked + label + .information{
+            left:-240px; // 체크 이후 사이드바 위치 변화 - 사이드바 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
+        .toggle-aside>.information{
+            position: absolute; // 위치 고정
+            background-color: #F0F9FC; // 배경색
+            left: 0px; // 좌측에 딱 붙게 설정
+            width: 180px; // 폭
+            height: 100%; // 높이
+            padding: 30px; // 패딩
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
     }
 }
 

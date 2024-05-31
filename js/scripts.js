@@ -11,17 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function toggleNav() {
-    var sidebar = document.getElementById("sidebar");
-    var button = document.querySelector(".toggle");
-    if (sidebar.style.width === "200px") {
-        button.innerText = "열기";
-        sidebar.style.width = "20px";
-    } else {
-        button.innerText = "닫기";
-        sidebar.style.width = "200px";
-    }
-}
 document.querySelectorAll('.combo-box').forEach(function(select) {
     select.addEventListener('change', function() {
         var selectedOption = select.options[select.selectedIndex].text;

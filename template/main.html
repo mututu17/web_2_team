@@ -70,12 +70,18 @@
                 </div>
             </div>  
         </main>
-        <aside class="sidebar" id="sidebar">
-            <button class="toggle" onclick="toggleNav()">닫기</button>
-            <p id="selected-option">목적지</p>
-            <a href="#" id="link" target="_blank"><img src="#" id="image" width="180", height="180"></a>
-            <p>참고자료</p>
-            <a href="#" id="linkT" target="_blank">링크</a>
+        <!--변경점: class명 변경, toggleNav() 함수 사용 X-->
+        <aside class="toggle-aside"> <!--class 명 toggle-aside로 변경 -->
+            <input type="checkbox" id="aside-check-1"> <!--toggleNav()함수 사용 X, checkbox 형태로 변경, id 변경-->
+            <label for="aside-check-1"></label>
+            <nav class="information"> <!--설명 부분을 nav 박스로 감싸고 class명을 information으로 추가-->
+                <p id="selected-option">목적지</p> 
+                <!--1안 루트부산 처럼 사진 오른쪽에 간략한 설명
+                    2안 비짓부산 처럼 사진을 와이드하게 펼치고 밑에 설명-->
+                <a href="#" id="link" target="_blank"><img src="#" id="image" width="240", height="150"></a>
+                <p>참고자료</p>
+                <a href="#" id="linkT" target="_blank">링크</a>
+            </nav>
         </aside>
     </div>
 <!--데스크톱 메인, 사이드바 끝-->
@@ -252,6 +258,7 @@
             });
         });
 
+
         naver.maps.Event.addListener(polyline, "click", function () {
             alert('수영강 코스입니다.');
         });
@@ -264,7 +271,6 @@
     naver.maps.onJSContentLoaded = function() {
         var drawingManager = new naver.maps.drawing.DrawingManager({map: mobileMap});
     };
-
 </script>
 <!--==============================================================지도 설정 끝===============================================================================-->
 
