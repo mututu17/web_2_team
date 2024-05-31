@@ -11,18 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function toggleNav() {
-    var sidebar = document.getElementById("side-bar");
-    var button = document.querySelector(".icon");
-    if (sidebar.style.width == "220px") {
-        button.innerText = "▼";
-        sidebar.style.width = "20px";
-        
-    } else {
-        button.innerText = "▶";
-        sidebar.style.width = "220px";
-    }
-}
 document.querySelectorAll('.combo-box').forEach(function(select) {
     select.addEventListener('change', function() {
         var selectedOption = select.options[select.selectedIndex].text;

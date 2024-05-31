@@ -340,9 +340,9 @@ body {
     position: absolute;
     background-color: #F0F9FC;
     left: 0px;
-    width: 210px;
+    width: 180px;
     height: 100%;
-    padding: 0px;
+    padding: 30px;
     transition: left 0.5s, background-color 0.5s;
   }
 }
