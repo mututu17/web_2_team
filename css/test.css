@@ -298,28 +298,28 @@ body {
     flex: 1;
   }
 }
-/* 사이드 메뉴바 - 호버, 위치는 왼쪽으로 */ 
+/* 자세한 주석은 scss파일 참고 */ 
 @media (min-width: 1020px) { 
   .toggle-aside input{
     display: none;
   }
   .toggle-aside > input + label{
-    position: relative;
+    left: 0px;
+    position: absolute;
   }
   .toggle-aside input[type=checkbox] + label::after {
-      position: fixed;
-      content: "◀";
-      background-color: #F0F9FC;
-      padding: 5px;
-      border-radius: 0px 0 15 0px;
-      font-size: 1.5em;
-      top: 70px;
-      left: 240px;
-      line-height: 1;
-      box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
-      width: 40px;
-      box-sizing: border-box;
-      transition: left 0.5s, background-color 0.5s;
+    position: absolute;
+    content: "◀";
+    background-color: #F0F9FC;
+    padding: 5px;
+    border-radius: 0px 0 15 0px;
+    font-size: 1.5em;
+    left: 240px;
+    line-height: 1;
+    box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
+    width: 40px;
+    box-sizing: border-box;
+    transition: left 0.5s, background-color 0.5s;
   }
   .toggle-aside input[type=checkbox]:checked + label::after {
     left: 0px;
