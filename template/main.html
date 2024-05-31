@@ -28,40 +28,43 @@
                 <a href="javascript:void(0)" onclick="window.location.reload()"><img src="../images/logo.png" alt="로고" width="130" height="130"></a>
                 <a href="javascript:void(0)" onclick="window.location.reload()">zagza</a>
             </div>
-            
-            <ul class="filters">
-                <li>
-                    <select id="거리순" class="combo-box">
-                            <option value="" disabled selected>----거리순----</option>
-                            <option value="0 ~ 3 km">0 ~ 3 km</option>
-                            <option value="3 ~ 6 km">3 ~ 6 km</option>
-                            <option value="6 ~ ... km">6 ~ ... km</option>
-                    </select>
-                </li>
-                <li>
-                    <select id="목적지" class="combo-box">
-                        <option value="" disabled selected>----장소----</option>
-                        <option value="광안리">광안리</option>
-                        <option value="해운대">해운대</option>
-                        <option value="송정">송정</option>
-                        <option value="부경대">부경대</option>
-                    </select>                        
-                </li>
-                <li>
-                    <select id="풍경" class="combo-box">
-                        <option value="" disabled selected>----풍경----</option>
-                        <option value="산">산</option>                                
-                        <option value="바다">바다</option>
-                        <option value="도심">도심</option>
-                    </select>
-                </li>
-            </ul>
-
+            <div class="navbar_menu">
+                <a href="#">소개</a>
+                <a href="main copy.html">지도</a>
+                <a href="#">기타</a>
+            </div>
         </nav>
     </header>
 <!--데스크톱 해더 끝-->
 
-<!--데스크톱 메인, 사이드바 시작-->    
+<!--데스크톱 메인, 사이드바 시작-->   
+<ul class="filters">
+    <li>
+        <select id="거리순" class="combo-box">
+                <option value="" disabled selected>----거리순----</option>
+                <option value="0 ~ 3 km">0 ~ 3 km</option>
+                <option value="3 ~ 6 km">3 ~ 6 km</option>
+                <option value="6 ~ ... km">6 ~ ... km</option>
+        </select>
+    </li>
+    <li>
+        <select id="목적지" class="combo-box">
+            <option value="" disabled selected>----장소----</option>
+            <option value="광안리">광안리</option>
+            <option value="해운대">해운대</option>
+            <option value="송정">송정</option>
+            <option value="부경대">부경대</option>
+        </select>                        
+    </li>
+    <li>
+        <select id="풍경" class="combo-box">
+            <option value="" disabled selected>----풍경----</option>
+            <option value="산">산</option>                                
+            <option value="바다">바다</option>
+            <option value="도심">도심</option>
+        </select>
+    </li>
+</ul> 
     <div class="content">
         <main>
             <!-- 지도를 만드는 div 생성 -->
