@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merge Test</title>
-    <link rel="stylesheet" href="../css/scss/test.css">
+    <link rel="stylesheet" href="../css/test.css">
     <script src="../js/jquery-1.9.1.js"></script>
     <!--폰트 적용-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,12 +78,20 @@
             <input type="checkbox" id="aside-check-1"> <!--toggleNav()함수 사용 X, checkbox 형태로 변경, id 변경-->
             <label for="aside-check-1"></label>
             <nav class="information"> <!--설명 부분을 nav 박스로 감싸고 class명을 information으로 추가-->
-                <p id="selected-option">목적지</p> 
+                <br>
+                <p id="selected-option">    </p> 
+
+                <p>이 사이에 간단하게 꾸미기</p>
                 <!--1안 루트부산 처럼 사진 오른쪽에 간략한 설명
                     2안 비짓부산 처럼 사진을 와이드하게 펼치고 밑에 설명-->
                 <a href="#" id="link" target="_blank"><img src="#" id="image" width="240", height="150"></a>
-                <p>참고자료</p>
-                <a href="#" id="linkT" target="_blank">링크</a>
+                <p style="font-size: 18px;">관광지 이름</p>
+                <hr width="230" size="3" color="lightgray">
+                <p>한줄 설명</p>
+                <p style="font-size: 13px;">거리</p>
+                <p style="font-size: 13px;">관련 정보들...</p>
+                <br>
+                <a href="#" id="linkT" target="_blank" style="font-size: 15px;">자세히 알아보기</a>
             </nav>
         </aside>
     </div>

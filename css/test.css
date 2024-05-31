@@ -5,24 +5,23 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 200vh; /* 반응형으로 100% */ /*임시로 늘림*/
+  height: 130vh; /* 반응형으로 100% */ /*임시로 늘림*/
 }
 
 #desktop-header {
   display: none;
 }
 @media (min-width: 1020px) {
-  header {
+  #desktop-header {
     position: sticky;
-
     display: block;
     background: linear-gradient(to bottom, #8ee3ff, #ffffff);
     border-bottom: 1px solid #F0F9FC; /* 수평선 */
-    height: 200px;
+    height: 150px;
   }
 }
 @media (min-width: 1400px) {
-  header {
+  #desktop-header {
     position: sticky;
     display: block;
     background: linear-gradient(to bottom, #8ee3ff, #ffffff);
@@ -407,18 +406,15 @@ body {
   }
 }
 
-.toggle-aside {
-  display: none;
-}
 @media (min-width: 1020px) {
-  .toggle-aside .toggle-aside input {
+  .toggle-aside input {
     display: none;
   }
-  .toggle-aside .toggle-aside > input + label {
+  .toggle-aside > input + label {
     left: 0px;
     position: absolute;
   }
-  .toggle-aside .toggle-aside input[type=checkbox] + label::after {
+  .toggle-aside input[type=checkbox] + label::after {
     position: absolute;
     content: "◀";
     background-color: #F0F9FC;
@@ -432,38 +428,37 @@ body {
     box-sizing: border-box;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside .toggle-aside input[type=checkbox]:checked + label::after {
+  .toggle-aside input[type=checkbox]:checked + label::after {
     left: 0px;
     background-color: #F0F9FC;
     content: "▶";
     color: #000;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside .toggle-aside input[type=checkbox]:checked + label + .information {
+  .toggle-aside input[type=checkbox]:checked + label + .information {
     left: -240px;
     background-color: #F0F9FC;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside .toggle-aside > .information {
+  .toggle-aside > .information {
     position: absolute;
     background-color: #F0F9FC;
     left: 0px;
-    width: 180px;
+    width: 240px;
     height: 100%;
-    padding: 30px;
+    padding: 0px;
     transition: left 0.5s, background-color 0.5s;
   }
 }
 @media (min-width: 1400px) {
-
-  .toggle-aside .toggle-aside input {
+  .toggle-aside input {
     display: none;
   }
-  .toggle-aside .toggle-aside > input + label {
+  .toggle-aside > input + label {
     left: 0px;
     position: absolute;
   }
-  .toggle-aside .toggle-aside input[type=checkbox] + label::after {
+  .toggle-aside input[type=checkbox] + label::after {
     position: absolute;
     content: "◀";
     background-color: #F0F9FC;
@@ -477,25 +472,25 @@ body {
     box-sizing: border-box;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside .toggle-aside input[type=checkbox]:checked + label::after {
+  .toggle-aside input[type=checkbox]:checked + label::after {
     left: 0px;
     background-color: #F0F9FC;
     content: "▶";
     color: #000;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside .toggle-aside input[type=checkbox]:checked + label + .information {
+  .toggle-aside input[type=checkbox]:checked + label + .information {
     left: -240px;
     background-color: #F0F9FC;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside .toggle-aside > .information {
+  .toggle-aside > .information {
     position: absolute;
     background-color: #F0F9FC;
     left: 0px;
-    width: 180px;
+    width: 240px;
     height: 100%;
-    padding: 30px;
+    padding: 0px;
     transition: left 0.5s, background-color 0.5s;
   }
 }
@@ -521,7 +516,6 @@ main {
     background-color: #fff;
   }
 }
-
 
 #map-container-desktop {
   display: none;
