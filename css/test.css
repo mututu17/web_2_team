@@ -298,99 +298,98 @@ body {
     flex: 1;
   }
 }
-/* 자세한 주석은 scss파일 참고 */ 
-@media (min-width: 1020px) { 
-  .toggle-aside input{
+
+.toggle-aside {
+  display: none;
+}
+@media (min-width: 1020px) {
+  .toggle-aside .toggle-aside input {
     display: none;
   }
-  .toggle-aside > input + label{
+  .toggle-aside .toggle-aside > input + label {
     left: 0px;
     position: absolute;
   }
-  .toggle-aside input[type=checkbox] + label::after {
+  .toggle-aside .toggle-aside input[type=checkbox] + label::after {
     position: absolute;
     content: "◀";
     background-color: #F0F9FC;
     padding: 5px;
     border-radius: 0px 0 15 0px;
     font-size: 1.5em;
-    left: 270px;
+    left: 240px;
     line-height: 1;
     box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
     width: 40px;
     box-sizing: border-box;
     transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside input[type=checkbox]:checked + label::after {
+  .toggle-aside .toggle-aside input[type=checkbox]:checked + label::after {
     left: 0px;
     background-color: #F0F9FC;
     content: "▶";
     color: #000;
-    transition: left 0.5s, background-color 0.5s; 
+    transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside input[type=checkbox]:checked + label + .information{
-    left:-240px;
+  .toggle-aside .toggle-aside input[type=checkbox]:checked + label + .information {
+    left: -240px;
     background-color: #F0F9FC;
-    transition: left 0.5s, background-color 0.5s; 
+    transition: left 0.5s, background-color 0.5s;
   }
-  .toggle-aside>.information{
+  .toggle-aside .toggle-aside > .information {
     position: absolute;
     background-color: #F0F9FC;
     left: 0px;
     width: 210px;
     height: 100%;
+    padding: 0px;
+    transition: left 0.5s, background-color 0.5s;
+  }
+}
+@media (min-width: 1400px) {
+  .toggle-aside .toggle-aside input {
+    display: none;
+  }
+  .toggle-aside .toggle-aside > input + label {
+    left: 0px;
+    position: absolute;
+  }
+  .toggle-aside .toggle-aside input[type=checkbox] + label::after {
+    position: absolute;
+    content: "◀";
+    background-color: #F0F9FC;
+    padding: 5px;
+    border-radius: 0px 0 15 0px;
+    font-size: 1.5em;
+    left: 240px;
+    line-height: 1;
+    box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573);
+    width: 40px;
+    box-sizing: border-box;
+    transition: left 0.5s, background-color 0.5s;
+  }
+  .toggle-aside .toggle-aside input[type=checkbox]:checked + label::after {
+    left: 0px;
+    background-color: #F0F9FC;
+    content: "▶";
+    color: #000;
+    transition: left 0.5s, background-color 0.5s;
+  }
+  .toggle-aside .toggle-aside input[type=checkbox]:checked + label + .information {
+    left: -240px;
+    background-color: #F0F9FC;
+    transition: left 0.5s, background-color 0.5s;
+  }
+  .toggle-aside .toggle-aside > .information {
+    position: absolute;
+    background-color: #F0F9FC;
+    left: 0px;
+    width: 180px;
+    height: 100%;
     padding: 30px;
     transition: left 0.5s, background-color 0.5s;
   }
 }
-
-/* 사이드바 펼침 레이아웃, 그러나 옆으로 페이지가 확장되어 일단 폐기 */
-/*@media (min-width: 1400px) { 
-  .toggle-aside input{
-    display: none;
-  }
-  .toggle-aside > input + label{
-      position: relative;
-  }
-  .toggle-aside input[type=checkbox] + label::after {
-      position: absolute;
-      content: "▶";
-      background-color: #F0F9FC;
-      padding: 5px;
-      border-radius: 0px 0 0 15px;
-      font-size: 1.5em;
-      right: 0px;
-      line-height: 1;
-      box-shadow: 1px 8px 5px -7px rgba(0,0,0,0.5);
-      width: 40px;
-      box-sizing: border-box;
-      transition: right 0.5s, background-color 0.5s;
-  }
-  .toggle-aside input[type=checkbox]:checked + label::after {
-    right:-240px;
-    background-color: #F0F9FC;
-    content: "◀";
-    color: #000;
-    transition: right 0.5s, background-color 0.5s; 
-  }
-  .toggle-aside input[type=checkbox]:checked + label + .information{
-    right:-240px;
-    background-color: #F0F9FC;
-    transition: right 0.5s, background-color 0.5s; 
-  }
-  .toggle-aside>.information{
-    position:relative;
-  }
-  .toggle-aside>.information{
-    background-color: #F0F9FC;
-    right: 0px;
-    width: 180px;
-    height: 100%;
-    padding: 30px;
-    transition: right 0.5s, background-color 0.5s;
-  }
-}
-*/
 
 main {
   flex: 1;

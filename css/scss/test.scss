@@ -358,9 +358,9 @@ header {
             position: absolute; // 위치 고정
             background-color: #F0F9FC; // 배경색
             left: 0px; // 좌측에 딱 붙게 설정
-            width: 180px; // 폭
+            width: 210px; // 폭
             height: 100%; // 높이
-            padding: 30px; // 패딩
+            padding: 0px; // 패딩
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
     }
