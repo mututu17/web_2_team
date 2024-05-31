@@ -215,11 +215,13 @@
     <!--=======================================================================================지도 끝========================================================================================================-->
         
     <!--변경점: class명 변경, toggleNav() 함수 사용 X-->
-        <aside class="toggle-aside"> <!--aisde -> div 태그 변경, class 명 toggle-aside로 변경 -->
+        <aside class="toggle-aside"> <!--class 명 toggle-aside로 변경 -->
             <input type="checkbox" id="aside-check-1"> <!--toggleNav()함수 사용 X, checkbox 형태로 변경, id 변경-->
             <label for="aside-check-1"></label>
             <nav class="information"> <!--설명 부분을 nav 박스로 감싸고 class명을 information으로 추가-->
-                <p id="selected-option">목적지</p>
+                <p id="selected-option">목적지</p> 
+                <!--1안 루트부산 처럼 사진 오른쪽에 간략한 설명
+                    2안 비짓부산 처럼 사진을 와이드하게 펼치고 밑에 설명-->
                 <a href="#" id="link" target="_blank"><img src="#" id="image" width="150", height="150"></a>
                 <p>참고자료</p>
                 <a href="#" id="linkT" target="_blank">링크</a>
