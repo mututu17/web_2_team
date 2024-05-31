@@ -35,7 +35,6 @@ body {
 // 데스크톱 헤더
 #desktop-header {
     // 모바일일 때는 아무것도 적용 안됨
-    display:none;
 
     @include laptop {
         position: sticky;
