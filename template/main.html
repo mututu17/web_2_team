@@ -80,18 +80,32 @@
             <nav class="information"> <!--설명 부분을 nav 박스로 감싸고 class명을 information으로 추가-->
                 <br>
                 <p id="selected-option">    </p> 
-
-                <p>이 사이에 간단하게 꾸미기</p>
                 <!--1안 루트부산 처럼 사진 오른쪽에 간략한 설명
                     2안 비짓부산 처럼 사진을 와이드하게 펼치고 밑에 설명-->
-                <a href="#" id="link" target="_blank"><img src="#" id="image" width="240", height="150"></a>
-                <p style="font-size: 18px;">관광지 이름</p>
-                <hr width="230" size="3" color="lightgray">
-                <p class="describe">한줄 설명</p>
-                <p class = "total" style="font-size: 13px;" >거리</p>
-                <p style="font-size: 13px;">관련 정보들...</p>
-                <br>
-                <a href="#" id="linkT" target="_blank" style="font-size: 15px;">자세히 알아보기</a>
+
+                <div>
+                    <div class="lb-wrap">
+                        <div class="lb-text">
+                            <hr width="50" size="2" color=#fff>
+                            <h3>목적지</h3>
+                        </div>
+                        <div class="lb-image">
+                            <a href="#" id="link" target="_blank"><img src="#" id="image" class="aside-image" width="240", height="300"></a>
+                        </div>
+                        <p>한줄 설명</p>
+                    </div>
+                    <div class="text-infor">
+                        <p style="font-size: 15px;">시작 위치:</p>
+                        <p style="font-size: 15px;">도착 위치:</p>
+                        <p style="font-size: 15px;">거리: 00km</p>
+                        <br>
+                        <a href="#" id="linkT" target="_blank" style="font-size: 15px;">목적지 정보</a>
+                        <br><br><br><br><br>
+                        <p style="font-size: 13px;">팀명</p>
+
+                    </div>
+                </div>
+
             </nav>
         </aside>
     </div>
