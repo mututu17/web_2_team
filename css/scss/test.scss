@@ -466,9 +466,8 @@ body {
     
 }
 .toggle-aside {
-
     @include laptop {
-         input{
+        input{
             display: none; // checkbox 안보이게
         }
         > input + label{
@@ -478,37 +477,71 @@ body {
         input[type=checkbox] + label::after {
             position: absolute; // 라벨이 사이드바에 고정
             content: "◀"; // 사이드바가 나와있을 경우 라벨 모양
-            background-color: #F0F9FC; // 라벨 부분 배경색
+            color: #574fd2; // 라벨 색
+            opacity: 90%;
+            background-color: #fff; // 라벨 부분 배경색
             padding: 5px;
             border-radius: 0px 0 15 0px;  // 라벨 우측 하단 부분을 둥글게
-            font-size: 1.5em;
+            font-size: 1.2em;
             left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
             line-height: 1; // 라벨 세로 길이
-            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
-            width: 40px; // 박스 폭
+            box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            width: 30px; // 박스 폭
             box-sizing: border-box;
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
         }
         input[type=checkbox]:checked + label::after {
             left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
-            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
             content: "▶"; // 사이드바가 숨겨져 있을 경우 라벨 모양
-            color: #000; // 라벨 색
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
         }
         input[type=checkbox]:checked + label + .information{
             left:-240px; // 체크 이후 사이드바 위치 변화 - 사이드바 숨기기
-            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
-        >.information{
+        .information {
+            text-align: center;
+            background: linear-gradient( to top, #b7edff, #ffffff 60%);
+            font-family: "Anta", sans-serif;
             position: absolute; // 위치 고정
-            background-color: #F0F9FC; // 배경색
             left: 0px; // 좌측에 딱 붙게 설정
             width: 240px; // 폭
             height: 100%; // 높이
             padding: 0px; // 패딩
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
+
+        .information .aside-image {
+            border-radius: 20px 20px 5px 5px;
+        }
+        .information .lb-wrap {
+            margin: 10px auto;
+            position: relative;
+        }
+        .information .lb-wrap img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        .information .lb-text {
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #fff;
+            transform: translate(-50%, -50%);
+        }
+        .information .text-infor {
+            padding: 30px;
+            text-align: left;
+
+        }
+          /* Layout(No Edit) */
+        @media(max-width:440px) {
+            .lb-wrap {
+            width: 95%;
+            }
         }
     }
 
@@ -523,37 +556,71 @@ body {
         input[type=checkbox] + label::after {
             position: absolute; // 라벨이 사이드바에 고정
             content: "◀"; // 사이드바가 나와있을 경우 라벨 모양
-            background-color: #F0F9FC; // 라벨 부분 배경색
+            color: #574fd2; // 라벨 색
+            opacity: 90%;
+            background-color: #fff; // 라벨 부분 배경색
             padding: 5px;
             border-radius: 0px 0 15 0px;  // 라벨 우측 하단 부분을 둥글게
-            font-size: 1.5em;
+            font-size: 1.2em;
             left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
             line-height: 1; // 라벨 세로 길이
-            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
-            width: 40px; // 박스 폭
+            box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            width: 30px; // 박스 폭
             box-sizing: border-box;
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
         }
         input[type=checkbox]:checked + label::after {
             left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
-            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
             content: "▶"; // 사이드바가 숨겨져 있을 경우 라벨 모양
-            color: #000; // 라벨 색
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
         }
         input[type=checkbox]:checked + label + .information{
             left:-240px; // 체크 이후 사이드바 위치 변화 - 사이드바 숨기기
-            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
-        >.information{
+        .information {
+            text-align: center;
+            background: linear-gradient( to top, #b7edff, #ffffff 60%);
+            font-family: "Anta", sans-serif;
             position: absolute; // 위치 고정
-            background-color: #F0F9FC; // 배경색
             left: 0px; // 좌측에 딱 붙게 설정
             width: 240px; // 폭
             height: 100%; // 높이
             padding: 0px; // 패딩
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
+
+        .information .aside-image {
+            border-radius: 20px 20px 5px 5px;
+        }
+        .information .lb-wrap {
+            margin: 10px auto;
+            position: relative;
+        }
+        .information .lb-wrap img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        .information .lb-text {
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #fff;
+            transform: translate(-50%, -50%);
+        }
+        .information .text-infor {
+            padding: 30px;
+            text-align: left;
+
+        }
+          /* Layout(No Edit) */
+        @media(max-width:440px) {
+            .lb-wrap {
+            width: 95%;
+            }
         }
     }
 }
