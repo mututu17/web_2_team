@@ -8,16 +8,13 @@ body {
   height: 130vh; /* 반응형으로 100% */ /*임시로 늘림*/
 }
 
-#desktop-header {
-  display: none;
-}
 @media (min-width: 1020px) {
   #desktop-header {
     position: sticky;
     display: block;
     background: linear-gradient(to bottom, #8ee3ff, #ffffff);
     border-bottom: 1px solid #F0F9FC; /* 수평선 */
-    height: 150px;
+    height: 200px;
   }
 }
 @media (min-width: 1400px) {
@@ -128,7 +125,7 @@ body {
 @media (min-width: 1020px) {
   .combo-box {
     display: inline;
-    width: 80hv;
+    width: 100hv;
     height: 100hv;
     font-size: 15px;
     padding: 0.6rem 0.5rem;
@@ -154,6 +151,69 @@ body {
     background-color: #ffffff;
     border-radius: 20px 20px 20px 20px;
     font-family: "Noto Sans KR", sans-serif;
+  }
+}
+
+.main_image_container {
+  display: flex;
+  position: relative;
+  place-items: center;
+  margin-top: 30px;
+}
+
+.another_page {
+  display: none;
+  justify-content: center;
+  background-color: #F0F9FC;
+}
+.another_page a {
+  text-decoration: none;
+  font-size: large;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+@media (min-width: 1020px) {
+  .another_page {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 100px 0;
+  }
+}
+@media (min-width: 1400px) {
+  .another_page {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0px 0;
+  }
+  .another_page a {
+    margin-left: 200px;
+  }
+}
+
+#intro {
+  display: none;
+  color: #070068;
+  background-color: #8ee3ff;
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 50px;
+  bottom: 300px;
+  width: 700px;
+  height: 300px;
+  border-radius: 0 30px 30px 0;
+}
+@media (min-width: 1020px) {
+  #intro {
+    display: flex;
+    position: relative;
+  }
+}
+@media (min-width: 1400px) {
+  #intro {
+    display: flex;
+    position: relative;
   }
 }
 
