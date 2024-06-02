@@ -2,6 +2,7 @@ $mobile: 768px;
 $laptop: 1020px;
 $desktop: 1400px;
 // 기기별 변수 설정
+// 설정 다시
 @mixin tablet {
     @media (min-width: #{$mobile}) {
         @content;
@@ -23,95 +24,187 @@ $desktop: 1400px;
 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
+    display:flex;
     flex-direction: column;
-    height: 100vh; /* 반응형으로 100% */
+    height: 130vh; /* 반응형으로 100% */ /*임시로 늘림*/
 }
 // ==========================================================================메뉴 CSS=========================================================================
-header {
+// 데스크톱 헤더
+#desktop-header {
     // 모바일일 때는 아무것도 적용 안됨
-
-    @include laptop {
-        display:block;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-bottom: 1px solid #ccc; /* 수평선 */
-        height: 70px; 
-    }
-    @include desktop {
-        display:block;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-bottom: 1px solid #ccc; /* 수평선 */
-        height: 70px; 
-    }
-}
-
-// buttonbar id의 자식 ul
-#buttonbar > ul {
-    // 모바일일 때
     display:none;
-    // 노트북일 때
+
     @include laptop {
-        display: inline;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center; 
+        position: sticky;
+        display: block;
+        background: linear-gradient( to bottom, #8ee3ff, #ffffff );
+        border-bottom: 1px solid #F0F9FC; /* 수평선 */
+        height: 150px;
     }
-    // 데스크톱일 때
     @include desktop {
-        display: inline;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
+        position: sticky;
+        display: block;
+        background: linear-gradient( to bottom, #8ee3ff, #ffffff );
+        border-bottom: 1px solid #ffffff; /* 수평선 */
+        height: 200px;
+        
     }
 }
-// buttonbar id의 자식 ul의 자식 li
-#buttonbar > ui > li {
+
+
+
+// -------------------------------------------------데스크탑 헤더 --------------------------------------
+.navbar {
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+    padding: 0 60px;
+    align-items:center; 
+    animation: navbarBottom 1s forwards;
+    a{
+        position: fixed;
+        font-family: "Anta", sans-serif;//"Madimi One", sans-serif;
+        text-decoration: none;
+        vertical-align:text-top;
+        position: relative;
+        font-weight: 600;
+        color: #070068;
+        margin-left: 15px;
+        top: 30px;
+        font-size: 90px
+    }
+}
+
+
+.navbar_logo {
     display: none;
+    
 
     @include laptop {
         display: inline;
-        margin-right: 20px;
-        position: relative;
+        list-style: none;
+        
     }
-    @include desktop {
+   @include desktop{
         display: inline;
-        margin-right: 20px;
-        position: relative;
-    }     
+        list-style: none;
+
+    }
+}
+
+
+.navbar_menu a{
+    display: none;
+    
+    @include laptop {
+        display: inline;
+        list-style: none;
+        font-size: 2rem;
+        margin-right: 2rem;
+        right: 50px;
+        border-left: 3px solid #f2f5ff;
+        padding: 0px 40px;
+        margin: 30px 0px;
+       
+    }
+    
+   @include desktop{
+        display: inline;
+        list-style: none;
+        font-size: 2rem;
+        margin-right: 2rem;
+        right: 50px;
+        // 카피 버전 메뉴바 세로선 만들기
+        border-left: 3px solid #f2f5ff;
+        padding: 0px 40px;
+        margin: 30px 0px;
+       
+    }
+}
+
+.navbar_menu a:hover {             
+    color: #ff0000;
+}
+
+// main.copy 메뉴바 세로선 만들기 
+
+.navbar_menu a:first-child{
+    border-left: none;
+}
+  
+
+
+//nav태그 내려오는 애니메이션
+@keyframes navbarBottom {
+    0% {
+      transform: translateY(-70%); 
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
+  //필터
+.filters {
+    display: flex;
+    list-style: none;
+    font-size: medium;
 }
 
 .combo-box {
     display: none;
-
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     @include laptop {
         display: inline;
-        width: 150px;
-        padding: 5px;
-        border: 1px solid #ccc;
+        width: 80hv;
+        height: 100hv;
+        font-size: 15px;
+        padding: .6rem .5rem;
+        color:#030029;
+        border: 1px solid #ffffff;
+        margin-right: 10px;
+        //background: linear-gradient( to bottom, #F0F9FC 40%, #ffffff);
+        background-color: #ffffff;
+        border-radius: 20px 20px 20px 20px;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     @include desktop {
         display: inline;
-        width: 150px;
-        padding: 5px;
-        border: 1px solid #ccc;
+        width: 150hv;
+        height: 3rem;
+        font-weight: 400;
+        font-size: 1rem;
+        padding: 0 2rem;
+        color:#030031;
+        border: 1px solid #ffffff;
+        margin-right: 40px;
+        //background: linear-gradient( to bottom, #F0F9FC 40%, #ffffff );
+        background-color: #ffffff;
+        border-radius: 20px 20px 20px 20px;
+        font-family: "Noto Sans KR", sans-serif;
+       
     }
 }
 
+//=======================================================================================================================================
 // 모바일 메뉴 시작
 // 헤더부분
 .wrapper {
-    width:100%;
+    display: flex;
+    flex: 1;
 
+    width:100%;
+    height: 100%;
+    
     @include laptop {
         display: none;
     }
@@ -120,10 +213,15 @@ header {
         display: none;
     }
 }
+// 모바일 요소 container
 .container{
-    width:100%;
-    max-width:500px;
+    width: 100%;
+    height: 100%;
+    
     margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
    
     @include laptop {
         display: none;
@@ -133,11 +231,26 @@ header {
         display: none;
     }
 }
-.head{
-    width:100%;
-    height:50px;
+// ===============================================모바일 헤더부분 설정=================================
+// 모바일 헤더
+#mobile-header {
+    display:flex;
+    width: 100%;
+    height: 7%;
+
+    @include laptop {
+        display:none;
+    }
+    @include desktop {
+        display:none;
+    }
+}
+
+.mobile-head{
+    height: 100%;
     border-bottom:1px solid #e1e1e1;
-    position:relative;
+    position:flex;
+    z-index: 2;
 
     @include laptop {
         display: none;
@@ -148,16 +261,10 @@ header {
     }
 }
 
-.body{                       //몸체 영역 클래스명은 임의로 작성
-    height:400px;
-    position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
-    overflow: hidden;
-}
-
 .slide-open{
     position:absolute;
     top:0;
-    right:0;
+    left:0;
     width:50px;
     height:50px;
     border: none;
@@ -171,6 +278,9 @@ header {
         display: none;
     }
 }
+
+
+
 // 메뉴 버거 버튼 css
 .burgur{ //몸체 (가운데 라인)
     left: 15px;
@@ -244,10 +354,31 @@ header {
     -webkit-transform: translateY(-5px) rotate(-135deg);
     transform: translateY(-5px) rotate(-135deg);
 }
+// ============================================모바일 헤더 끝========================================
+
+// ============================================모바일 바디 시작======================================
+// 모바일 바디부분, 여기엔 지도와 사이드바가 들어감
+#mobile-main {
+    height:60%;
+}
+
+.mobile-body{                       //몸체 영역 클래스명은 임의로 작성
+    height:100%;
+    position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
+    overflow: hidden;
+    z-index:1;
+}
+
 
 // 좌측 슬라이드 메뉴 css
-.slide{
-    width:100%;
+
+// --------------------------필터 사이드바 드롭다운 시작-------------------------
+.filter {
+    width: 90%;
+    height: 95%;
+    color: black;
+    
+
     position:absolute;
     left:-100%;                    //좌측에 위치 시키기 위해 현 가로폭의 -100%만큼 왼쪽으로 이동
     top:0;                         //슬라이드 메뉴의 경우 화면에 꽉차게 해야 하는데
@@ -259,46 +390,64 @@ header {
     -ms-transition: left .3s;
     -o-transition: left .3s;
     transition: left .3s;
-    background-color:#cccccc;
-}
-
-.slide-title{
-    width:100%;
-    height:100px;
-    font-size:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-bottom:1px solid #e1e1e1;
-}
-
-.slide.on{
-    left:0;
-}
-
-.slide ul li{
-    display:inline-block;
-    width:100%;
-    padding:10px;
-    border-bottom:1px solid #e1e1e1;
-}
-
-.content_mobile {
-    height:100%;
-    font-size:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    @include laptop {
-        display: none;
-    }
-
-    @include desktop {
-        display: none;
-    }
+    background-color:#F0F9FC;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                 rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
     
 }
+// 필터가 열려있을때를 표현
+.filter.on{
+    left: 0;
+}
+// 필터 각각의 항목 표현
+.filter-item {
+    margin: 10px 0;
+    padding: 0 15px;
+}
+// 콤보박스 이용
+.filter-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.filter-comboBox {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #888;
+    background-color: #b5e1f0;
+    color: rgba(81, 79, 79, 0.597);
+}
+
+.filter-comboBox:hover {
+    border-color: #f00;
+    background-color: #b5e1f0;
+}
+// --------------------------필터 사이드바 드롭다운 끝-------------------------
+
+// ------------------------- 모바일 정보 요약 창 시작-------------------------
+#mobile-aside {
+    height: 30%;
+    position: relative;
+    padding-top: 25px;
+}
+
+.mobile-summary{
+    background-color: #F0F9FC;
+    border-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    height: 95%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                 rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
 // ==========================================================================메뉴 CSS END=========================================================================
 
 
@@ -316,49 +465,181 @@ header {
     }
     
 }
-
-.sidebar {
-    display: none;
+.toggle-aside {
 
     @include laptop {
-        display: block;
-        width: 200px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-        height: 100%;
+         input{
+            display: none; // checkbox 안보이게
+        }
+        > input + label{
+            left: 0px;
+            position: absolute; // 라벨이 사이드바에 고정
+        }
+        input[type=checkbox] + label::after {
+            position: absolute; // 라벨이 사이드바에 고정
+            content: "◀"; // 사이드바가 나와있을 경우 라벨 모양
+            background-color: #F0F9FC; // 라벨 부분 배경색
+            padding: 5px;
+            border-radius: 0px 0 15 0px;  // 라벨 우측 하단 부분을 둥글게
+            font-size: 1.5em;
+            left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
+            line-height: 1; // 라벨 세로 길이
+            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            width: 40px; // 박스 폭
+            box-sizing: border-box;
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        input[type=checkbox]:checked + label::after {
+            left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            content: "▶"; // 사이드바가 숨겨져 있을 경우 라벨 모양
+            color: #000; // 라벨 색
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        input[type=checkbox]:checked + label + .information{
+            left:-240px; // 체크 이후 사이드바 위치 변화 - 사이드바 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
+        >.information{
+            position: absolute; // 위치 고정
+            background-color: #F0F9FC; // 배경색
+            left: 0px; // 좌측에 딱 붙게 설정
+            width: 240px; // 폭
+            height: 100%; // 높이
+            padding: 0px; // 패딩
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
     }
 
     @include desktop {
-        display: block;
-        width: 200px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-        height: 100%;
+        input{
+            display: none; // checkbox 안보이게
+        }
+        > input + label{
+            left: 0px;
+            position: absolute; // 라벨이 사이드바에 고정
+        }
+        input[type=checkbox] + label::after {
+            position: absolute; // 라벨이 사이드바에 고정
+            content: "◀"; // 사이드바가 나와있을 경우 라벨 모양
+            background-color: #F0F9FC; // 라벨 부분 배경색
+            padding: 5px;
+            border-radius: 0px 0 15 0px;  // 라벨 우측 하단 부분을 둥글게
+            font-size: 1.5em;
+            left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
+            line-height: 1; // 라벨 세로 길이
+            box-shadow: 1px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            width: 40px; // 박스 폭
+            box-sizing: border-box;
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        input[type=checkbox]:checked + label::after {
+            left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            content: "▶"; // 사이드바가 숨겨져 있을 경우 라벨 모양
+            color: #000; // 라벨 색
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
+        }
+        input[type=checkbox]:checked + label + .information{
+            left:-240px; // 체크 이후 사이드바 위치 변화 - 사이드바 숨기기
+            background-color: #F0F9FC; // 색 변화 - 현재로선 변화 없음
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
+        >.information{
+            position: absolute; // 위치 고정
+            background-color: #F0F9FC; // 배경색
+            left: 0px; // 좌측에 딱 붙게 설정
+            width: 240px; // 폭
+            height: 100%; // 높이
+            padding: 0px; // 패딩
+            transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
+        }
     }
 }
 
-main {
-    flex: 1;
-    display: flex;
+main { 
+    background-color: #fff;
+
+    @include laptop {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+    @include desktop {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+
+        
+        background-color: #fff;
+    }
+    
+}
+
+// 지도를 담는 div 태그(데스크톱)
+#map-container-desktop {
+    // 모바일
+    // 상하좌우 중앙정렬
+    display: none;
+
+    // 데스크톱
+    @include laptop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 90%; /* 원하는 너비 */
+        height: 90%;
+    }
+    // 데스크톱
+    @include desktop {
+        display: flex;
+        // 중앙 정렬
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        width: 90%; /* 원하는 너비 */
+        height: 90%;        
+    }
+}
+
+
+// 지도를 담는 div 태그(모바일)
+#map-container-mobile {
+    
+    
+    width: 100%;
+    height: 100%;
+
+    // 데스크톱
+    @include laptop {
+        display: none;
+    }
+    // 데스크톱
+    @include desktop {
+        display: none;       
+    }
+}
+
+// 지도 가변 크기 조절
+#map-mobile {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#map-desktop {
+    display:flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    width: 100%;
+    height: 100%;
 }
 
-#map-container {
-   position: relative;
-   width: 80%;
-   height: 80%;
-   border: 5px solid #000;
-}
-
-#map {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-}
 
 .output span {
     display: none;

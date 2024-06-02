@@ -11,17 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function toggleNav() {
-    var sidebar = document.getElementById("sidebar");
-    var button = document.querySelector(".toggle");
-    if (sidebar.style.width === "200px") {
-        button.innerText = "열기";
-        sidebar.style.width = "20px";
-    } else {
-        button.innerText = "닫기";
-        sidebar.style.width = "200px";
-    }
-}
 document.querySelectorAll('.combo-box').forEach(function(select) {
     select.addEventListener('change', function() {
         var selectedOption = select.options[select.selectedIndex].text;
@@ -63,6 +52,7 @@ document.querySelectorAll('.combo-box').forEach(function(select) {
     });
 });
 
+// ==================================================================================모바일 슬라이드 애니매이션 JQUERY===================================================================================================
 // 버튼 애니메이션 jQuery
 // $(function(){
 //     $("#slide-open").click(function(){
@@ -78,18 +68,18 @@ document.querySelectorAll('.combo-box').forEach(function(select) {
 //     });
 // });
 
-// 버튼 애니메이션 jQuery
-$("#slide-open").click(function(){  //버튼 클릭 시
+// 슬라이드 애니메이션 
+$("#slide-open").on("click", function(){  //버튼 클릭 시
 
     if($("#burgur").hasClass('on')){ //메뉴가 X 상태일때
 
       $("#burgur").removeClass('on'); //메뉴 원복
-      $("#slide").removeClass('on');  //슬라이드 메뉴 원복
+      $("#filter").removeClass('on');  //슬라이드 메뉴 원복
     
     } else{
 
       $("#burgur").addClass('on');    //메뉴 3줄
-      $("#slide").addClass('on');     //슬라이드 메뉴 감춤
+      $("#filter").addClass('on');     //슬라이드 메뉴 감춤
     
     }
 });

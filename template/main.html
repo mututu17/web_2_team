@@ -6,98 +6,117 @@
     <title>Merge Test</title>
     <link rel="stylesheet" href="../css/test.css">
     <script src="../js/jquery-1.9.1.js"></script>
+    <!--폰트 적용-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <!--USERID 바꾸기!!-->
     <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=&submodules=drawing"></script>
 </head>
 
 <body>
-    <header>
-        <nav id="buttonbar">
-            <ul>
-                <li id="logo"><a href="javascript:void(0)" onclick="window.location.reload()"><img
-                            src="../images/bike_logo.png" alt="로고" width="30" height="30"></a></li>
-                <li>
-                    <select id="거리순" class="combo-box">
-                        <option value="" disabled selected>거리순</option>
-                        <option value="0 ~ 3 km">0 ~ 3 km</option>
-                        <option value="3 ~ 6 km">3 ~ 6 km</option>
-                        <option value="6 ~ ... km">6 ~ ... km</option>
-                    </select>
-                </li>
-                <li>
-                    <select id="목적지" class="combo-box">
-                        <option value="" disabled selected>목적지 선택</option>
-                        <option value="광안리">광안리</option>
-                        <option value="해운대">해운대</option>
-                        <option value="송정">송정</option>
-                        <option value="부경대">부경대</option>
-                    </select>
-                </li>
-                <li>
-                    <select id="추천코스" class="combo-box">
-                        <option value="" disabled selected>추천 코스</option>
-                        <option value="코스 A">코스 A</option>
-                        <option value="코스 B">코스 B</option>
-                        <option value="코스 C">코스 C</option>
-                    </select>
-                </li>
-                <li>
-                    <select id="풍경" class="combo-box">
-                        <option value="" disabled selected>풍경</option>
-                        <option value="산">산</option>
-                        <option value="바다">바다</option>
-                        <option value="도심">도심</option>
-                    </select>
-                </li>
-            </ul>
-            <!--모바일 메뉴-->
-            <div class="wrapper">
-                <div class="container">
-                    <div class="head">
-                        <div class="slide-open" id="slide-open">
-                            <span class="burgur" id="burgur">
-                                <span class="top-line"></span>
-                                <span class="bot-line"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="body">
-                        <div class="content_mobile">
-                            컨텐츠
-                        </div>
-                        <div class="slide" id="slide">
-                            <div class="slide-title">
-                                슬라이드
-                            </div>
-                            <ul>
-                                <li>슬라이드 메뉴</li>
-                                <li>슬라이드 메뉴</li>
-                                <li>슬라이드 메뉴</li>
-                                <li>슬라이드 메뉴</li>
-                                <li>슬라이드 메뉴</li>
-                                <li>슬라이드 메뉴</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
+
+<!--============================================================데스크톱 웹사이트 시작=================================================================================-->
+
+<!--데스크톱 해더 시작-->
+    <header id="desktop-header">
+       <!--헤더 반응형으로 만들기-->
+        <!--반응형만 성공, 다른 세부적인 콤보박스와 로고에 들어가는 이름 부분 밑줄 삭제, 위치 수정 필요-->
+        <!--로고 이미지는 임시. 다만 공용 로고 이미지 사용 사이트가 있는 것 같음. 활용 가능성 고려.-->
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="javascript:void(0)" onclick="window.location.reload()"><img src="../images/logo.png" alt="로고" width="130" height="130"></a>
+                <a href="javascript:void(0)" onclick="window.location.reload()">zagza</a>
+            </div>
+            <div class="navbar_menu">
+                <a href="#">소개</a>
+                <a href="main copy.html">지도</a>
+                <a href="#">기타</a>
             </div>
         </nav>
-        <div class="output">
-            <span id="거리순-span">거리순</span>
-            <span id="목적지-span">목적지</span>
-            <span id="추천코스-span">추천코스</span>
-            <span id="풍경-span">풍경</span>
-        </div>
     </header>
-    <!--===============================================================================================지도 시작==========================================================================================-->
+<!--데스크톱 해더 끝-->
+
+<!--데스크톱 메인, 사이드바 시작-->   
+<ul class="filters">
+    <li>
+        <select id="거리순" class="combo-box">
+                <option value="" disabled selected>----거리순----</option>
+                <option value="0 ~ 3 km">0 ~ 3 km</option>
+                <option value="3 ~ 6 km">3 ~ 6 km</option>
+                <option value="6 ~ ... km">6 ~ ... km</option>
+        </select>
+    </li>
+    <li>
+        <select id="목적지" class="combo-box">
+            <option value="" disabled selected>----장소----</option>
+            <option value="광안리">광안리</option>
+            <option value="해운대">해운대</option>
+            <option value="송정">송정</option>
+            <option value="부경대">부경대</option>
+        </select>                        
+    </li>
+    <li>
+        <select id="풍경" class="combo-box">
+            <option value="" disabled selected>----풍경----</option>
+            <option value="산">산</option>                                
+            <option value="바다">바다</option>
+            <option value="도심">도심</option>
+        </select>
+    </li>
+</ul> 
     <div class="content">
         <main>
             <!-- 지도를 만드는 div 생성 -->
-            <div id="map-container">
-                <div id="map">
+            <div class="map-container" id="map-container-desktop">
+                <div id="map-desktop">
+                </div>
+            </div>  
+        </main>
+        <!--변경점: class명 변경, toggleNav() 함수 사용 X-->
+        <aside class="toggle-aside"> <!--class 명 toggle-aside로 변경 -->
+            <input type="checkbox" id="aside-check-1"> <!--toggleNav()함수 사용 X, checkbox 형태로 변경, id 변경-->
+            <label for="aside-check-1"></label>
+            <nav class="information"> <!--설명 부분을 nav 박스로 감싸고 class명을 information으로 추가-->
+                <br>
+                <p id="selected-option">    </p> 
+
+                <p>이 사이에 간단하게 꾸미기</p>
+                <!--1안 루트부산 처럼 사진 오른쪽에 간략한 설명
+                    2안 비짓부산 처럼 사진을 와이드하게 펼치고 밑에 설명-->
+                <a href="#" id="link" target="_blank"><img src="#" id="image" width="240", height="150"></a>
+                <p style="font-size: 18px;">관광지 이름</p>
+                <hr width="230" size="3" color="lightgray">
+                <p>한줄 설명</p>
+                <p style="font-size: 13px;">거리</p>
+                <p style="font-size: 13px;">관련 정보들...</p>
+                <br>
+                <a href="#" id="linkT" target="_blank" style="font-size: 15px;">자세히 알아보기</a>
+            </nav>
+        </aside>
+    </div>
+<!--데스크톱 메인, 사이드바 끝-->
+
+<!--============================================================데스크톱 웹 끝=================================================================================-->
+        
+<!--==============================================================모바일 웹 시작===============================================================================-->
+<!--모바일 헤더-->
+    <!--flex로 조절해보기-->
+<div class="wrapper">
+    <div class="container">
+        <header id="mobile-header">
+            <div class="mobile-head">
+                <div class="slide-open" id="slide-open">
+                    <span class="burgur" id="burgur">
+                        <span class="top-line"></span>
+                        <span class="bot-line"></span>
+                    </span>
                 </div>
             </div>
+
 
             <script id="polyline-data">
                 var bikeload0 = {
@@ -314,9 +333,59 @@
                     index: 1
                 }
             </script>
-            <!-- 지도 내부 조작을 위한 스크립트 -->
-            <script id="code">
-                // https://velog.io/@milkcoke/import-JSON-in-HTML
+          
+        </header>
+        <main id="mobile-main">
+            <div class="mobile-body">
+                <!--모바일 컨텐츠(지도) 시작-->
+                <div class="map-container" id="map-container-mobile">
+                    <div id="map-mobile">
+                    </div>
+                </div>
+                <!--모바일 필터 메뉴 시작-->
+                <div class="filter" id="filter">
+                    <div class="filter-item">
+                        <label for="combo1">거리순</label>
+                        <select id="combo1" class="filter-comboBox">
+                            <option value="1-1">0 ~ 3 km</option>
+                            <option value="1-2">3 ~ 6 km</option>
+                            <option value="1-3">6 ~ 9 km</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="combo2">장소</label>
+                        <select id="combo2" class="filter-comboBox">
+                            <option value="2-1">해운대구</option>
+                            <option value="2-2">수영구</option>
+                            <option value="2-3">남구</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="combo3">풍경</label>
+                        <select id="combo3" class="filter-comboBox">
+                            <option value="3-1">산</option>
+                            <option value="3-2">바다</option>
+                            <option value="3-3">도시</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </main>  
+        <!--여기에 아래 부가 요소들 설정-->
+        <aside id="mobile-aside">
+            <div class="mobile-summary">
+                정보 요약 창
+            </div>
+        </aside>
+    </div>    
+</div>
+<!--==============================================================모바일 끝===============================================================================-->
+
+<!--==============================================================지도 설정 사작===============================================================================-->
+
+<!-- 지도 내부 조작을 위한 스크립트 -->
+<script id="code">
+   // https://velog.io/@milkcoke/import-JSON-in-HTML
                 const getRouteInfo = async (index) => {
                     const route = await fetch('./route.json').then(response => { return response.json() });
                     return route[index];
@@ -400,62 +469,100 @@
                         )
                     });
                 }
+    // 지도 크기 변환 코드 시작
+    var desktopMap, mobileMap;
+    var bicycleLayer = new naver.maps.BicycleLayer();   // 자전거 레이어 표현 변수(빨간 코스)
+    function initMap() {
+        var mapOptions = {
+            center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753)
+        };
+        // 데스크톱버전 지도 변수
+        desktopMap = new naver.maps.Map('map-desktop', mapOptions);
+        // 모바일 버전 지도 변수
+        mobileMap = new naver.maps.Map('map-mobile', mapOptions);
 
-                // 그리기 기능 관련
-                naver.maps.onJSContentLoaded = function () {
-                    var drawingManager = new naver.maps.drawing.DrawingManager({ map: map });
-                };
+        // 자전거 레이어 표시
+        naver.maps.Event.once(desktopMap, 'init', function() {
+            bicycleLayer.setMap(desktopMap);    // 기본 자전거 코스 추가
+            addPolyline(desktopMap);            // 추천 자전거 코스 추가
+            
+        });
 
-                //자전거 도로 표시 관련
-                var bicycleLayer = new naver.maps.BicycleLayer();
-                // btn이 id=bicycle 인 DOM 객체를 나타냄
-                var btn = $('#bicycle');
+        naver.maps.Event.once(mobileMap, 'init', function() {
+            bicycleLayer.setMap(mobileMap);     // 기본 자전거 코스 추가
+            addPolyline(mobileMap);             // 추천 자전거 코스 추가
+        });
+        
+    }
+    
+    $(document).ready(function() {
+        initMap();
+    });
 
-                /*이벤트 리스너 등록*/
-                /*naver.maps.Event.addListener(이벤트 적용될 대상=map, 이벤트 이름='bicycleLayer_changed', 이벤트 리스너=function(bicycleLayer)*/
-                naver.maps.Event.addListener(map, 'bicycleLayer_changed', function (bicycleLayer) {
-                    if (bicycleLayer) {
-                        btn.addClass('control-on');
-                    } else {
-                        btn.removeClass('control-on');
-                    }
-                });
+    $(window).resize(function() {
+        if ($(window).width() <= 768) {
+            naver.maps.Event.trigger(mobileMap, 'resize');
+        } else {
+            naver.maps.Event.trigger(desktopMap, 'resize');
+        }
+    });
+    // 지도 크기 변환 코드 끝
+    
+    // 폴리라인 추가 함수
+    function addPolyline(map) {
+        // 폴리라인 추가
+        var polyline = new naver.maps.Polyline({
+            path: polylinePath,
+            strokeColor: '#00CA00',
+            strokeOpacity: 0.8,
+            strokeWeight: 6,
+            zIndex: 2,
+            clickable: true,
+            map: map
+        });
 
-                btn.on("click", function (e) {
-                    e.preventDefault();
+        /*폴리라인에 대한 이벤트 함수*/
+        /* 폴리라인 각각 적용할 수 있을까 조사 요망*/
+        naver.maps.Event.addListener(polyline, "mouseover", function () {
+            polyline.setOptions({
+                strokeWeight: 20
+            });
+        });
 
-                    // 레이어가 있다면
-                    if (bicycleLayer.getMap()) {
-                        bicycleLayer.setMap(null);  // 삭제
-                    }
-                    // 없다면
-                    else {
-                        bicycleLayer.setMap(map);   // 추가
-                    }
-                });
-                // 시작하면 한번 하는 함수
-                naver.maps.Event.once(map, 'init', function () {
-                    bicycleLayer.setMap(map);
-                });
+        naver.maps.Event.addListener(polyline, "mouseout", function () {
+            polyline.setOptions({
+                strokeWeight: 6
+            });
+        });
 
-            </script>
+        naver.maps.Event.addListener(polyline, "mousedown", function () {
+            polyline.setOptions({
+                strokeWeight: 20
+            });
+        });
+    
+        naver.maps.Event.addListener(polyline, "mouseup", function () {
+            polyline.setOptions({
+                strokeWeight: 6
+            });
+        });
 
-        </main>
 
-        <!--=======================================================================================지도 끝========================================================================================================-->
+        naver.maps.Event.addListener(polyline, "click", function () {
+            alert('수영강 코스입니다.');
+        });
+    }
+    
+    // 폴리라인 그리는 함수
+    naver.maps.onJSContentLoaded = function() {
+        var drawingManager = new naver.maps.drawing.DrawingManager({map: desktopMap});
+    };
+    naver.maps.onJSContentLoaded = function() {
+        var drawingManager = new naver.maps.drawing.DrawingManager({map: mobileMap});
+    };
+</script>
+<!--==============================================================지도 설정 끝===============================================================================-->
 
-        <aside class="sidebar" id="sidebar">
-            <button class="toggle" onclick="toggleNav()">닫기</button>
-            <p id="selected-option">목적지</p>
-            <a href="#" id="link" target="_blank"><img src="#" id="image" width="180" , height="180"></a>
-            <p>참고자료</p>
-            <p class="describe"></p>
-            <p><span class = "startSpot">start</span> <br><span class = "endSpot">end</span></p>
-            <p class = "total">total</p>
-            <a href="#" id="linkT" target="_blank">링크</a>
-        </aside>
-    </div>
-    <script src="../js/scripts.js"></script>
+<script src="../js/scripts.js"></script>
 </body>
-
 </html>
