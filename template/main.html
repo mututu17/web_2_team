@@ -381,135 +381,26 @@
 </div>
 <!--==============================================================모바일 끝===============================================================================-->
 
-<!--==============================================================지도 설정 사작===============================================================================-->
-
-<!-- 지도 내부 조작을 위한 스크립트 -->
 <script id="code">
-   // https://velog.io/@milkcoke/import-JSON-in-HTML
-                const getRouteInfo = async (index) => {
-                    const route = await fetch('./route.json').then(response => { return response.json() });
-                    return route[index];
-                };
+    const getRouteInfo = async (index) => {
+        const route = await fetch('./route.json').then(response => response.json());
+        return route[index];
+    };
 
+    var polyline = new Array(100);
 
-                var map = new naver.maps.Map('map', { //초기위치 
-                    center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
-                });
+    // 자전거 도로 클릭시 변화하는 코드를 함수로 정의
+    function addPolylineEvents(polyline, bikeload) {
+        const highlight = () => polyline.setOptions({ strokeWeight: 20 });
+        const unhighlight = () => polyline.setOptions({ strokeWeight: 6 });
 
-                //추천 코스 관련
-                var polyline = new Array(100);
-                //추천코스 화면에 표시
-                for (let i = 0; i < 100; i++) {
-                    let bikeload = window['bikeload' + i];
-                    if (!bikeload) break;
-                    polyline[i] = new naver.maps.Polyline({
-                        path: bikeload.polylinePath,
-                        strokeColor: '#00CA00',
-                        strokeOpacity: 0.8,
-                        strokeWeight: 6,
-                        zIndex: 2,
-                        clickable: true,
-                        map: map
-                    });
-                    addPolylineEvents(polyline[i], bikeload);
-                }
-
-                //자전거 도로 클릭시 변화하는 코드를 함수로 정의
-                function addPolylineEvents(polyline, bikeload) {
-                    naver.maps.Event.addListener(polyline, "mouseover", function () {
-                        polyline.setOptions({
-                            strokeWeight: 20
-                        });
-                    });
-
-                    naver.maps.Event.addListener(polyline, "mouseout", function () {
-                        polyline.setOptions({
-                            strokeWeight: 6
-                        });
-                    });
-
-                    naver.maps.Event.addListener(polyline, "mousedown", function () {
-                        polyline.setOptions({
-                            strokeWeight: 20
-                        });
-                    });
-
-                    naver.maps.Event.addListener(polyline, "mouseup", function () {
-                        polyline.setOptions({
-                            strokeWeight: 6
-                        });
-                    });
-
-                    naver.maps.Event.addListener(polyline, "click", function () {
-                        getRouteInfo(bikeload.index).then(
-                            (res) => {
-                                const gugunNm = res.gugunNm
-                                const startSpot = res.startSpot
-                                const endSpot = res.endSpot
-                                const total = res.total
-
-                                const img_element = document.querySelector("#image") //이미지 변경
-                                const img_url = res.url;
-                                img_element.src = img_url
-
-                                const describe_element = document.querySelector("#sidebar > p.describe")
-                                describe_element.innerHTML = res.describe; 
-
-                                const startSpot_element = document.querySelector("span.startSpot")
-                                startSpot_element.innerHTML = res.startSpot; 
-
-                                const endSpot_element = document.querySelector("span.endSpot")
-                                endSpot_element.innerHTML = res.endSpot; 
-
-                                const total_element = document.querySelector("p.total")
-                                total_element.innerHTML = res.total; 
-
-                                alert(`${gugunNm}\n${startSpot}\n${endSpot}\n${total}\n${bikeload.index}`);
-                            }
-                        )
-                    });
-                }
-    // 지도 크기 변환 코드 시작
-    var desktopMap, mobileMap;
-    var bicycleLayer = new naver.maps.BicycleLayer();   // 자전거 레이어 표현 변수(빨간 코스)
-    function initMap() {
-        var mapOptions = {
-            center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753)
-        };
-        // 데스크톱버전 지도 변수
-        desktopMap = new naver.maps.Map('map-desktop', mapOptions);
-        // 모바일 버전 지도 변수
-        mobileMap = new naver.maps.Map('map-mobile', mapOptions);
-
-        // 자전거 레이어 표시
-        naver.maps.Event.once(desktopMap, 'init', function() {
-            bicycleLayer.setMap(desktopMap);    // 기본 자전거 코스 추가
-            addPolyline(desktopMap);            // 추천 자전거 코스 추가
-            
-        });
-
-        naver.maps.Event.once(mobileMap, 'init', function() {
-            bicycleLayer.setMap(mobileMap);     // 기본 자전거 코스 추가
-            addPolyline(mobileMap);             // 추천 자전거 코스 추가
-        });
-        
+        naver.maps.Event.addListener(polyline, "mouseover", highlight);
+        naver.maps.Event.addListener(polyline, "mouseout", unhighlight);
+        naver.maps.Event.addListener(polyline, "mousedown", highlight);
+        naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
     }
-    
-    $(document).ready(function() {
-        initMap();
-    });
 
-    $(window).resize(function() {
-        if ($(window).width() <= 768) {
-            naver.maps.Event.trigger(mobileMap, 'resize');
-        } else {
-            naver.maps.Event.trigger(desktopMap, 'resize');
-        }
-    });
-    // 지도 크기 변환 코드 끝
-    
-    // 폴리라인 추가 함수
-    function addPolyline(map) {
+    function addPolyline(map, polylinePath, index) {
         // 폴리라인 추가
         var polyline = new naver.maps.Polyline({
             path: polylinePath,
@@ -521,44 +412,62 @@
             map: map
         });
 
-        /*폴리라인에 대한 이벤트 함수*/
-        /* 폴리라인 각각 적용할 수 있을까 조사 요망*/
-        naver.maps.Event.addListener(polyline, "mouseover", function () {
-            polyline.setOptions({
-                strokeWeight: 20
-            });
-        });
-
-        naver.maps.Event.addListener(polyline, "mouseout", function () {
-            polyline.setOptions({
-                strokeWeight: 6
-            });
-        });
-
-        naver.maps.Event.addListener(polyline, "mousedown", function () {
-            polyline.setOptions({
-                strokeWeight: 20
-            });
-        });
-    
-        naver.maps.Event.addListener(polyline, "mouseup", function () {
-            polyline.setOptions({
-                strokeWeight: 6
-            });
-        });
-
+        // 폴리라인 이벤트 추가
+        addPolylineEvents(polyline, { index });
 
         naver.maps.Event.addListener(polyline, "click", function () {
-            alert('수영강 코스입니다.');
+            getRouteInfo(index).then((res) => {
+                const { gugunNm, startSpot, endSpot, total, url, describe } = res;
+
+                document.querySelector("#image").src = url; // 이미지 변경
+                document.querySelector("#sidebar > p.describe").innerHTML = describe;
+                document.querySelector("span.startSpot").innerHTML = startSpot;
+                document.querySelector("span.endSpot").innerHTML = endSpot;
+                document.querySelector("p.total").innerHTML = total;
+
+                alert(`${gugunNm}\n${startSpot}\n${endSpot}\n${total}\n${index}`);
+            });
         });
     }
-    
-    // 폴리라인 그리는 함수
-    naver.maps.onJSContentLoaded = function() {
-        var drawingManager = new naver.maps.drawing.DrawingManager({map: desktopMap});
-    };
-    naver.maps.onJSContentLoaded = function() {
-        var drawingManager = new naver.maps.drawing.DrawingManager({map: mobileMap});
+
+    var desktopMap, mobileMap;
+    var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
+
+    function initMap() {
+        var mapOptions = { center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753) };
+
+        // 데스크톱 및 모바일 버전 지도 변수 초기화
+        desktopMap = new naver.maps.Map('map-desktop', mapOptions);
+        mobileMap = new naver.maps.Map('map-mobile', mapOptions);
+
+        // 자전거 레이어 및 폴리라인 추가
+        const addMapLayers = (map) => {
+            bicycleLayer.setMap(map);
+            for (let i = 0; i < 100; i++) {
+                let bikeload = window['bikeload' + i];
+                if (!bikeload) break;
+                addPolyline(map, bikeload.polylinePath, i);
+            }
+        };
+
+        naver.maps.Event.once(desktopMap, 'init', () => addMapLayers(desktopMap));
+        naver.maps.Event.once(mobileMap, 'init', () => addMapLayers(mobileMap));
+    }
+
+    $(document).ready(initMap);
+
+    $(window).resize(() => {
+        if ($(window).width() <= 768) {
+            naver.maps.Event.trigger(mobileMap, 'resize');
+        } else {
+            naver.maps.Event.trigger(desktopMap, 'resize');
+        }
+    });
+
+    // 그리기 기능 관련
+    naver.maps.onJSContentLoaded = () => {
+        new naver.maps.drawing.DrawingManager({ map: desktopMap });
+        new naver.maps.drawing.DrawingManager({ map: mobileMap });
     };
 </script>
 <!--==============================================================지도 설정 끝===============================================================================-->
