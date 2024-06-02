@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <!--USERID 바꾸기!!-->
     <script type="text/javascript"
-        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=&submodules=drawing"></script>
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uqfnagwda6&submodules=drawing"></script>
 </head>
 
 <body>
@@ -90,8 +90,8 @@
                 <a href="#" id="link" target="_blank"><img src="#" id="image" width="240", height="150"></a>
                 <p style="font-size: 18px;">관광지 이름</p>
                 <hr width="230" size="3" color="lightgray">
-                <p>한줄 설명</p>
-                <p style="font-size: 13px;">거리</p>
+                <p class="describe">한줄 설명</p>
+                <p class = "total" style="font-size: 13px;" >거리</p>
                 <p style="font-size: 13px;">관련 정보들...</p>
                 <br>
                 <a href="#" id="linkT" target="_blank" style="font-size: 15px;">자세히 알아보기</a>
@@ -420,7 +420,7 @@
                 const { gugunNm, startSpot, endSpot, total, url, describe } = res;
 
                 document.querySelector("#image").src = url; // 이미지 변경
-                document.querySelector("#sidebar > p.describe").innerHTML = describe;
+                document.querySelector("p.describe").innerHTML = describe;
                 document.querySelector("span.startSpot").innerHTML = startSpot;
                 document.querySelector("span.endSpot").innerHTML = endSpot;
                 document.querySelector("p.total").innerHTML = total;
