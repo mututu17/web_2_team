@@ -23,25 +23,22 @@
 
 <!--데스크톱 해더 시작-->
     <header id="desktop-header">
-       <!--헤더 반응형으로 만들기-->
-        <!--반응형만 성공, 다른 세부적인 콤보박스와 로고에 들어가는 이름 부분 밑줄 삭제, 위치 수정 필요-->
-        <!--로고 이미지는 임시. 다만 공용 로고 이미지 사용 사이트가 있는 것 같음. 활용 가능성 고려.-->
         <nav class="navbar">
             <div class="navbar_logo">
-                <a href="javascript:void(0)" onclick="window.location.reload()"><img src="../images/logo.png" alt="로고" width="130" height="130"></a>
-                <a href="javascript:void(0)" onclick="window.location.reload()">zagza</a>
+                <a href="page.html"><img src="../images/logo.png" alt="로고" width="130" height="130"></a>
+                <a href="page.html">zagza</a>
             </div>
             <div class="navbar_menu">
                 <a href="#">소개</a>
-                <a href="main copy.html">지도</a>
-                <a href="#">기타</a>
+                <a href="main.html">지도</a>
+                <a href="method.html">사용방법</a>
             </div>
         </nav>
     </header>
 <!--데스크톱 해더 끝-->
 
 <!--데스크톱 메인, 사이드바 시작-->   
-<ul class="filters">
+    <ul class="filters">
     <li>
         <select id="거리순" class="combo-box">
                 <option value="" disabled selected>----거리순----</option>
@@ -67,7 +64,7 @@
             <option value="도심">도심</option>
         </select>
     </li>
-</ul> 
+    </ul> 
     <div class="content">
         <main>
             <!-- 지도를 만드는 div 생성 -->
