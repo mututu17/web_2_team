@@ -41,7 +41,7 @@ body {
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #F0F9FC; /* 수평선 */
-        height: 150px;
+        height: 200px;
     }
     @include desktop {
         position: sticky;
@@ -53,9 +53,6 @@ body {
     }
 }
 
-
-
-// -------------------------------------------------데스크탑 헤더 --------------------------------------
 .navbar {
     display: flex;
     position: sticky;
@@ -163,14 +160,14 @@ body {
     appearance: none;
     @include laptop {
         display: inline;
-        width: 80hv;
+        width: 100hv;
         height: 100hv;
         font-size: 15px;
         padding: .6rem .5rem;
         color:#030029;
         border: 1px solid #ffffff;
         margin-right: 10px;
-        //background: linear-gradient( to bottom, #F0F9FC 40%, #ffffff);
+        //background: linear-gradient( to top, #F0F9FC 40%, #ffffff);
         background-color: #ffffff;
         border-radius: 20px 20px 20px 20px;
         font-family: "Noto Sans KR", sans-serif;
@@ -186,11 +183,76 @@ body {
         color:#030031;
         border: 1px solid #ffffff;
         margin-right: 40px;
-        //background: linear-gradient( to bottom, #F0F9FC 40%, #ffffff );
+        //background: linear-gradient( to top, #F0F9FC 40%, #ffffff );
         background-color: #ffffff;
         border-radius: 20px 20px 20px 20px;
         font-family: "Noto Sans KR", sans-serif;
        
+    }
+}
+
+// 홈페이지에서 메인메이지 들어가는 링크
+.main_image_container{
+    display: flex;
+    position: relative;
+    place-items: center;
+    margin-top: 30px;
+}
+
+.another_page{
+    display: none;
+    justify-content: center;
+    a{
+        text-decoration: none;
+        font-size: large;
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+    background-color: #F0F9FC;
+    
+
+    @include laptop{
+        display: flex;
+        position:relative;
+        width: 100%;
+        margin: 100px 0;
+        
+    }
+
+    @include desktop{
+        display: flex;
+        position:relative;
+        width: 100%;
+        margin: 0px 0;
+        a{
+            margin-left: 200px;
+        }
+    }
+}
+
+// 홈페이지 이미지 위 소개글
+#intro{
+    display: none;
+    color: #070068;
+    background-color: #8ee3ff;
+    z-index: 1;
+    box-sizing: border-box;
+    font-size: 50px;
+    bottom: 300px;
+    width: 700px;
+    height: 300px;
+    border-radius: 0 30px 30px 0;
+
+    @include laptop{
+        display: flex;
+        position: relative;
+    }
+
+    @include desktop{
+        display: flex;
+        position:relative;
+        
+  
     }
 }
 
