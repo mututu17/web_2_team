@@ -4,8 +4,10 @@
         "startSpot": "동래구 안락동 15-61",
         "endSpot": "수영구 수영동 547",
         "total": "3.5",
-        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20191227204422373_wufrotr",
-        "describe": "수영강 자전거길"
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20200101142253061_wufrotr",
+        "attraction": "수영강 자전거길",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000202002001000&uc_seq=468&lang_cd=ko",
+        "describe": "자전거로 즐기는 부산"
     },
     {
         "gugunNm": "부산광역시 강서구",
@@ -13,71 +15,89 @@
         "endSpot": "신호동 268",
         "total": "0.503",
         "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20240201225043211",
-        "describe": "인공철새서식지 명품둘레길"
+        "attraction": "인공철새서식지 명품둘레길",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1777&lang_cd=ko",
+        "describe": "자연 그대로 보존되어 있는 곳"
     },
     {
-        "gugunNm": "부산광역시 해운대구",
-        "startSpot": "좌동 1461-6",
-        "endSpot": "좌동 1486-1",
-        "total": "0.82",
-        "url": "",
-        "describe": ""
+        "gugunNm": "부산광역시 남구",
+        "startSpot": "대연동 703-10",
+        "endSpot": "용당동 402-1",
+        "total": "1",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20231026100048785_wufrotr",
+        "attraction": "유엔평화공원",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1731&lang_cd=ko",
+        "describe": "아름다운 산책길 코스"
     },
     {
-        "gugunNm": "부산광역시 해운대구",
-        "startSpot": "좌동 395-3",
-        "endSpot": "좌동 1317",
-        "total": "0.62",
-        "url": "",
-        "describe": ""
+        "gugunNm": "부산광역시 사하구",
+        "startSpot": "다대동 482-6",
+        "endSpot": "다대동 1543",
+        "total": "0.965",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20230921171143884_wufrotr",
+        "attraction": "다대포해변공원",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1718&lang_cd=ko",
+        "describe": "해수천, 잔디광장, 송림 가득한 산책길"
     },
     {
-        "gugunNm": "부산광역시 해운대구",
-        "startSpot": "좌동 1336",
-        "endSpot": "좌동 1338",
-        "total": "0.36",
-        "url": "",
-        "describe": ""
+        "gugunNm": "부산광역시 사상구",
+        "startSpot": "삼락동 29-8",
+        "endSpot": "삼락동 29-72",
+        "total": "3.142",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20230723172025932",
+        "attraction": "감전야생화단지",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1677&lang_cd=ko",
+        "describe": "부산 최대의 야생화 및 수생식물 체험학습장"
     },
     {
-        "gugunNm": "부산광역시 해운대구",
-        "startSpot": "좌동 1419",
-        "endSpot": "좌동 1420",
-        "total": "0.15",
-        "url": "",
-        "describe": ""
+        "gugunNm": "부산광역시 강서구",
+        "startSpot": "공항로 746",
+        "endSpot": "대저2동 1200-24",
+        "total": "3.08",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20230713150615959",
+        "attraction": "맥도생태공원",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1674&lang_cd=ko",
+        "describe": "자연 그대로의 모습으로 사랑받는 곳"
     },
     {
         "gugunNm": "부산광역시 해운대구",
         "startSpot": "송정동 157-10",
         "endSpot": "송정동 77-7",
         "total": "2.1",
-        "url": "",
-        "describe": ""
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20230713153840580",
+        "attraction": "대저생태공원",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1673&lang_cd=ko",
+        "describe": "대표적인 자연생태 친수공간"
+    },
+    {
+        "gugunNm": "부산광역시 북구",
+        "startSpot": "낙동강자전거길 1425",
+        "endSpot": "생태공원길 167",
+        "total": "2.4",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20230519190619574",
+        "attraction": "화명생태공원",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=1434&lang_cd=ko",
+        "describe": "계절의 싱그러움을 만끽하는 곳"
+    },
+    {
+        "gugunNm": "부산광역시 기장군",
+        "startSpot": "일광읍 동백리 51-2",
+        "endSpot": "일광읍 신평리 11",
+        "total": "0.67",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20200514115750295",
+        "attraction": "신평소공원",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=757&lang_cd=ko",
+        "describe": "아름다운 갈맷길 코스"
     },
     {
         "gugunNm": "부산광역시 해운대구",
-        "startSpot": "송정동 135-5",
-        "endSpot": "송정동 81-1",
-        "total": "1.4",
-        "url": "",
-        "describe": ""
-    },
-    {
-        "gugunNm": "부산광역시 해운대구",
-        "startSpot": "송정동 138-6",
-        "endSpot": "송정동 288-57",
-        "total": "0.6",
-        "url": "",
-        "describe": ""
-    },
-    {
-        "gugunNm": "부산광역시 해운대구",
-        "startSpot": "반송동 산 15-2",
-        "endSpot": "석대동 산 58-7",
-        "total": "2.5",
-        "url": "",
-        "describe": ""
+        "startSpot": "우동 706-11",
+        "endSpot": "중동 1039-14",
+        "total": "1.5",
+        "url": "https://www.visitbusan.net/uploadImgs/files/cntnts/20191229153541526_oen",
+        "attraction": "해운대해수욕장",
+        "link": "https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=373&lang_cd=ko",
+        "describe": "무궁무진한 매력의 해수욕장"
     },
     {
         "gugunNm": "부산광역시 해운대구",
@@ -85,6 +105,8 @@
         "endSpot": "반여동 1502-49",
         "total": "2.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -93,6 +115,8 @@
         "endSpot": "반여동 1473-15",
         "total": "1.87",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -101,6 +125,8 @@
         "endSpot": "우동 1494",
         "total": "6.12",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -109,6 +135,8 @@
         "endSpot": "반여동 1486",
         "total": "1.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -117,6 +145,8 @@
         "endSpot": "우동 1483",
         "total": "2.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -125,6 +155,8 @@
         "endSpot": "재송동 1213",
         "total": "0.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -133,6 +165,8 @@
         "endSpot": "재송동 1200",
         "total": "0.65",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -141,6 +175,8 @@
         "endSpot": "재송동 1207",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -149,6 +185,8 @@
         "endSpot": "우동 1493",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -157,6 +195,8 @@
         "endSpot": "우동 1496",
         "total": "0.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -165,6 +205,8 @@
         "endSpot": "우동 1499",
         "total": "0.18",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -173,6 +215,8 @@
         "endSpot": "우동 1544",
         "total": "2.56",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -181,6 +225,8 @@
         "endSpot": "우동 1430",
         "total": "1.84",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -189,6 +235,8 @@
         "endSpot": "우동 565-7",
         "total": "1.86",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -197,6 +245,8 @@
         "endSpot": "중동 1754-3",
         "total": "5.56",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -205,6 +255,8 @@
         "endSpot": "중동 1766-1",
         "total": "4.99",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -213,6 +265,8 @@
         "endSpot": "좌동 1420",
         "total": "1.66",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -221,6 +275,8 @@
         "endSpot": "좌동 1427-2",
         "total": "1.66",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -229,6 +285,8 @@
         "endSpot": "좌동 1427-2",
         "total": "1.91",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -237,6 +295,8 @@
         "endSpot": "중동 1275-3",
         "total": "0.54",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -245,6 +305,8 @@
         "endSpot": "좌동 1427-2",
         "total": "1.95",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -253,6 +315,8 @@
         "endSpot": "좌동 1334",
         "total": "2.77",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -261,6 +325,8 @@
         "endSpot": "좌동 1302",
         "total": "1.74",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -269,6 +335,8 @@
         "endSpot": "좌동 1331",
         "total": "2.01",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -277,6 +345,8 @@
         "endSpot": "우동 1483",
         "total": "0.45",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -285,6 +355,8 @@
         "endSpot": "우동 602-6",
         "total": "5.57",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -293,6 +365,8 @@
         "endSpot": "부산광역시 중구 충장대로13번길 40",
         "total": "1.65",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -301,6 +375,8 @@
         "endSpot": "동삼동 865-15, 휴덤하리 입구",
         "total": "7.68",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -309,6 +385,8 @@
         "endSpot": "동삼동 1023-1, 태종대 입구",
         "total": "0.64",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -317,6 +395,8 @@
         "endSpot": "아시아드대로 61",
         "total": "0.57",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -325,6 +405,8 @@
         "endSpot": "아시아드대로 106",
         "total": "0.26",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -333,6 +415,8 @@
         "endSpot": "아시아드대로 107",
         "total": "0.26",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -341,6 +425,8 @@
         "endSpot": "명륜로 17",
         "total": "2.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -349,6 +435,8 @@
         "endSpot": "거제동 69-9",
         "total": "1.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -357,6 +445,8 @@
         "endSpot": "중앙대로 1179",
         "total": "1.69",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -365,6 +455,8 @@
         "endSpot": "중앙대로1255",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -373,6 +465,8 @@
         "endSpot": "법원북로 86",
         "total": "0.75",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -381,6 +475,8 @@
         "endSpot": "법원북로 81",
         "total": "0.75",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -389,6 +485,8 @@
         "endSpot": "법원로 5",
         "total": "0.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -397,6 +495,8 @@
         "endSpot": "법원로 2",
         "total": "0.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -405,6 +505,8 @@
         "endSpot": "미남로 20",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -413,6 +515,8 @@
         "endSpot": "여고로 138",
         "total": "0.69",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -421,6 +525,8 @@
         "endSpot": "연안로 25",
         "total": "2.92",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -429,6 +535,8 @@
         "endSpot": "쌍미천로 132",
         "total": "0.66",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -437,6 +545,8 @@
         "endSpot": "아시아드대로 64",
         "total": "0.57",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -445,6 +555,8 @@
         "endSpot": "월드컵대로 126",
         "total": "1.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -453,6 +565,8 @@
         "endSpot": "월드컵대로 125",
         "total": "1.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -461,6 +575,8 @@
         "endSpot": "월드컵대로 266",
         "total": "0.52",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -469,6 +585,8 @@
         "endSpot": "월드컵대로 259",
         "total": "0.52",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -477,6 +595,8 @@
         "endSpot": "중앙대로 1179",
         "total": "2.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -485,6 +605,8 @@
         "endSpot": "부산광역시 수영구 망미동 1090",
         "total": "1.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -493,6 +615,8 @@
         "endSpot": "부산광역시 수영구 망미동 1066-1",
         "total": "2.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -501,6 +625,8 @@
         "endSpot": "부산광역시 수영구 민락동 110-27",
         "total": "0.94",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -509,6 +635,8 @@
         "endSpot": "부산광역시 수영구 남천동 545-2",
         "total": "0.5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -517,6 +645,8 @@
         "endSpot": "부산광역시 수영구 남천동 561",
         "total": "1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -525,6 +655,8 @@
         "endSpot": "부산광역시 수영구 남천동 148-2",
         "total": "1.1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -533,6 +665,8 @@
         "endSpot": "부산광역시 수영구 민락동 181-84",
         "total": "1.5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -541,6 +675,8 @@
         "endSpot": "남항대교 입구",
         "total": "1.38",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -549,6 +685,8 @@
         "endSpot": "동양시멘트",
         "total": "1.56",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -557,6 +695,8 @@
         "endSpot": "하단동 888-18,하구둣교차로",
         "total": "2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -565,6 +705,8 @@
         "endSpot": "하단동 1153-1",
         "total": "2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -573,6 +715,8 @@
         "endSpot": "신평동 645-2,신평역",
         "total": "0.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -581,6 +725,8 @@
         "endSpot": "다대동 1519-4",
         "total": "2.05",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -589,6 +735,8 @@
         "endSpot": "신평동 651-9",
         "total": "2.03",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -597,6 +745,8 @@
         "endSpot": "신평동 642-9",
         "total": "2.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -605,6 +755,8 @@
         "endSpot": "신평동 69",
         "total": "0.21",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -613,6 +765,8 @@
         "endSpot": "신평동 665",
         "total": "0.41",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -621,6 +775,8 @@
         "endSpot": "괴정동 347-18",
         "total": "1.11",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -629,6 +785,8 @@
         "endSpot": "신평동 503",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -637,6 +795,8 @@
         "endSpot": "신평동 651-9",
         "total": "0.31",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -645,6 +805,8 @@
         "endSpot": "다대동 1580",
         "total": "0.96",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -653,6 +815,8 @@
         "endSpot": "구평동 480-1",
         "total": "4.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -661,6 +825,8 @@
         "endSpot": "감천동 296-59",
         "total": "1.17",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -669,6 +835,8 @@
         "endSpot": "신평동 642-9",
         "total": "4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -677,6 +845,8 @@
         "endSpot": "구평동 480-1",
         "total": "0.98",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -685,6 +855,8 @@
         "endSpot": "하단동 을숙도 유원지",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -693,6 +865,8 @@
         "endSpot": "하단동 1157-24",
         "total": "4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -701,6 +875,8 @@
         "endSpot": "다대포해수욕장(노을정휴게소)",
         "total": "4.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -709,6 +885,8 @@
         "endSpot": "신평동 642-9",
         "total": "4.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -717,6 +895,8 @@
         "endSpot": "다대포해수욕장(노을정휴게소)",
         "total": "5.45",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -725,6 +905,8 @@
         "endSpot": "장림동 1037",
         "total": "5.45",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -733,6 +915,8 @@
         "endSpot": "괴정동 481-1",
         "total": "0.38",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -741,6 +925,8 @@
         "endSpot": "장림동 1037",
         "total": "2.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -749,6 +935,8 @@
         "endSpot": "신평동 472-1",
         "total": "0.93",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -757,6 +945,8 @@
         "endSpot": "감천동 449-2",
         "total": "0.32",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -765,6 +955,8 @@
         "endSpot": "구평동 472-15",
         "total": "0.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -773,6 +965,8 @@
         "endSpot": "사하구경계",
         "total": "9.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -781,6 +975,8 @@
         "endSpot": "사상지하철역",
         "total": "0.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -789,6 +985,8 @@
         "endSpot": "광장로2번길 17 맞은편",
         "total": "4.15",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -797,6 +995,8 @@
         "endSpot": "감전교차로",
         "total": "0.47",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -805,6 +1005,8 @@
         "endSpot": "감전교차로",
         "total": "3.04",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -813,6 +1015,8 @@
         "endSpot": "감전중천공영P",
         "total": "1.06",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -821,6 +1025,8 @@
         "endSpot": "낙동제방",
         "total": "1.76",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -829,6 +1035,8 @@
         "endSpot": "사상구청교차로",
         "total": "0.74",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -837,6 +1045,8 @@
         "endSpot": "학장교차로방향",
         "total": "0.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -845,6 +1055,8 @@
         "endSpot": "사상구청교차로",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -853,6 +1065,8 @@
         "endSpot": "금곡동 1874-3 (농협 하나로 마트)",
         "total": "2.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -861,6 +1075,8 @@
         "endSpot": "화명동 2306 (대림쌍용아파트 706동)",
         "total": "2.34",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -869,6 +1085,8 @@
         "endSpot": "화명동 2318 (한국방송통신대)",
         "total": "2.85",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -877,6 +1095,8 @@
         "endSpot": "화명동 2315-9 (도시철도 수정역)",
         "total": "2.15",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -885,6 +1105,8 @@
         "endSpot": "화명동 2324 (롯데캐슬카이저 106동)",
         "total": "2.75",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -893,6 +1115,8 @@
         "endSpot": "화명동 295 (도시화명그린 208동)",
         "total": "1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -901,6 +1125,8 @@
         "endSpot": "화명동 1743-1 (북구 화명운동장)",
         "total": "0.33",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -909,6 +1135,8 @@
         "endSpot": "화명동 2259 (화명고교)",
         "total": "0.23",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -917,6 +1145,8 @@
         "endSpot": "화명동 953 (농협)",
         "total": "0.15",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -925,6 +1155,8 @@
         "endSpot": "구포동 166 (덕천교차로-구포시장)",
         "total": "1.5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -933,6 +1165,8 @@
         "endSpot": "화명IC(램프F) 일원",
         "total": "1.159",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -941,6 +1175,8 @@
         "endSpot": "금곡동 1898 (화명인재유치원)",
         "total": "0.58",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -949,6 +1185,8 @@
         "endSpot": "구포동 1184-12(사상구경계)",
         "total": "1.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -957,6 +1195,8 @@
         "endSpot": "화명동 310 (코오롱아파트 103동)",
         "total": "1.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -965,6 +1205,8 @@
         "endSpot": "대학로46번길 5",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -973,6 +1215,8 @@
         "endSpot": "대학로46번길 42",
         "total": "0.21",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -981,6 +1225,8 @@
         "endSpot": "당감동 858-15",
         "total": "1.17",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -989,6 +1235,8 @@
         "endSpot": "신천대로 281",
         "total": "0.12",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -997,6 +1245,8 @@
         "endSpot": "동평로 218",
         "total": "0.12",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1005,6 +1255,8 @@
         "endSpot": "부산시민공원 북2문",
         "total": "0.55",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1013,6 +1265,8 @@
         "endSpot": "양정현대아파트",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1021,6 +1275,8 @@
         "endSpot": "중앙대로 883-2",
         "total": "1.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1029,6 +1285,8 @@
         "endSpot": "연수로 13-1",
         "total": "0.55",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1037,6 +1295,8 @@
         "endSpot": "연수로 70",
         "total": "1.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1045,6 +1305,8 @@
         "endSpot": "중앙대로990번길 8",
         "total": "0.5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1053,6 +1315,8 @@
         "endSpot": "동평로 393",
         "total": "0.31",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1061,6 +1325,8 @@
         "endSpot": "동평로 422",
         "total": "0.31",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1069,6 +1335,8 @@
         "endSpot": "거제대로 76",
         "total": "0.26",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1077,6 +1345,8 @@
         "endSpot": "동평로 211",
         "total": "1.76",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1085,6 +1355,8 @@
         "endSpot": "새싹로 30",
         "total": "0.23",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1093,6 +1365,8 @@
         "endSpot": "중앙대로 735",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1101,6 +1375,8 @@
         "endSpot": "중앙대로 787",
         "total": "0.13",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1109,6 +1385,8 @@
         "endSpot": "중앙대로 808",
         "total": "0.72",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1117,6 +1395,8 @@
         "endSpot": "새싹로 76",
         "total": "0.1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1125,6 +1405,8 @@
         "endSpot": "범전동 35-79",
         "total": "0.83",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1133,6 +1415,8 @@
         "endSpot": "양정동 367-1",
         "total": "0.71",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1141,6 +1425,8 @@
         "endSpot": "범전동 446",
         "total": "1.23",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1149,6 +1435,8 @@
         "endSpot": "거제대로 88",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1157,6 +1445,8 @@
         "endSpot": "당감서로 3",
         "total": "1.17",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1165,6 +1455,8 @@
         "endSpot": "부암동 183-1",
         "total": "2.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1173,6 +1465,8 @@
         "endSpot": "가야동 629",
         "total": "0.45",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1181,6 +1475,8 @@
         "endSpot": "가야대로 601",
         "total": "1.15",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1189,6 +1485,8 @@
         "endSpot": "가야동 197-3",
         "total": "0.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1197,6 +1495,8 @@
         "endSpot": "가야동 585-13",
         "total": "0.28",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1205,6 +1505,8 @@
         "endSpot": "가야대로 407",
         "total": "0.36",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1213,6 +1515,8 @@
         "endSpot": "문전교차로",
         "total": "1.05",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1221,6 +1525,8 @@
         "endSpot": "전포대로 236",
         "total": "1.13",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1229,6 +1535,8 @@
         "endSpot": "범전로 6",
         "total": "0.126",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1237,6 +1545,8 @@
         "endSpot": "새싹로 95",
         "total": "0.33",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1245,6 +1555,8 @@
         "endSpot": "새싹로 130-7",
         "total": "0.33",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1253,6 +1565,8 @@
         "endSpot": "전포동 665-29",
         "total": "1.075",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1261,6 +1575,8 @@
         "endSpot": "전포대로 240",
         "total": "1.075",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1269,6 +1585,8 @@
         "endSpot": "부산광역시 동래구 충렬대로 171 (명륜동)",
         "total": "2.94",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1277,6 +1595,8 @@
         "endSpot": "부산광역시 동래구 충렬대로 157-1 (온천동)",
         "total": "1.65",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1285,6 +1605,8 @@
         "endSpot": "부산광역시 동래구 1520 (온천동)",
         "total": "1.65",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1293,6 +1615,8 @@
         "endSpot": "안락교",
         "total": "5.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1301,6 +1625,8 @@
         "endSpot": "부산광역시 동래구 금강로 54 (온천동)",
         "total": "0.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1309,6 +1635,8 @@
         "endSpot": "부산광역시 동래구 85 (온천동)",
         "total": "0.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1317,6 +1645,8 @@
         "endSpot": "부산광역시 동래구 중앙대로1307번길 6 (온천동)",
         "total": "0.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1325,6 +1655,8 @@
         "endSpot": "부산광역시 동래구 아시아드대로 109 (사직동)",
         "total": "1.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1333,6 +1665,8 @@
         "endSpot": "사직교차로",
         "total": "0.47",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1341,6 +1675,8 @@
         "endSpot": "부산광역시 동래구 사직로 55-32 (사직동)",
         "total": "0.15",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1349,6 +1685,8 @@
         "endSpot": "부산광역시 동래구 아시아드대로 113 (사직동)",
         "total": "0.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1357,6 +1695,8 @@
         "endSpot": "부산광역시 동래구 미남로 11 (사직동)",
         "total": "0.48",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1365,6 +1705,8 @@
         "endSpot": "부산광역시 동래구 미남로 27 (사직동)",
         "total": "1.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1373,6 +1715,8 @@
         "endSpot": "부산광역시 동래구 미남로 148 (온천동)",
         "total": "1.1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1381,6 +1725,8 @@
         "endSpot": "부산광역시 동래구 충렬대로 506 (안락동)",
         "total": "3.52",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1389,6 +1735,8 @@
         "endSpot": " 부산광역시 동래구 온천천로 345 (낙민동)",
         "total": "2.35",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1397,6 +1745,8 @@
         "endSpot": "수영강",
         "total": "0.73",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1405,6 +1755,8 @@
         "endSpot": "수영강",
         "total": "0.24",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1413,6 +1765,8 @@
         "endSpot": "온천천",
         "total": "1.1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1421,6 +1775,8 @@
         "endSpot": "온천천",
         "total": "1.28",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1429,6 +1785,8 @@
         "endSpot": "영주고가교",
         "total": "4.2km",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1437,6 +1795,8 @@
         "endSpot": "분포로 101 (용호만유람선터미널 북서끝)",
         "total": "0.32",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1445,6 +1805,8 @@
         "endSpot": "분포로 111 (LG메트로 123동 동남끝)",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1453,6 +1815,8 @@
         "endSpot": "분포로 111 (LG메트로 133동 남서끝)",
         "total": "0.15",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1461,6 +1825,8 @@
         "endSpot": "대연동 55-19 (경성대부경대역3번 출구)",
         "total": "1.05",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1469,6 +1835,8 @@
         "endSpot": "분포로 111 (LG메트로 234동 북서끝)",
         "total": "0.42",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1477,6 +1845,8 @@
         "endSpot": "49호 광장 (남천메가마트 횡단보도)",
         "total": "0.46",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1485,6 +1855,8 @@
         "endSpot": "분포로 1 (용호지구대)",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1493,6 +1865,8 @@
         "endSpot": "분포로 111 (LG메트로 131동 남서끝)",
         "total": "0.96",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1501,6 +1875,8 @@
         "endSpot": "분포교",
         "total": "0.81",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1509,6 +1885,8 @@
         "endSpot": "용소로 68 (TBN방송국 맞은편 횡단보도)",
         "total": "0.78",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1517,6 +1895,8 @@
         "endSpot": "유엔평화로 51 (UN교차로)",
         "total": "0.83",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1525,6 +1905,8 @@
         "endSpot": "전포대로 122-1 (금융단지부동산)",
         "total": "0.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1533,6 +1915,8 @@
         "endSpot": "수영로 364 (대남교차로)",
         "total": "1.31",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1541,6 +1925,8 @@
         "endSpot": "진남로 4 (대연사거리)",
         "total": "1.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1549,6 +1935,8 @@
         "endSpot": "용호동 924-6 (면허시험장교차로)",
         "total": "0.84",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1557,6 +1945,8 @@
         "endSpot": "신선로 566-2 (용호1동 주민센터분소)",
         "total": "0.36",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1565,6 +1955,8 @@
         "endSpot": "유엔평화로 63 (부산박물관 후문)",
         "total": "0.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1573,6 +1965,8 @@
         "endSpot": "유엔로 127-2 (대성맨션)",
         "total": "0.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1581,6 +1975,8 @@
         "endSpot": "부산박물관주차장 입구",
         "total": "0.31",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1589,6 +1985,8 @@
         "endSpot": "천제등로 28",
         "total": "0.38",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1597,6 +1995,8 @@
         "endSpot": "수영로 186 (삼성리빙프라자)",
         "total": "0.25",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1605,6 +2005,8 @@
         "endSpot": "천제등로 28",
         "total": "0.29",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1613,6 +2015,8 @@
         "endSpot": "수영로 73-1 (지게골역2번출구)",
         "total": "1.16",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1621,6 +2025,8 @@
         "endSpot": "수영로 184 (하이마트)",
         "total": "1.13",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1629,6 +2035,8 @@
         "endSpot": "지게골로 4",
         "total": "0.73",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1637,6 +2045,8 @@
         "endSpot": "범일교",
         "total": "0.295",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1645,6 +2055,8 @@
         "endSpot": "하구교",
         "total": "0.11",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1653,6 +2065,8 @@
         "endSpot": "용당동 168-35(화물차 휴게소)",
         "total": "1.61",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1661,6 +2075,8 @@
         "endSpot": "문현동 729-28",
         "total": "0.63",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1669,6 +2085,8 @@
         "endSpot": "수영로 74-5(무학프라자@)",
         "total": "0.75",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1677,6 +2095,8 @@
         "endSpot": "유엔로 246(대연자이@108동앞)",
         "total": "0.22",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1685,6 +2105,8 @@
         "endSpot": "시랑리 725 (오시리아 스퀘어)",
         "total": "0.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1693,6 +2115,8 @@
         "endSpot": "기장체육관",
         "total": "2.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1701,6 +2125,8 @@
         "endSpot": "기장죽성교차로",
         "total": "2.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1709,6 +2135,8 @@
         "endSpot": "고촌리 110-9",
         "total": "1.5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1717,6 +2145,8 @@
         "endSpot": "굿거리언덕공원",
         "total": "1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1725,6 +2155,8 @@
         "endSpot": "송정1호교",
         "total": "2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1733,6 +2165,8 @@
         "endSpot": "장전2호교",
         "total": "0.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1741,6 +2175,8 @@
         "endSpot": "장안산단",
         "total": "1.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1749,6 +2185,8 @@
         "endSpot": "장안산단",
         "total": "1.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1757,6 +2195,8 @@
         "endSpot": "안평리 산 15-3 (안평저수지)",
         "total": "0.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1765,6 +2205,8 @@
         "endSpot": "이천리 산 34-12",
         "total": "6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1773,6 +2215,8 @@
         "endSpot": "청강사거리",
         "total": "7.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1781,6 +2225,8 @@
         "endSpot": "신평리 14-6",
         "total": "2.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1789,6 +2235,8 @@
         "endSpot": "효암리 산11-1",
         "total": "6.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1797,6 +2245,8 @@
         "endSpot": "명례산단",
         "total": "2.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1805,6 +2255,8 @@
         "endSpot": "임랑리 151-2 (임랑주차장)",
         "total": "12.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1813,6 +2265,8 @@
         "endSpot": "대변 무양삼거리",
         "total": "5.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1821,6 +2275,8 @@
         "endSpot": "롯데아울렛 도로 일원",
         "total": "5.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1829,6 +2285,8 @@
         "endSpot": "월드컵빌리지 외곽도로",
         "total": "2.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1837,6 +2295,8 @@
         "endSpot": "일광이지더원2차 204동 인근",
         "total": "7.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1845,6 +2305,8 @@
         "endSpot": "죽성리 197 (신앙촌 인근)",
         "total": "0.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1853,6 +2315,8 @@
         "endSpot": "구칠리 산 75-146 (갈치고개 인근)",
         "total": "1.18",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1861,6 +2325,8 @@
         "endSpot": "교리 338 (국민건강보험공단 기장지사)",
         "total": "0.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1869,6 +2335,8 @@
         "endSpot": "임랑리 164-1 (임랑교차로)",
         "total": "1.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1877,6 +2345,8 @@
         "endSpot": "달산리 1242 (재흥아파트 인근)",
         "total": "8.1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1885,6 +2355,8 @@
         "endSpot": "용수리 1318 (정관협성르네상스 106동 인근)",
         "total": "1.65",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1893,6 +2365,8 @@
         "endSpot": "달산리 1209 (정관신도시LH5단지 508동 인근)",
         "total": "1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1901,6 +2375,8 @@
         "endSpot": "반룡리 836-1 (쿠팡부산5캠프)",
         "total": "7.85",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1909,6 +2385,8 @@
         "endSpot": "오리 156-18 (오리산단)",
         "total": "6.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1917,6 +2395,8 @@
         "endSpot": "신천교",
         "total": "3.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1925,6 +2405,8 @@
         "endSpot": "기장경계점",
         "total": "2.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1933,6 +2415,8 @@
         "endSpot": "학송정",
         "total": "1",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1941,6 +2425,8 @@
         "endSpot": "선동 상현회관",
         "total": "0.5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1949,6 +2435,8 @@
         "endSpot": "동천교",
         "total": "2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1957,6 +2445,8 @@
         "endSpot": "온천장역",
         "total": "4.8",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1965,6 +2455,8 @@
         "endSpot": "금사역",
         "total": "1.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1973,6 +2465,8 @@
         "endSpot": "레미안아파트 112동",
         "total": "0.62",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1981,6 +2475,8 @@
         "endSpot": "노포역",
         "total": "7.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1989,6 +2485,8 @@
         "endSpot": "온천장역",
         "total": "7.6",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -1997,6 +2495,8 @@
         "endSpot": "남산시장",
         "total": "0.7",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2005,6 +2505,8 @@
         "endSpot": "남산역",
         "total": "0.3",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2013,6 +2515,8 @@
         "endSpot": "신천테니스장",
         "total": "2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2021,6 +2525,8 @@
         "endSpot": "선동상현회관",
         "total": "5",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2029,6 +2535,8 @@
         "endSpot": "통합이주단지 입구",
         "total": "3.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2037,6 +2545,8 @@
         "endSpot": "신명교",
         "total": "6.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2045,6 +2555,8 @@
         "endSpot": "명지I.C",
         "total": "15.2",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2053,6 +2565,8 @@
         "endSpot": "창원시경계",
         "total": "13.9",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2061,6 +2575,8 @@
         "endSpot": "신호대교입구",
         "total": "3.74",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2069,6 +2585,8 @@
         "endSpot": "평강삼거리",
         "total": "2.97",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2077,6 +2595,8 @@
         "endSpot": "녹송3호교",
         "total": "4.11",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2085,6 +2605,8 @@
         "endSpot": "르노삼성로 접속부",
         "total": "3.43",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2093,6 +2615,8 @@
         "endSpot": "화전산업단지 내",
         "total": "20.53",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2101,6 +2625,8 @@
         "endSpot": "서부산유통단지 내",
         "total": "7.53",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2109,6 +2635,8 @@
         "endSpot": "킹마트",
         "total": "10",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
     },
     {
@@ -2117,6 +2645,9 @@
         "endSpot": "녹산고향동산",
         "total": "13.4",
         "url": "",
+        "attraction": "",
+        "link": "",
         "describe": ""
+
     }
 ]
