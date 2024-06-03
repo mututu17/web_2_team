@@ -479,10 +479,9 @@ body {
   }
   .toggle-aside input[type=checkbox] + label::after {
     position: absolute;
-    content: "◀";
+    content: "◁";
     color: #574fd2;
     opacity: 90%;
-    background-color: #fff;
     padding: 5px;
     border-radius: 0px 0 15 0px;
     font-size: 1.2em;
@@ -495,7 +494,7 @@ body {
   }
   .toggle-aside input[type=checkbox]:checked + label::after {
     left: 0px;
-    content: "▶";
+    content: "▷";
     transition: left 0.5s, background-color 0.5s;
   }
   .toggle-aside input[type=checkbox]:checked + label + .information {
@@ -504,7 +503,7 @@ body {
   }
   .toggle-aside .information {
     text-align: center;
-    background: linear-gradient(to top, #b7edff, #ffffff 60%);
+    background: linear-gradient(to top, #b7edff, #ffffff 35%);
     font-family: "Anta", sans-serif;
     position: absolute;
     left: 0px;
@@ -517,7 +516,7 @@ body {
     border-radius: 20px 20px 5px 5px;
   }
   .toggle-aside .information .lb-wrap {
-    margin: 10px auto;
+    margin: 20px auto;
     position: relative;
   }
   .toggle-aside .information .lb-wrap img {
@@ -525,13 +524,12 @@ body {
     vertical-align: middle;
   }
   .toggle-aside .information .lb-text {
-    padding: 10px 20px;
-    border-radius: 10px;
-    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
     position: absolute;
+    padding: 5px 5px;
     top: 50%;
     left: 50%;
-    color: #fff;
+    color: #000;
     transform: translate(-50%, -50%);
   }
   .toggle-aside .information .text-infor {
@@ -557,10 +555,9 @@ body {
   }
   .toggle-aside input[type=checkbox] + label::after {
     position: absolute;
-    content: "◀";
+    content: "◁";
     color: #574fd2;
     opacity: 90%;
-    background-color: #fff;
     padding: 5px;
     border-radius: 0px 0 15 0px;
     font-size: 1.2em;
@@ -573,7 +570,7 @@ body {
   }
   .toggle-aside input[type=checkbox]:checked + label::after {
     left: 0px;
-    content: "▶";
+    content: "▷";
     transition: left 0.5s, background-color 0.5s;
   }
   .toggle-aside input[type=checkbox]:checked + label + .information {
@@ -582,7 +579,7 @@ body {
   }
   .toggle-aside .information {
     text-align: center;
-    background: linear-gradient(to top, #b7edff, #ffffff 60%);
+    background: linear-gradient(to top, #b7edff, #ffffff 35%);
     font-family: "Anta", sans-serif;
     position: absolute;
     left: 0px;
