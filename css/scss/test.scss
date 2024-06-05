@@ -42,6 +42,11 @@ body {
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #F0F9FC; /* 수평선 */
         height: 200px;
+        /*#header_shadow{
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+            box-shadow: 10px 10px 5px #1d1a4e15;
+        }*/
     }
     @include desktop {
         position: sticky;
@@ -49,14 +54,18 @@ body {
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #ffffff; /* 수평선 */
         height: 200px;
-        
+        #header_shadow{
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+            box-shadow: 0px 5px 5px #1d1a4e15;
+        }
     }
 }
 
 .navbar {
     display: flex;
     position: sticky;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 0 60px;
     align-items:center; 
     animation: navbarBottom 1s forwards;
@@ -80,9 +89,8 @@ body {
     
 
     @include laptop {
-        display: inline;
+        display: inline-flex;
         list-style: none;
-        
     }
    @include desktop{
         display: inline;
@@ -100,9 +108,9 @@ body {
         list-style: none;
         font-size: 2rem;
         margin-right: 2rem;
-        right: 50px;
+        right: 30px;
         border-left: 3px solid #f2f5ff;
-        padding: 0px 40px;
+        padding: 0px 30px; //줄바꿈 고치기
         margin: 30px 0px;
        
     }
@@ -202,19 +210,20 @@ body {
 // 홈페이지에서 메인메이지 들어가는 링크
 .main_image_container{
     display: none;
+    
 
     @include laptop {
         display: flex;
         position: relative;
         place-items: center;
-        margin-top: 30px;
+        box-shadow: 10px 10px 5px #1d1a4e15;
     }
 
     @include desktop {
         display: flex;
         position: relative;
         place-items: center;
-        margin-top: 30px;
+        box-shadow: 10px 10px 5px #1d1a4e15;
     }
 }
 
@@ -227,12 +236,15 @@ body {
         margin-right: 200px;
         margin-left: 200px;
     }
-    background-color: #F0F9FC;
+    //background-color: #F0F9FC;
     
 
     @include laptop{
         display: flex;
         position:relative;
+        a{
+            margin: 4vw;
+        }
         width: 100%;
         margin: 100px 0;
         
@@ -252,15 +264,21 @@ body {
 // 홈페이지 이미지 위 소개글
 #intro{
     display: none;
-    color: #070068;
-    background-color: #8ee3ff;
+    color: #ffffff;
+    //background: #8ee3ff;
+    background :linear-gradient( to left, #003749, #070068);
     z-index: 1;
+    box-shadow: 0px 10px 10px #1d1a4e21;
     box-sizing: border-box;
-    font-size: 50px;
-    bottom: 300px;
-    width: 700px;
-    height: 300px;
-    border-radius: 0 30px 30px 0;
+    left: 25%;
+    font-size: 1.4vw;
+    bottom: 3vw;
+    width: 50vw;
+    height: 4vw;
+    border-radius: 30px 30px 30px 30px;
+    place-content: center;
+    text-align: center;
+    align-items: center;
 
     @include laptop{
         display: flex;
@@ -275,6 +293,34 @@ body {
     }
 }
 
+#main_lists{
+    display: none;
+    //padding-left: 10%;
+    color:#0b00a0da;
+    left: 43%;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 30px;
+    font-weight: 100px;
+    //background-color: #F0F9FC;
+    place-content: center;
+    text-align: center;
+    width: 300px;
+    border-radius: 100px;
+    border: 5px solid #5e53ffe5;
+    /*border-bottom: 10px solid;
+    border-top: 10px solid;
+    border-color: #4a93ff;*/
+    @include laptop{
+        display: block;
+        position: relative;
+    }
+
+    @include desktop{
+        display: block;
+        position:relative;
+    }
+}
 //=======================================================================================================================================
 // 모바일 메뉴 시작
 // 헤더부분
