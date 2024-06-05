@@ -41,31 +41,27 @@ body {
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #F0F9FC; /* 수평선 */
-        height: 200px;
-        /*#header_shadow{
-            padding-bottom: 10px;
-            margin-bottom: 5px;
-            box-shadow: 10px 10px 5px #1d1a4e15;
-        }*/
+        height: 100px; //헤더 높이 수정
+        padding-bottom: 5px;
+        margin-bottom: 5px;
     }
+
     @include desktop {
         position: sticky;
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #ffffff; /* 수평선 */
-        height: 200px;
-        #header_shadow{
-            padding-bottom: 10px;
-            margin-bottom: 5px;
-            box-shadow: 0px 5px 5px #1d1a4e15;
-        }
+        height: 100px; // 헤더 높이 수정
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        
     }
 }
 
 .navbar {
     display: flex;
     position: sticky;
-    justify-content:space-between;
+    //justify-content:space-between;
     padding: 0 60px;
     align-items:center; 
     animation: navbarBottom 1s forwards;
@@ -73,13 +69,16 @@ body {
         position: fixed;
         font-family: "Anta", sans-serif;//"Madimi One", sans-serif;
         text-decoration: none;
-        vertical-align:text-top;
+        vertical-align: middle;
         position: relative;
         font-weight: 600;
         color: #070068;
-        margin-left: 15px;
-        top: 30px;
-        font-size: 90px
+        margin-left: 7px;
+        top: 5px;
+        font-size: 50px
+    }
+    img{
+        vertical-align: text-top; //로고 위치 수정
     }
 }
 
@@ -91,10 +90,12 @@ body {
     @include laptop {
         display: inline-flex;
         list-style: none;
+        flex-grow: 1;
     }
    @include desktop{
         display: inline;
         list-style: none;
+        flex-grow: 1;
 
     }
 }
@@ -106,7 +107,7 @@ body {
     @include laptop {
         display: inline;
         list-style: none;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-right: 2rem;
         right: 30px;
         border-left: 3px solid #f2f5ff;
@@ -118,7 +119,7 @@ body {
    @include desktop{
         display: inline;
         list-style: none;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-right: 2rem;
         right: 50px;
         // 카피 버전 메뉴바 세로선 만들기
@@ -160,14 +161,17 @@ body {
     @include laptop{
         display: flex;
         list-style: none;
-        font-size: medium;
+        //font-size: medium;
+        //margin-top: .5vw;
     }
-    @include laptop{
+    @include desktop{
         display: flex;
         list-style: none;
-        font-size: medium;
+        //font-size: medium;
+        //margin-top: .5vw;
     }
 }
+
 
 .combo-box {
     display: none;
@@ -176,38 +180,59 @@ body {
     appearance: none;
     @include laptop {
         display: inline;
-        width: 100hv;
+        width: 100px; // 필터 크기 수정
         height: 100hv;
-        font-size: 15px;
-        padding: .6rem .5rem;
+        font-size: 1.2rem;
+        padding: 200hv;
         color:#030029;
-        border: 1px solid #ffffff;
-        margin-right: 10px;
+        border: 2px solid #070068;
+        text-align: center;
+        margin-right: 3rem;
         //background: linear-gradient( to top, #F0F9FC 40%, #ffffff);
         background-color: #ffffff;
-        border-radius: 20px 20px 20px 20px;
+        border-radius: 10px 10px 10px 10px;
         font-family: "Noto Sans KR", sans-serif;
     }
 
     @include desktop {
         display: inline;
-        width: 150hv;
-        height: 3rem;
-        font-weight: 400;
-        font-size: 1rem;
-        padding: 0 2rem;
+        width: 100px; // 필터 크기 수정
+        height: 100hv;
+        //font-weight: 400;
+        font-size: 1.2rem;
+        padding: 200hv;
         color:#030031;
-        border: 1px solid #ffffff;
-        margin-right: 40px;
+        border: 2px solid #070068;;
+        text-align: center;
+        margin-right: 3rem;
         //background: linear-gradient( to top, #F0F9FC 40%, #ffffff );
         background-color: #ffffff;
-        border-radius: 20px 20px 20px 20px;
+        border-radius: 10px 10px 10px 10px;
         font-family: "Noto Sans KR", sans-serif;
        
     }
 }
 
-// 홈페이지에서 메인메이지 들어가는 링크
+.combo-box:hover{
+    background: linear-gradient(to bottom, #dfdfdf 100%, #ffffff);
+}
+
+//사용방법 팝업창 버튼
+.manual_btn{
+    display: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    @include laptop{
+        display: inline;
+        
+    }
+    @include desktop{
+        display: inline;
+    }
+}
+
+// 홈페이지 이미지
 .main_image_container{
     display: none;
     
@@ -227,40 +252,6 @@ body {
     }
 }
 
-.another_page{
-    display: none;
-    justify-content: center;
-    a{
-        text-decoration: none;
-        font-size: large;
-        margin-right: 200px;
-        margin-left: 200px;
-    }
-    //background-color: #F0F9FC;
-    
-
-    @include laptop{
-        display: flex;
-        position:relative;
-        a{
-            margin: 4vw;
-        }
-        width: 100%;
-        margin: 100px 0;
-        
-    }
-
-    @include desktop{
-        display: flex;
-        position:relative;
-        width: 100%;
-        margin: 0px 0;
-        a{
-            margin-left: 200px;
-        }
-    }
-}
-
 // 홈페이지 이미지 위 소개글
 #intro{
     display: none;
@@ -270,7 +261,8 @@ body {
     z-index: 1;
     box-shadow: 0px 10px 10px #1d1a4e21;
     box-sizing: border-box;
-    left: 25%;
+    //left: 25%;
+    margin: 0 auto;
     font-size: 1.4vw;
     bottom: 3vw;
     width: 50vw;
@@ -293,34 +285,88 @@ body {
     }
 }
 
-#main_lists{
+//더 자세히 알아보기
+#main_lists{        
     display: none;
     //padding-left: 10%;
     color:#0b00a0da;
-    left: 43%;
     padding-top: 1vw;
     padding-bottom: 1vw;
     font-size: 30px;
     font-weight: 100px;
     //background-color: #F0F9FC;
+    justify-content: center;
     place-content: center;
     text-align: center;
+    align-items: flex-start;
     width: 300px;
     border-radius: 100px;
     border: 5px solid #5e53ffe5;
+    margin: 0 auto;
+    margin-top: 2vw;
     /*border-bottom: 10px solid;
     border-top: 10px solid;
     border-color: #4a93ff;*/
     @include laptop{
-        display: block;
+        display: flex;
         position: relative;
     }
 
     @include desktop{
-        display: block;
+        display: flex;
         position:relative;
     }
 }
+
+// 자전거도로그리기, 사용방법알아보기
+.another_page{
+    display: none;
+    margin:0 auto;
+    //margin-top: 10vw;
+    justify-content: center;
+    margin-left: 17vw;
+    margin-right: 17vw;
+    margin-bottom: 3vw;
+    a{
+        padding: 3vw;
+        text-decoration: none;
+        font-size: large;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 2vw;
+        width: 20vw;
+        border-radius: 20px 20px 20px 20px;
+        color:#000;
+        background-color: #003749;
+        
+    }
+    /*trap{
+        background-image: url("/images/bikeground.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 300%;
+    }*/
+
+    @include laptop{
+        display: flex;
+        position:relative;
+        height: 30vw;
+        
+    }
+
+    @include desktop{
+        display: flex;
+        position:relative;
+        height: auto;
+        a{
+        }
+    }
+}
+
+.another_page a:hover {
+    border: 2px solid #574fd2;
+}
+
 //=======================================================================================================================================
 // 모바일 메뉴 시작
 // 헤더부분
@@ -859,5 +905,3 @@ main {
         border-radius: 3px;
     }
 }
-
-
