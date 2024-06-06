@@ -5,7 +5,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 130vh; /* 반응형으로 100% */ /*임시로 늘림*/
+  height: 100vh; /* 반응형으로 100% */ /*임시로 늘림*/
 }
 
 @media (min-width: 1020px) {
@@ -481,7 +481,6 @@ body {
     position: absolute;
     content: "◁";
     color: #574fd2;
-    opacity: 90%;
     padding: 5px;
     border-radius: 0px 0 15 0px;
     font-size: 1.2em;
@@ -503,12 +502,12 @@ body {
   }
   .toggle-aside .information {
     text-align: center;
-    background: linear-gradient(to top, #b7edff, #ffffff 35%);
+    background: linear-gradient(to top, #b7edff, #ffffff 30%);
     font-family: "Anta", sans-serif;
     position: absolute;
     left: 0px;
     width: 240px;
-    height: 100%;
+    height: 80%;
     padding: 0px;
     transition: left 0.5s, background-color 0.5s;
   }
@@ -516,21 +515,19 @@ body {
     border-radius: 20px 20px 5px 5px;
   }
   .toggle-aside .information .lb-wrap {
-    margin: 20px auto;
+    margin: 10px auto;
     position: relative;
   }
-  .toggle-aside .information .lb-wrap img {
-    width: 100%;
-    vertical-align: middle;
+  .toggle-aside .information .lb-wrap .linkT {
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+    transition: 0.15s;
   }
-  .toggle-aside .information .lb-text {
-    background-color: rgba(255, 255, 255, 0.3);
-    position: absolute;
-    padding: 5px 5px;
-    top: 50%;
-    left: 50%;
-    color: #000;
-    transform: translate(-50%, -50%);
+  .toggle-aside .information .lb-wrap .linkT:hover {
+    color: lightblue;
+    transition: 0.15s;
   }
   .toggle-aside .information .text-infor {
     padding: 30px;
@@ -557,7 +554,6 @@ body {
     position: absolute;
     content: "◁";
     color: #574fd2;
-    opacity: 90%;
     padding: 5px;
     border-radius: 0px 0 15 0px;
     font-size: 1.2em;
@@ -579,12 +575,12 @@ body {
   }
   .toggle-aside .information {
     text-align: center;
-    background: linear-gradient(to top, #b7edff, #ffffff 35%);
+    background: linear-gradient(to top, #b7edff, #ffffff 30%);
     font-family: "Anta", sans-serif;
     position: absolute;
     left: 0px;
     width: 240px;
-    height: 100%;
+    height: 80%;
     padding: 0px;
     transition: left 0.5s, background-color 0.5s;
   }
@@ -595,19 +591,16 @@ body {
     margin: 10px auto;
     position: relative;
   }
-  .toggle-aside .information .lb-wrap img {
-    width: 100%;
-    vertical-align: middle;
+  .toggle-aside .information .lb-wrap .linkT {
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+    transition: 0.15s;
   }
-  .toggle-aside .information .lb-text {
-    padding: 10px 20px;
-    border-radius: 10px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-    transform: translate(-50%, -50%);
+  .toggle-aside .information .lb-wrap .linkT:hover {
+    color: lightblue;
+    transition: 0.15s;
   }
   .toggle-aside .information .text-infor {
     padding: 30px;
