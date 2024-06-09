@@ -41,14 +41,14 @@ body {
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #F0F9FC; /* 수평선 */
-        height: 200px;
+        height: 100px;
     }
     @include desktop {
         position: sticky;
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #ffffff; /* 수평선 */
-        height: 200px;
+        height: 100px;
         
     }
 }
@@ -70,7 +70,7 @@ body {
         color: #070068;
         margin-left: 15px;
         top: 30px;
-        font-size: 90px
+        font-size: 45px
     }
 }
 
@@ -490,23 +490,50 @@ body {
 // --------------------------필터 사이드바 드롭다운 끝-------------------------
 
 // ------------------------- 모바일 정보 요약 창 시작-------------------------
+/* 부모 요소가 너비를 조절할 수 있도록 설정 */
 #mobile-aside {
-    height: 30%;
-    position: relative;
-    padding-top: 25px;
+    border-top: 3px solid lightgray; // 지도와 정보 요약창 사이에 테두리
+    width: 100%;
 }
 
-.mobile-summary{
-    background-color: #F0F9FC;
-    border-bottom: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
+.mobile-aside-container {
+    display: flex;
+}
 
-    height: 95%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                 rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+/* 이미지 컨테이너가 부모 요소에 맞춰지도록 설정 */
+.mobile-image-wrapper {
+    padding-top: 15px;
+    padding-left: 10px;
+    width: 50%;
+    max-width: 600px; /* 원하는 최대 너비로 설정 */
+     /* 가운데 정렬 */
+}
+
+/* 이미지를 비율 상자에 맞게 조절 */
+.mobile-image {
+    border-radius: 10px 10px 10px 10px; // 사진 테두리 수정
+    position: absolute;
+    width: 48%; // 16:9비율
+    height: 27%;
+}
+
+/* 미디어 쿼리를 사용하여 특정 화면 크기에 맞춰 조정 가능 */
+@media (max-width: 600px) {
+    .mobile-image-wrapper {
+        max-width: 50%;
+    }
+}
+
+.mobile-text-info {
+    padding-top: 15px;
+    width:50%;
+    margin: 5px;
+    font-family: "Anta", sans-serif;
+    font-size:70%;
+    text-align: left;
+}
+.mobile-text-info p{
+    margin:7px;
 }
 
 // ==========================================================================메뉴 CSS END=========================================================================
