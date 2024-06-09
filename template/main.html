@@ -78,24 +78,17 @@
             </div>  
         </main>
         <!--변경점: class명 변경, toggleNav() 함수 사용 X-->
+        
         <aside class="toggle-aside"> <!--class 명 toggle-aside로 변경 -->
             <input type="checkbox" id="aside-check-1"> <!--toggleNav()함수 사용 X, checkbox 형태로 변경, id 변경-->
-            <label for="aside-check-1"></label>
+            <label for="aside-check-1">
+            </label>
             <nav class="information"> <!--설명 부분을 nav 박스로 감싸고 class명을 information으로 추가-->
                 <br>
-                <p id="selected-option">    </p> 
-                <!--1안 루트부산 처럼 사진 오른쪽에 간략한 설명
-                    2안 비짓부산 처럼 사진을 와이드하게 펼치고 밑에 설명-->
-
                 <div>
                     <div class="lb-wrap">
-                        <div class="lb-text">
-                            <hr width="50" size="2" color=#fff>
-                            <h3 id = "attraction">관광지</h3>
-                        </div>
-                        <div class="lb-image">
-                            <a href="#" id="link" target="_blank"><img src="#" id="image" class="aside-image" width="240", height="300"></a>
-                        </div>
+                        <a href="#" id="link" target="_blank"><img src="#" id="image" class="aside-image" width="240", height="300"></a>
+                        <a href="#" id="linkT" class="linkT" target="_blank">관광지명</a>
                         <p class="describe">한줄 설명</p>
                     </div>
                     <div class="text-infor">
@@ -109,7 +102,6 @@
                         <p class="describe"></p>
                     </div>
                 </div>
-
             </nav>
         </aside>
     </div>
@@ -167,12 +159,28 @@
                     </div>
                 </div>
             </div>
-        </main>  
-        <!--여기에 아래 부가 요소들 설정-->
+        </main>     
+        <!--정보 요약 창-->
         <aside id="mobile-aside">
-            <div class="mobile-summary">
-                정보 요약 창
+            <div class="mobile-aside-container">
+                <div class="mobile-image-wrapper">
+                    <img src="../images/송정.png" id="image" class="mobile-image">
+                </div>
+                <!--이미지 옆 설명텍스트-->
+                <div class="mobile-text-info"> 
+                    <p style="font-weight: bolder;"><a href="#" id="linkT" class="mobile-link" target="_blank">관광지명</a></p>
+                    <hr>
+                    <p><span style="font-weight: bolder;">거리:</span> 00km </p>
+                    <hr>
+                    <p><span style="font-weight: bolder;">시작 위치:</span> 부산광역시 ㅇㅇ동 ㅇㅇ구</p>
+                    <hr>
+                    <p><span style="font-weight: bolder;">도착 위치:</span> </p>
+                    <hr>
+                    <p>간단한 설명</p>
+                    <hr>
+                </div>
             </div>
+            
         </aside>
     </div>    
 </div>
