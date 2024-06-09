@@ -240,17 +240,19 @@ var bikeload11 = {
 var bikeload12 = {
     polylinePath:
         [
-            new naver.maps.LatLng(35.07856971727485, 129.02476341355182),
-            new naver.maps.LatLng(35.076421809205286, 129.02427458265262),
-            new naver.maps.LatLng(35.07641708963253, 129.02388256798702),
-            new naver.maps.LatLng(35.07614301791964, 129.02370040330723),
-            new naver.maps.LatLng(35.07607286231863, 129.02344928178735),
-            new naver.maps.LatLng(35.076152504085805, 129.0228620331618),
-            new naver.maps.LatLng(35.076293625459435, 129.02264079300562),
-            new naver.maps.LatLng(35.07679234826203, 129.02232149775978 ),
-            new naver.maps.LatLng(35.07696615239209, 129.02216683520413),
-            new naver.maps.LatLng(35.07726896690308, 129.0215713828218),
-            new naver.maps.LatLng(35.07760071769616, 129.02126714207085),
+            new naver.maps.LatLng(35.0785196336742, 129.02492935326998),
+            new naver.maps.LatLng(35.07628012552068, 129.02439440633668),
+            new naver.maps.LatLng(35.07624809664207,129.02388387446675),
+            new naver.maps.LatLng(35.076268593491335,129.023870678091),
+            new naver.maps.LatLng(35.076093016172095,129.02372657359606),
+            new naver.maps.LatLng(35.07601316667139,129.02351632078484),
+            new naver.maps.LatLng(35.076002992289304,129.0233160106352),
+            new naver.maps.LatLng(35.07610562301605,129.02283621083512),
+            new naver.maps.LatLng(35.07629513370183,129.02255039233418),
+            new naver.maps.LatLng(35.07672993141082,129.0222815892503),
+            new naver.maps.LatLng(35.0768531270033,129.02205442300462  ),
+            new naver.maps.LatLng(35.077382865188945,129.02122613969513),
+            // new naver.maps.LatLng(,),
         ],
     index: 12
 }
