@@ -206,7 +206,7 @@
         });
 
         // 폴리라인 이벤트 추가
-        addPolylineEvents(polyline, { index });
+        addPolylineEvents(polyline, { index }); //polyline-data의 해당 인덱스 Json값 불러오기
 
         naver.maps.Event.addListener(polyline, "click", function () {
             getRouteInfo(index).then((res) => {
