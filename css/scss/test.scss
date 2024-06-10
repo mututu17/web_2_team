@@ -696,7 +696,7 @@ body {
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
         .information {
-            height: 85vh;
+            height: 100%;
             text-align: center;
             background: linear-gradient( to top, #b7edff, #ffffff 30%);
             font-family: "Anta", sans-serif;
@@ -775,9 +775,8 @@ body {
             font-family: "Anta", sans-serif;
             position: fixed; // 위치 고정
             left: 0px; // 좌측에 딱 붙게 설정
-            height: 85vh;
+            height: 100%;
             width: 240px; // 폭
-            max-height:fit-content;
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
 

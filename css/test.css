@@ -636,7 +636,7 @@ body {
     transition: left 0.5s, background-color 0.5s;
   }
   .toggle-aside .information {
-    height: 85vh;
+    height: 100%;
     text-align: center;
     background: linear-gradient(to top, #b7edff, #ffffff 30%);
     font-family: "Anta", sans-serif;
@@ -710,10 +710,8 @@ body {
     font-family: "Anta", sans-serif;
     position: fixed;
     left: 0px;
-    height: 85vh;
+    height: 100%;
     width: 240px;
-    max-height: -moz-fit-content;
-    max-height: fit-content;
     transition: left 0.5s, background-color 0.5s;
   }
   .toggle-aside .information .aside-image {
