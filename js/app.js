@@ -168,6 +168,17 @@ function mapFilter(filters) {
     }
 }
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById("mobile-toggle-aside");
+    const mobileAside = document.getElementById("mobile-aside");
+    
+    toggleButton.addEventListener("click", function() {
+        if (mobileAside.classList.contains("open")) {
+            mobileAside.classList.remove("open");
+        } else {
+            mobileAside.classList.add("open");
+        }
+    });
+});
 
 
