@@ -524,6 +524,24 @@ body {
     -webkit-transform: translateY(-5px) rotate(-135deg);
     transform: translateY(-5px) rotate(-135deg);
 }
+
+// 모바일 로고 부분
+.mobile-logo-box {
+    position: relative;
+    top: 10px;
+    left: 0px;
+  }
+  
+  .mobile-logo {
+    font-family: "Anta", sans-serif;
+    text-decoration: none;
+    vertical-align: middle;
+    font-weight: 600;
+    color: #070068;
+    margin-left: 7px;
+    font-size: 125%;
+  }
+  
 // ============================================모바일 헤더 끝========================================
 
 // ============================================모바일 바디 시작======================================
@@ -547,8 +565,11 @@ body {
 
 // --------------------------필터 사이드바 드롭다운 시작-------------------------
 .filter {
-    width: 90%;
-    height: 95%;
+    max-width: 100%;
+    width: 500px;
+    // 태블릿 환경 고려한 폭 설정
+    height: 350px; 
+    // 반응형으로 설정시 정보 요약창을 열고 닫을 경우 크기 변화 발생.
     color: black;
     
 
@@ -563,11 +584,10 @@ body {
     -ms-transition: left .3s;
     -o-transition: left .3s;
     transition: left .3s;
-    background-color:#F0F9FC;
+    background-color:#fff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
                  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 15px;
     
 }
 // 필터가 열려있을때를 표현
@@ -576,8 +596,9 @@ body {
 }
 // 필터 각각의 항목 표현
 .filter-item {
-    margin: 10px 0;
-    padding: 0 15px;
+    margin: 5px 0;
+    padding: 0 5%;
+    height: 25%;
 }
 // 콤보박스 이용
 .filter-item label {
@@ -585,33 +606,50 @@ body {
     margin-bottom: 5px;
     font-size: 18px;
 }
-
-.filter-comboBox {
-    width: 100%;
+// 콤보 박스 크기, 폭 사이즈 맞게 반응형으로 수정, 디자인은 직관적이면서 간단하게
+.filter-comboBox { 
+    min-width: 100%;
+    width: 300px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #888;
-    background-color: #b5e1f0;
-    color: rgba(81, 79, 79, 0.597);
+    max-height: fit-content;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 1);
+    font-weight: bolder;
 }
 
 .filter-comboBox:hover {
-    border-color: #f00;
-    background-color: #b5e1f0;
+    border-color: #b5e1f0;
+    background-color: #fff;
 }
+
+.filter-manual { // manual 버튼
+    position: relative;
+    top: 7%;
+    left: 90%;
+}
+.filter-manual-btn {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 3rem;
+    background-color: #ffffff;
+}
+
 // --------------------------필터 사이드바 드롭다운 끝-------------------------
 
 // ------------------------- 모바일 정보 요약 창 시작-------------------------
 /* 부모 요소가 너비를 조절할 수 있도록 설정 */
 .mobile-container{
-    pointer-events: auto;
-    position: absolute;
-    bottom: 0;
-    white-space: nowrap;
-    z-index: 1;
+    display: flex;
+
     max-height: 30px;
 }
 .toggle-button {
+    position: relative;
     margin: 0px;
     width: 100%;
     padding: 10px;
@@ -621,12 +659,11 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    white-space: nowrap;
 }
 #mobile-aside {
     border-top: 3px solid lightgray; // 지도와 정보 요약창 사이에 테두리
     width: 100%;
-    height: 50%;
+    height: 55%;
     transition: height 0.3s ease-out;
 }
 #mobile-aside.open {
@@ -677,8 +714,9 @@ body {
     width:50%;
     margin: 5px;
     font-family: "Anta", sans-serif;
-    font-size:70%;
+    font-size:75%;
     text-align: left;
+    font-weight: bold;
 }
 .mobile-text-info p{
     margin:7px;
