@@ -4,8 +4,8 @@ const getRouteInfo = async (index) => {
     );
     return route[index];
 };
-
 var polylineArray = [];
+var markerArray = []; //마커를 담을 배열
 
 // 자전거 도로 클릭시 변화하는 코드를 함수로 정의
 function addPolylineEvents(polyline, bikeload) {
@@ -16,6 +16,17 @@ function addPolylineEvents(polyline, bikeload) {
     naver.maps.Event.addListener(polyline, "mouseout", unhighlight);
     naver.maps.Event.addListener(polyline, "mousedown", highlight);
     naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
+}
+
+function addMarkers(map, polylinePath) {
+
+    var midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
+    var midMarker = new naver.maps.Marker({
+        position: polylinePath[midIndex],
+        map: map,
+    });
+
+    markerArray.push(midMarker);
 }
 
 function addPolyline(map, polylinePath, index) {
@@ -32,6 +43,7 @@ function addPolyline(map, polylinePath, index) {
     // polyline 객체를 배열에 추가
     polylineArray.push(polyline);
 
+    addMarkers(map, polylinePath);
     // 폴리라인 이벤트 추가
     addPolylineEvents(polyline, { index }); //polyline-data의 해당 인덱스 Json값 불러오기
 
@@ -79,9 +91,22 @@ function addPolyline(map, polylinePath, index) {
 var desktopMap, mobileMap;
 var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
 
+function togglePolylineMarkerVisibility(map, zoomThreshold) {
+    var currentZoom = map.getZoom();
+
+    if (currentZoom < zoomThreshold) { //줌 레벨에 따라 자전거도로 와 마커 중 하나만 활성화됨
+        polylineArray.forEach(polyline => polyline.setMap(null));
+        markerArray.forEach(marker => marker.setMap(map));
+    } else {
+        polylineArray.forEach(polyline => polyline.setMap(map));
+        markerArray.forEach(marker => marker.setMap(null));
+    }
+}
+
 function initMap() {
     var mapOptions = {
         center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
+        zoom: 14, //초기 줌 레벨
     };
 
     // 데스크톱 및 모바일 버전 지도 변수 초기화
@@ -96,8 +121,12 @@ function initMap() {
             const road = bikeRoad[i];
             addPolyline(map, road, i);
         }
+        naver.maps.Event.addListener(map, "zoom_changed", () => {//줌 배율에 따라 마커 또는 도로 표시
+            togglePolylineMarkerVisibility(map, 14);
+        });
+        markerArray.forEach(marker => marker.setMap(null)); //처음엔 도로만 표시
     };
-
+    
     naver.maps.Event.once(desktopMap, "init", () => addMapLayers(desktopMap));
     naver.maps.Event.once(mobileMap, "init", () => addMapLayers(mobileMap));
 }
