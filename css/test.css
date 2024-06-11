@@ -570,7 +570,7 @@ body {
 .filter-manual-btn {
   width: 25px;
   height: 25px;
-  border: 2px solid #000;
+  border: px solid #000;
   border-radius: 50%;
   text-align: center;
   margin-right: 3rem;
