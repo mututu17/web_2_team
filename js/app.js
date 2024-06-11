@@ -18,7 +18,7 @@ function addPolylineEvents(polyline, bikeload) {
     naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
 }
 
-function addMarkers(map, polylinePath) {
+function addMarkers(map, polylinePath, index) {
 
     var midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
     var midMarker = new naver.maps.Marker({
@@ -27,8 +27,49 @@ function addMarkers(map, polylinePath) {
     });
 
     markerArray.push(midMarker);
+    naver.maps.Event.addListener(midMarker, "click", function () {
+        displayRouteInfo(index);
+    });
 }
+function displayRouteInfo(index) {
+    getRouteInfo(index).then((res) => {
+        const {
+            gugunNm,
+            startSpot,
+            endSpot,
+            total,
+            url,
+            attraction,
+            link,
+            describe,
+        } = res;
 
+        document.querySelector("#image").src = url;
+        document.querySelector("#attraction").innerHTML = attraction;
+        document.querySelector("#link").href = link;
+        document.querySelectorAll("span.gugunNm").forEach((element) => {
+            element.innerHTML = gugunNm;                                                
+        });
+
+        // 부산광역시 ...구/군 제거 로직
+        let start = startSpot.replace("부산광역시 ", "").split(" ");
+        if (start[0].includes("구") || start[0].includes("군")) {
+            start.shift();
+            start = start.join(" ");
+        }
+
+        let end = endSpot.replace("부산광역시 ", "").split(" ");
+        if (end[0].includes("구") || end[0].includes("군")) {
+            end.shift();
+            end = end.join(" ");
+        }
+
+        document.querySelector("span.startSpot").innerHTML = start;
+        document.querySelector("span.endSpot").innerHTML = end;
+        document.querySelector("span.total").innerHTML = total;
+        document.querySelector("p.describe").innerHTML = describe;
+    });
+}
 function addPolyline(map, polylinePath, index) {
     // 폴리라인 추가
     var polyline = new naver.maps.Polyline({
@@ -43,7 +84,7 @@ function addPolyline(map, polylinePath, index) {
     // polyline 객체를 배열에 추가
     polylineArray.push(polyline);
 
-    addMarkers(map, polylinePath);
+    addMarkers(map, polylinePath, index);
     // 폴리라인 이벤트 추가
     addPolylineEvents(polyline, { index }); //polyline-data의 해당 인덱스 Json값 불러오기
 
