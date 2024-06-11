@@ -8,7 +8,7 @@ var polylineArray = [];
 var markerArray = []; //마커를 담을 배열
 
 // 자전거 도로 클릭시 변화하는 코드를 함수로 정의
-function addPolylineEvents(polyline, bikeload) {
+function addPolylineEvents(polyline, index) {
     const highlight = () => polyline.setOptions({ strokeWeight: 20 });
     const unhighlight = () => polyline.setOptions({ strokeWeight: 6 });
 
@@ -16,8 +16,12 @@ function addPolylineEvents(polyline, bikeload) {
     naver.maps.Event.addListener(polyline, "mouseout", unhighlight);
     naver.maps.Event.addListener(polyline, "mousedown", highlight);
     naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
-}
 
+    // 인덱스를 가지고 폴리라인 클릭 이벤트 추가
+    naver.maps.Event.addListener(polyline, "click", function () {
+        displayRouteInfo(index);
+    }); 
+}
 function addMarkers(map, polylinePath, index) {
 
     var midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
@@ -27,10 +31,12 @@ function addMarkers(map, polylinePath, index) {
     });
 
     markerArray.push(midMarker);
+    // 인덱스를 가지고 마커 클릭 이벤트 추가
     naver.maps.Event.addListener(midMarker, "click", function () {
         displayRouteInfo(index);
     });
 }
+//폴리라인, 마커 클릭시 실행되는 함수
 function displayRouteInfo(index) {
     getRouteInfo(index).then((res) => {
         const {
@@ -86,47 +92,7 @@ function addPolyline(map, polylinePath, index) {
 
     addMarkers(map, polylinePath, index);
     // 폴리라인 이벤트 추가
-    addPolylineEvents(polyline, { index }); //polyline-data의 해당 인덱스 Json값 불러오기
-
-    naver.maps.Event.addListener(polyline, "click", function () {
-        getRouteInfo(index).then((res) => {
-            const {
-                gugunNm,
-                startSpot,
-                endSpot,
-                total,
-                url,
-                attraction,
-                link,
-                describe,
-            } = res;
-
-            document.querySelector("#image").src = url;
-            document.querySelector("#attraction").innerHTML = attraction;
-            document.querySelector("#link").href = link;
-            document.querySelectorAll("span.gugunNm").forEach((element) => {
-                element.innerHTML = gugunNm;                                                
-            });
-            
-            // 부산광역시 ...구/군 제거 로직
-            let start = startSpot.replace("부산광역시 ", "").split(" ");
-            if (start[0].includes("구") || start[0].includes("군")) {
-                start.shift();
-                start = start.join(" ");
-            }
-
-            let end = endSpot.replace("부산광역시 ", "").split(" ");
-            if (end[0].includes("구") || end[0].includes("군")) {
-                end.shift();
-                end = end.join(" ");
-            }
-            
-            document.querySelector("span.startSpot").innerHTML = start;
-            document.querySelector("span.endSpot").innerHTML = end;
-            document.querySelector("span.total").innerHTML = total;
-            document.querySelector("p.describe").innerHTML = describe;
-        });
-    });
+    addPolylineEvents(polyline, index); //polyline-data의 해당 인덱스 Json값 불러오기
 }
 
 var desktopMap, mobileMap;
