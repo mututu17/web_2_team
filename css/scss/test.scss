@@ -910,6 +910,7 @@ body {
             left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
             line-height: 1; // 라벨 세로 길이
             box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            background-color: #fff; // 버튼 배경색
             width: 30px; // 박스 폭
             box-sizing: border-box;
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
@@ -984,6 +985,7 @@ body {
             left: 240px; // 사이드바 크기(180 + 패딩 사이즈*2)
             line-height: 1; // 라벨 세로 길이
             box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.573); // 박스 그림자 조절
+            background-color: #fff; // 버튼 배경색
             width: 30px; // 박스 폭
             box-sizing: border-box;
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
@@ -1069,8 +1071,8 @@ main {
         justify-content: center;
         align-items: center;
 
-        width: 90%; /* 원하는 너비 */
-        height: 90%;
+        width: 100%; /* 원하는 너비 */
+        height: 100%;
     }
     // 데스크톱
     @include desktop {
@@ -1078,9 +1080,9 @@ main {
         // 중앙 정렬
         justify-content: center;
         align-items: center;
-        border: 1px solid black;
-        width: 90%; /* 원하는 너비 */
-        height: 90%;        
+
+        width: 100%; /* 원하는 너비 */
+        height: 100%;        
     }
 }
 
