@@ -644,7 +644,7 @@ body {
 
 .mobile-logo-box {
   position: relative;
-  top: 10px;
+  top: 7px;
   left: 0px;
 }
 
@@ -654,8 +654,8 @@ body {
   vertical-align: middle;
   font-weight: 600;
   color: #070068;
-  margin-left: 7px;
-  font-size: 125%;
+  margin-left: 3px;
+  font-size: 150%;
 }
 
 .filter-manual {
