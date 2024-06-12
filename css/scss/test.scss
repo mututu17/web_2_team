@@ -41,7 +41,7 @@ body {
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #F0F9FC; /* 수평선 */
-        height: 100px; //헤더 높이 수정
+        height: 15vh; //헤더 높이 수정
         padding-bottom: 5px;
         margin-bottom: 5px;
     }
@@ -51,7 +51,7 @@ body {
         display: block;
         background: linear-gradient( to bottom, #8ee3ff, #ffffff );
         border-bottom: 1px solid #ffffff; /* 수평선 */
-        height: 100px; // 헤더 높이 수정
+        height: 15vh; // 헤더 높이 수정
         padding-bottom: 5px;
         margin-bottom: 5px;
         
@@ -558,8 +558,8 @@ body {
 #mobile-header {
     display:flex;
     width: 100%;
-    height: 5%;
-
+    height: 45px;
+    border-bottom: 2px solid lightgray;
     @include laptop {
         display:none;
     }
@@ -676,16 +676,70 @@ body {
     -webkit-transform: translateY(-5px) rotate(-135deg);
     transform: translateY(-5px) rotate(-135deg);
 }
+
+// ===============모바일 로고==================
+.mobile-logo-box {
+    position: relative;
+    top: 10px;
+    left: 0px;
+  }
+  
+  .mobile-logo {
+    font-family: "Anta", sans-serif;
+    text-decoration: none;
+    vertical-align: middle;
+    font-weight: 600;
+    color: #070068;
+    margin-left: 7px;
+    font-size: 125%;
+  }
+  // ===============모바일 메뉴얼 버튼================
+.filter-manual { 
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    width: 30px;
+}
+.filter-manual-btn {
+    float: right;
+    width: 25px;
+    height: 25px;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 0;
+    background-color: #fff;
+}
+// ================모바일 정보 요약창 버튼================
+.mobile-container{
+    display: flex;
+    position: relative;
+    top:50%;
+}
+.toggle-button {
+    margin: 0px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 // ============================================모바일 헤더 끝========================================
 
 // ============================================모바일 바디 시작======================================
 // 모바일 바디부분, 여기엔 지도와 사이드바가 들어감
 #mobile-main {
-    height:50%;
+    
+    height:100%;
 }
 
 .mobile-body{                       //몸체 영역 클래스명은 임의로 작성
     height:100%;
+    width: 100%;
+    margin: 0;
     position:relative;         //슬라이드를 absolute로 배치 시키기위해 부모요소 relative
     overflow: hidden;
     z-index:1;
@@ -696,8 +750,11 @@ body {
 
 // --------------------------필터 사이드바 드롭다운 시작-------------------------
 .filter {
-    width: 90%;
-    height: 95%;
+    max-width: 100%;
+    width: 500px;
+    // 태블릿 환경 고려한 폭 설정
+    height: 350px; 
+    // 반응형으로 설정시 정보 요약창을 열고 닫을 경우 크기 변화 발생.
     color: black;
     
 
@@ -712,11 +769,10 @@ body {
     -ms-transition: left .3s;
     -o-transition: left .3s;
     transition: left .3s;
-    background-color:#F0F9FC;
+    background-color:#fff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
                  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 15px;
     
 }
 // 필터가 열려있을때를 표현
@@ -725,8 +781,9 @@ body {
 }
 // 필터 각각의 항목 표현
 .filter-item {
-    margin: 10px 0;
-    padding: 0 15px;
+    margin: 5px 0;
+    padding: 0 5%;
+    height: 25%;
 }
 // 콤보박스 이용
 .filter-item label {
@@ -734,20 +791,24 @@ body {
     margin-bottom: 5px;
     font-size: 18px;
 }
-
-.filter-comboBox {
-    width: 100%;
+// 콤보 박스 크기, 폭 사이즈 맞게 반응형으로 수정, 디자인은 직관적이면서 간단하게
+.filter-comboBox { 
+    min-width: 100%;
+    width: 300px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #888;
-    background-color: #b5e1f0;
-    color: rgba(81, 79, 79, 0.597);
+    max-height: fit-content;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 1);
+    font-weight: bolder;
 }
 
 .filter-comboBox:hover {
-    border-color: #f00;
-    background-color: #b5e1f0;
+    border-color: #b5e1f0;
+    background-color: #fff;
 }
+
 // --------------------------필터 사이드바 드롭다운 끝-------------------------
 
 // ------------------------- 모바일 정보 요약 창 시작-------------------------
@@ -755,9 +816,18 @@ body {
 #mobile-aside {
     border-top: 3px solid lightgray; // 지도와 정보 요약창 사이에 테두리
     width: 100%;
+    height: 50%;
+    transition: height 0.3s ease-out;
+}
+#mobile-aside.open {
+    transition: height 0.3s ease-out;
+    height: 0%;
 }
 
 .mobile-aside-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
     display: flex;
 }
 
@@ -777,6 +847,13 @@ body {
     width: 48%; // 16:9비율
     height: 27%;
 }
+#mobile-image {
+    border-radius: 10px 10px 10px 10px; // 사진 테두리 수정
+    position: absolute;
+    width: 48%; // 16:9비율
+    height: 27%;
+
+}
 
 /* 미디어 쿼리를 사용하여 특정 화면 크기에 맞춰 조정 가능 */
 @media (max-width: 600px) {
@@ -790,8 +867,9 @@ body {
     width:50%;
     margin: 5px;
     font-family: "Anta", sans-serif;
-    font-size:70%;
+    font-size:75%;
     text-align: left;
+    font-weight: bold;
 }
 .mobile-text-info p{
     margin:7px;
@@ -838,7 +916,7 @@ body {
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
         }
         input[type=checkbox]:checked + label::after {
-            left: 0px; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
+            left: 0; // 체크 이후 라벨 위치 변화 - 라벨 숨기기
             content: "▷"; // 사이드바가 숨겨져 있을 경우 라벨 모양
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 사이드바와 동일해야 함.
         }
@@ -847,14 +925,13 @@ body {
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
         .information {
+            height: 100%;
             text-align: center;
             background: linear-gradient( to top, #b7edff, #ffffff 30%);
             font-family: "Anta", sans-serif;
-            position: absolute; // 위치 고정
+            position: fixed; // 위치 고정
             left: 0px; // 좌측에 딱 붙게 설정
             width: 240px; // 폭
-            height: 80%; // 높이
-            padding: 0px; // 패딩
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
 
@@ -862,7 +939,7 @@ body {
             border-radius: 20px 20px 5px 5px;
         }
         .information .lb-wrap {
-            margin: 10px auto;
+            margin: 0px auto;
             position: relative;
         }
         .information .lb-wrap .linkT {
@@ -925,11 +1002,10 @@ body {
             text-align: center;
             background: linear-gradient( to top, #b7edff, #ffffff 30%);
             font-family: "Anta", sans-serif;
-            position: absolute; // 위치 고정
+            position: fixed; // 위치 고정
             left: 0px; // 좌측에 딱 붙게 설정
+            height: 100%;
             width: 240px; // 폭
-            height: 80%; // 높이
-            padding: 0px; // 패딩
             transition: left 0.5s, background-color 0.5s; // 애니메이션 시간 - 라벨과 동일해야 함.
         }
 
@@ -937,7 +1013,7 @@ body {
             border-radius: 20px 20px 5px 5px;
         }
         .information .lb-wrap {
-            margin: 10px auto;
+            margin: 5px auto;
             position: relative;
         }
         .information .lb-wrap .linkT {
@@ -952,16 +1028,10 @@ body {
             transition: 0.15s;
         }
         .information .text-infor {
-            padding: 30px;
+            padding-top: 15px;
+
             text-align: left;
 
-        }
-
-          /* Layout(No Edit) */
-        @media(max-width:440px) {
-            .lb-wrap {
-            width: 95%;
-            }
         }
     }
 }
