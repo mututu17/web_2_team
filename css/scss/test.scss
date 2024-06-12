@@ -53,7 +53,8 @@ body {
         border-bottom: 1px solid #ffffff; /* 수평선 */
         height: 15vh; // 헤더 높이 수정
         padding-bottom: 5px;
-        margin-bottom: 5px;    
+        margin-bottom: 5px;
+        
     }
 }
 
@@ -61,9 +62,10 @@ body {
     display: flex;
     position: sticky;
     //justify-content:space-between;
-    padding: 0 60px;
+    //padding: 0 30px;
     align-items:center; 
     animation: navbarBottom 1s forwards;
+    margin-right: 3vw;
     a{
         position: fixed;
         font-family: "Anta", sans-serif;//"Madimi One", sans-serif;
@@ -77,6 +79,7 @@ body {
         font-size: 50px
     }
     img{
+        margin-left: 1vw;
         vertical-align: text-top; //로고 위치 수정
     }
 }
@@ -217,11 +220,14 @@ body {
 }
 
 //사용방법 팝업창 버튼
-.manual_btn{
+#manual_btn{
     display: none;
+    position: absolute;
     border-radius: 50%;
     width: 25px;
     height: 25px;
+    left: 96.5%;
+    top: 2%;
     @include laptop{
         display: inline;
         
@@ -231,139 +237,284 @@ body {
     }
 }
 
-// 홈페이지 이미지
-.main_image_container{
+#manual_btn:hover{
+    cursor: pointer;
+}
+
+.modal {
     display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b3;
+    @include laptop{
+        display: none; 
+    }
+
+    @include desktop{
+        display: none; 
+    }
+}
+
+.modal-content {
+    display: none;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 60%;
+    //width: 550px;
+    //height: 600px;
+    text-align: center;
     
-
-    @include laptop {
-        display: flex;
-        position: relative;
-        place-items: center;
-        box-shadow: 10px 10px 5px #1d1a4e15;
-    }
-
-    @include desktop {
-        display: flex;
-        position: relative;
-        place-items: center;
-        box-shadow: 10px 10px 5px #1d1a4e15;
-    }
-}
-
-// 홈페이지 이미지 위 소개글
-#intro{
-    display: none;
-    color: #ffffff;
-    //background: #8ee3ff;
-    background :linear-gradient( to left, #003749, #070068);
-    z-index: 1;
-    box-shadow: 0px 10px 10px #1d1a4e21;
-    box-sizing: border-box;
-    //left: 25%;
-    margin: 0 auto;
-    font-size: 1.4vw;
-    bottom: 3vw;
-    width: 50vw;
-    height: 4vw;
-    border-radius: 30px 30px 30px 30px;
-    place-content: center;
-    text-align: center;
-    align-items: center;
-
     @include laptop{
-        display: flex;
-        position: relative;
+        display: block;
     }
 
     @include desktop{
-        display: flex;
-        position:relative;
-        
-  
+        display: block;
     }
 }
 
-//더 자세히 알아보기
-#main_lists{        
+.modal_frame{
     display: none;
-    //padding-left: 10%;
-    color:#0b00a0da;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    font-size: 30px;
-    font-weight: 100px;
-    //background-color: #F0F9FC;
     justify-content: center;
-    place-content: center;
-    text-align: center;
-    align-items: flex-start;
-    width: 300px;
-    border-radius: 100px;
-    border: 5px solid #5e53ffe5;
-    margin: 0 auto;
-    margin-top: 2vw;
-    /*border-bottom: 10px solid;
-    border-top: 10px solid;
-    border-color: #4a93ff;*/
+    //padding: 0 50px;
+    //margin-left: 30px;
     @include laptop{
         display: flex;
-        position: relative;
     }
 
     @include desktop{
         display: flex;
-        position:relative;
+    }
+
+}
+.close {
+    position: absolute;
+    right:35%;
+    //right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    @include laptop{
+        display: block;
+    }
+
+    @include desktop{
+        display: block;
     }
 }
 
-// 자전거도로그리기, 사용방법알아보기
+// 소개페이지 전체
+.main_cont{
+    display: none;
+    //background:linear-gradient(to bottom, #8ee3ff , #ffffff);
+    background-image: url(/images/bikeback.jpg);
+    background-position: center center;
+    opacity: 0.9;
+
+    @include laptop{
+        display:block;
+        position: relative;
+        height: 100%;
+    }
+
+    @include desktop{
+        display:block;
+        position: relative;
+        height: 100%;
+    }
+}
+
+  //소개페이지 로고
+.logopage{
+    display: none;
+    width: 100%;
+    height: 15%;
+    animation: navbarBottom 1s forwards;
+    a{
+        position: fixed;
+        font-family: "Anta", sans-serif;//"Madimi One", sans-serif;
+        text-decoration: none;
+        vertical-align: middle;
+        position: relative;
+        font-weight: 600;
+        color: #070068;
+        margin-left: 7px;
+        top: 5px;
+        font-size: 50px
+    }
+    img{
+        margin-left: 1vw;
+        vertical-align: text-top; //로고 위치 수정
+    }
+    @include laptop{
+        display: flex;
+        position: relative;
+    }
+    @include desktop{
+        display: flex;
+        position: relative;
+    }
+}
+
+.text_stage{
+    display:none;
+
+    @include laptop{
+        display: block;
+    }
+    @include desktop{
+        display: block;
+    }
+}
+
+//소개 페이지 텍스트
+#introd{
+    display: none;
+    text-align: center;
+    justify-content: center;
+    animation: intropage 1.2s forwards;
+    color: #01002b;
+    font-size: 25px;
+    padding: 20px;
+    font-family: "Jua", sans-serif;
+    letter-spacing: 2.5px;
+    line-height: 35px;
+    span{
+        color: #4b2bff;
+    }
+
+    @include laptop{
+        display: flex;
+        position: block;
+    }
+    @include desktop{
+        display: flex;
+        position: block;
+        //letter-spacing: 0.1rem;
+        //line-height: 1.7vw;
+    }
+}
+
+#first_txt{
+    display: none;
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500px;
+    font-family: "Jua", sans-serif;
+    animation: intropage 1.2s forwards;
+
+    span{
+        color: #4b2bff;
+    }
+    
+    @include laptop{
+        display:flex;
+        position:relative;
+    }
+    @include desktop{
+        display: flex;
+        position: relative;
+    }
+}
+
+@keyframes intropage {
+    0% {
+      transform: translateY(-70%); 
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+// 자전거도로그리기
 .another_page{
     display: none;
-    margin:0 auto;
+    float: left;
+    //margin:0 auto;
+    animation: intropage 1.2s forwards;
+    width: 100%;
     //margin-top: 10vw;
     justify-content: center;
-    margin-left: 17vw;
-    margin-right: 17vw;
-    margin-bottom: 3vw;
+    font-family: "Jua", sans-serif;
+    //margin-left: 6vw;
+    //margin-right: 17vw;
+    //margin-bottom: 3vw;
     a{
-        padding: 3vw;
+        display: flex;
+        padding: 30px;
         text-decoration: none;
-        font-size: large;
+        font-size: 23px;
         text-align: center;
-        margin: 0 auto;
-        margin-top: 2vw;
-        width: 20vw;
-        border-radius: 20px 20px 20px 20px;
-        color:#000;
-        background-color: #003749;
+        //margin: 0 auto;
+        margin-top: 35px;
+        width: 300px;
+        border-radius: 50vw;
+        color:#000000;
+        background-color: #ffffff;
         
     }
-    /*trap{
-        background-image: url("/images/bikeground.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 300%;
-    }*/
 
     @include laptop{
         display: flex;
         position:relative;
-        height: 30vw;
+        //height: 30vw;
         
     }
 
     @include desktop{
         display: flex;
         position:relative;
-        height: auto;
-        a{
-        }
+        //height: auto;
     }
 }
+/*another_page a:hover::after{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #574fd2;
+    color: #ffffff;
+    opacity: 0;
+    transition: 1s;
+}*/
 
 .another_page a:hover {
-    border: 2px solid #574fd2;
+    //border: 1px solid #574fd2;
+    background-color: #574fd2;
+    color:#ffffff;
+    transition: .3s ;
+}
+
+//소개페이지 이미지 틀
+.main_links{
+    display: none;
+    width: 70%;
+    height: 100%;
+    overflow-x: hidden;
+    float: right;
+    
+
+    @include laptop{
+        display:flex;
+        position: relative;
+    }
+
+    @include desktop{
+        display: flex;
+        position: relative;
+    }
 }
 
 //=======================================================================================================================================

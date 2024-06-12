@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merge Test</title>
-    <link rel="stylesheet" href="../css/test.css">
+    <link rel="stylesheet" href="../css/scss/test.css">
     <script src="../js/jquery-1.9.1.js"></script>
     <!--폰트 적용-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&display=swap" rel="stylesheet">
     <!--USERID 바꾸기!!-->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=USERID&submodules=drawing"></script>
 </head>
@@ -18,39 +19,25 @@
 
 <!--============================================================데스크톱 웹사이트 시작=================================================================================-->
 
-<!--데스크톱 해더 시작-->
-    <header id="desktop-header">
-        <div id="header_shadow">
-            <nav class="navbar">
-                <div class="navbar_logo">
-                    <a href="page.html"><img src="../images/logo.png" alt="로고" width="130" height="130"></a>
-                    <a href="page.html">zagza</a>
-                </div>
-                <div class="navbar_menu">
-                    <!--<a href="#">소개</a>-->
-                    <a href="main.html">지도</a>
-                    <a href="method.html">사용방법</a>
-                </div>
-            </nav>
+<!--데스크톱--> 
+    <div class="main_cont">
+        <div class="logopage">
+            <a href="page.html"><img src="../images/logo.png" alt="로고" width="60" height="60"></a>
+            <a href="page.html">zagza</a>
         </div>
-    </header>
-<!--데스크톱 해더 끝-->
-
-<!--데스크톱 메인, 사이드바 시작-->   
-    <div class="main_links">
-        <div class="main_image_container">
-            <img src="../images/bikepage.png" alt="메인이미지" width="100%">
+        <div class="text_stage">
+            <div id="first_txt"><span>zagza</span>에 오신것을 환영합니다.</div>
+            <div id="introd">
+            <p><span>zagza</span>(자그자)는 <span>자</span>유롭게 <span>그</span>릴 수 있는 <span>자</span>전거코스의 줄임말로<br>
+                원하는 자전거 코스를 그리거나 추천하는 자전거 코스를 볼 수 있습니다.</p>
+            </div>
+            <div class="another_page">
+                <a href="main.html"><p>자전거코스 그리러가기</p></a>
+            </div> 
         </div>
-        <p id="intro">
-            zagza(자그자)는<br> 추천하는 자전거 코스를 보거나 원하는 코스를 직접 그려 만들 수 있는 곳 입니다
-        </p>
-        <p id="main_lists">더 자세히 알아보기</p>
-        <div class="another_page">
-            <a href="main.html"><p>자전거도로 그리기</p></a>
-            <a href="method.html"><p>사용방법 알아보기</p></a>
-        </div> 
     </div>
-<!--데스크톱 메인, 사이드바 끝-->
+<!--데스크톱 메인 끝-->
+
 
 <!--============================================================데스크톱 웹 끝=================================================================================-->
         
