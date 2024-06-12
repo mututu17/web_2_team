@@ -210,7 +210,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7019607843);
 }
 @media (min-width: 1020px) {
   .modal {
@@ -229,8 +229,8 @@ body {
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 550px;
-  height: 600px;
+  width: 30%;
+  height: 60%;
   text-align: center;
 }
 @media (min-width: 1020px) {
@@ -247,7 +247,6 @@ body {
 .modal_frame {
   display: none;
   justify-content: center;
-  padding: 0 50px;
 }
 @media (min-width: 1020px) {
   .modal_frame {
@@ -261,8 +260,8 @@ body {
 }
 
 .close {
-  position: relative;
-  right: 10px;
+  position: absolute;
+  right: 35%;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
