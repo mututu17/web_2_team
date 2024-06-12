@@ -77,22 +77,50 @@ function displayRouteInfo(index) {
     });
 }
 function addPolyline(map, polylinePath, index) {
-    // 폴리라인 추가
-    var polyline = new naver.maps.Polyline({
-        path: polylinePath,
-        strokeColor: "#00CA00",
-        strokeOpacity: 0.8,
-        strokeWeight: 6,
-        zIndex: 2,
-        clickable: true,
-        map: map,
-    });
-    // polyline 객체를 배열에 추가
-    polylineArray.push(polyline);
 
-    addMarkers(map, polylinePath, index);
-    // 폴리라인 이벤트 추가
-    addPolylineEvents(polyline, index); //polyline-data의 해당 인덱스 Json값 불러오기
+    getRouteInfo(index).then((res) => {
+        const {
+            scene
+        } = res;
+
+        // 테마에 따른 색상 값을 받는 변수
+        /*공원, 강변, 바다, 도심*/
+        let colorValue = "";
+        if (scene === "공원") {
+            colorValue = "forestgreen"      // forestgreen
+        }
+        else if (scene === "강변") {
+            colorValue = "cyan"      // mediumturquoise	
+        }
+        else if (scene === "바다") {
+            colorValue = "midnightblue"      // midnightblue
+        }
+        
+        else if (scene === "도심") {
+            colorValue = "cadetblue"      
+        }
+
+        // 폴리라인 추가
+        var polyline = new naver.maps.Polyline({
+            path: polylinePath,
+            strokeColor: colorValue,
+            strokeOpacity: 0.8,
+            strokeWeight: 6,
+            zIndex: 2,
+            clickable: true,
+            map: map,
+        });
+        // polyline 객체를 배열에 추가
+        polylineArray.push(polyline);
+        
+        // 일정 줌 레벨에서 마커로 변경되도록 마커 추가
+        addMarkers(map, polylinePath, index);
+      
+        // 폴리라인 이벤트 추가
+        addPolylineEvents(polyline, index); //polyline-data의 해당 인덱스 Json값 불러오기
+        
+        //================================================================================        
+    });
 }
 
 var desktopMap, mobileMap;
@@ -175,7 +203,6 @@ $("#장소").change(function () {
 
 $("#풍경").change(function () {
     var filters = [];
-
     $(".combo-box").each(function () {
         filters.push($(this).val());
     });
@@ -186,13 +213,30 @@ function mapFilter(filters) {
     for (let i = 0; i < bikeRoad.length; i++) {
         getRouteInfo(i).then((res) => {
             const { gugunNm, total, scene } = res;
-
-            const distance = filters[0];
+            // 필터에서 받은 값
+            const distRaw = filters[0];
             const placement = filters[1];
             const scenary = filters[2];
 
+            // distance logic 시작
+            const totalDist = Number(total);
+            let distance = distRaw.split(" ");
+            const startDist = Number(distance[0]);
+            const endDist = Number(distance[2]);
+
+            // data의 total 값이 포함되는가를 묻는 로직
+            let isContain = false;
+            if (distance[1] === "-") {
+                isContain = Boolean(
+                    totalDist >= startDist && totalDist <= endDist
+                );
+            } else if (distance[1] === "~") {
+                isContain = Boolean(totalDist >= startDist);
+            }
+
+            // 필터링 로직
             if (
-                (distance === "" || distance === total) &&
+                (distRaw === "" || isContain) &&
                 (placement === "" || placement === gugunNm) &&
                 (scenary === "" || scenary === scene)
             ) {
@@ -204,6 +248,34 @@ function mapFilter(filters) {
     }
 }
 
+// ==================================================================================모바일 슬라이드 애니매이션 JQUERY===================================================================================================
 
+// 버튼 애니메이션 jQuery
+// $(function(){
+//     $("#slide-open").click(function(){
 
+//         if($("#burgur").hasClass('on')){
+//         //메뉴버튼이 "on" 클래스를 포함할 경우 "on"클래스를 제거
+//           $("#burgur").removeClass('on');
+//         } else{
+//         //메뉴버튼이 "on" 클래스를 포함하지 않을 경우 "on"클래스를 추가
+//           $("#burgur").addClass('on');
 
+//         }
+//     });
+// });
+
+// 슬라이드 애니메이션
+$("#slide-open").on("click", function () {
+    //버튼 클릭 시
+
+    if ($("#burgur").hasClass("on")) {
+        //메뉴가 X 상태일때
+
+        $("#burgur").removeClass("on"); //메뉴 원복
+        $("#filter").removeClass("on"); //슬라이드 메뉴 원복
+    } else {
+        $("#burgur").addClass("on"); //메뉴 3줄
+        $("#filter").addClass("on"); //슬라이드 메뉴 감춤
+    }
+});
