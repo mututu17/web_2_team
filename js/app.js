@@ -248,6 +248,18 @@ function mapFilter(filters) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById("mobile-toggle-aside");
+    const mobileAside = document.getElementById("mobile-aside");
+    
+    toggleButton.addEventListener("click", function() {
+        if (mobileAside.classList.contains("open")) {
+            mobileAside.classList.remove("open");
+        } else {
+            mobileAside.classList.add("open");
+        }
+    });
+});
 // ==================================================================================모바일 슬라이드 애니매이션 JQUERY===================================================================================================
 
 // 버튼 애니메이션 jQuery
