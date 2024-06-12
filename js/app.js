@@ -28,6 +28,7 @@ function addMarkers(map, polylinePath, index) {
     var midMarker = new naver.maps.Marker({
         position: polylinePath[midIndex],
         map: map,
+        visible: false                                  // 처음 만들어질 땐 invisible
     });
 
     markerArray.push(midMarker);
@@ -126,22 +127,32 @@ function addPolyline(map, polylinePath, index) {
 var desktopMap, mobileMap;
 var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
 
-function togglePolylineMarkerVisibility(map, zoomThreshold) {
-    var currentZoom = map.getZoom();
+// pastZoom: trigger 전의 줌 레벨, currentZoom: trigger 후의 줌 레벨
+function togglePolylineMarkerVisibility(zoomThreshold, pastZoom, currentZoom) {
+    // zoomThreshold값을 기준으로 current값과 past값은 반대에 있어야 함
 
-    if (currentZoom < zoomThreshold) { //줌 레벨에 따라 자전거도로 와 마커 중 하나만 활성화됨
-        polylineArray.forEach(polyline => polyline.setMap(null));
-        markerArray.forEach(marker => marker.setMap(map));
-    } else {
-        polylineArray.forEach(polyline => polyline.setMap(map));
-        markerArray.forEach(marker => marker.setMap(null));
+    // 폴리라인 -> 마커
+    if (currentZoom < zoomThreshold && pastZoom >= zoomThreshold) { //줌 레벨에 따라 자전거도로 와 마커 중 하나만 활성화됨
+                                              
+        markerArray.forEach((marker, index) => {
+            marker.setVisible(polylineArray[index].getVisible());                       // 폴리라인의 현재 필터링 상태(visible 값)을 marker에 적용
+        });                 
+        polylineArray.forEach(polyline => polyline.setVisible(false));                  // 폴리라인은 안 보이게 만듦   
+        
+    } 
+    // 마커 -> 폴리라인
+    else if (currentZoom >= zoomThreshold && pastZoom < zoomThreshold) {
+        polylineArray.forEach((polyline, index) => {
+            polyline.setVisible(markerArray[index].getVisible());                       // 마커의 현재 필터링 상태(visible 값)을 폴리라인에 적용
+        }); 
+        markerArray.forEach(marker => marker.setVisible(false));
     }
 }
 
 function initMap() {
     var mapOptions = {
         center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
-        zoom: 14, //초기 줌 레벨
+        zoom: 13, //초기 줌 레벨
     };
 
     // 데스크톱 및 모바일 버전 지도 변수 초기화
@@ -156,10 +167,13 @@ function initMap() {
             const road = bikeRoad[i];
             addPolyline(map, road, i);
         }
-        naver.maps.Event.addListener(map, "zoom_changed", () => {//줌 배율에 따라 마커 또는 도로 표시
-            togglePolylineMarkerVisibility(map, 14);
+        
+        let pastZoom = map.getZoom();                                                   // 초기 pastZoom 설정
+        naver.maps.Event.addListener(map, "zoom_changed", () => {                       //줌 배율에 따라 마커 또는 도로 표시
+            let currentZoom = map.getZoom();                                            // trigger 발생ㅅ하면 currentZoom 갱신
+            togglePolylineMarkerVisibility(13, pastZoom, currentZoom);                  // 줌 임계값이 13보다 크면(줌이 더 되면) 폴리라인, 작으면(줌이 덜 되면) 마커
+            pastZoom = currentZoom;                                                     // pastZoom 갱신
         });
-        markerArray.forEach(marker => marker.setMap(null)); //처음엔 도로만 표시
     };
     
     naver.maps.Event.once(desktopMap, "init", () => addMapLayers(desktopMap));
@@ -210,6 +224,15 @@ $("#풍경").change(function () {
 });
 
 function mapFilter(filters) {
+    let currentZoom;                    // 현재 줌 레벨 받아오기
+    if (($(window).width() <= 768)) {   // 모바일일 때
+        currentZoom = mobileMap.getZoom();  
+    }
+    else {                              // PC일 때
+        currentZoom = desktopMap.getZoom();
+    }
+               
+    console.log(currentZoom);
     for (let i = 0; i < bikeRoad.length; i++) {
         getRouteInfo(i).then((res) => {
             const { gugunNm, total, scene } = res;
@@ -234,15 +257,31 @@ function mapFilter(filters) {
                 isContain = Boolean(totalDist >= startDist);
             }
 
+            // 줌 임계값이 14보다 크면(줌이 더 되면) 폴리라인, 작으면(줌이 덜 되면) 마커
             // 필터링 로직
-            if (
-                (distRaw === "" || isContain) &&
-                (placement === "" || placement === gugunNm) &&
-                (scenary === "" || scenary === scene)
-            ) {
-                polylineArray[i].setVisible(true);
-            } else {
-                polylineArray[i].setVisible(false);
+            if (currentZoom >= 13) {    // 폴리라인 필터링 (줌 레벨 13 이상)
+                if (
+                    (distRaw === "" || isContain) &&
+                    (placement === "" || placement === gugunNm) &&
+                    (scenary === "" || scenary === scene)
+                ) {
+                    polylineArray[i].setVisible(true);
+                    console.log("polyline filter triggered")
+                } else {
+                    polylineArray[i].setVisible(false);
+                }
+            }
+            else {                      // 마커 필터링 (줌 레벨 13 미만)
+                if (
+                    (distRaw === "" || isContain) &&
+                    (placement === "" || placement === gugunNm) &&
+                    (scenary === "" || scenary === scene)
+                ) {
+                    markerArray[i].setVisible(true);
+                    console.log("marker filter triggered")
+                } else {
+                    markerArray[i].setVisible(false);
+                }
             }
         });
     }
