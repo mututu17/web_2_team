@@ -4,11 +4,11 @@ const getRouteInfo = async (index) => {
     );
     return route[index];
 };
-
 var polylineArray = [];
+var markerArray = []; //마커를 담을 배열
 
 // 자전거 도로 클릭시 변화하는 코드를 함수로 정의
-function addPolylineEvents(polyline, bikeload) {
+function addPolylineEvents(polyline, index) {
     const highlight = () => polyline.setOptions({ strokeWeight: 20 });
     const unhighlight = () => polyline.setOptions({ strokeWeight: 6 });
 
@@ -16,72 +16,132 @@ function addPolylineEvents(polyline, bikeload) {
     naver.maps.Event.addListener(polyline, "mouseout", unhighlight);
     naver.maps.Event.addListener(polyline, "mousedown", highlight);
     naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
-}
 
-function addPolyline(map, polylinePath, index) {
-    // 폴리라인 추가
-    var polyline = new naver.maps.Polyline({
-        path: polylinePath,
-        strokeColor: "#00CA00",
-        strokeOpacity: 0.8,
-        strokeWeight: 6,
-        zIndex: 2,
-        clickable: true,
+    // 인덱스를 가지고 폴리라인 클릭 이벤트 추가
+    naver.maps.Event.addListener(polyline, "click", function () {
+        displayRouteInfo(index);
+    }); 
+}
+function addMarkers(map, polylinePath, index) {
+
+    var midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
+    var midMarker = new naver.maps.Marker({
+        position: polylinePath[midIndex],
         map: map,
     });
-    // polyline 객체를 배열에 추가
-    polylineArray.push(polyline);
 
-    // 폴리라인 이벤트 추가
-    addPolylineEvents(polyline, { index }); //polyline-data의 해당 인덱스 Json값 불러오기
+    markerArray.push(midMarker);
+    // 인덱스를 가지고 마커 클릭 이벤트 추가
+    naver.maps.Event.addListener(midMarker, "click", function () {
+        displayRouteInfo(index);
+    });
+}
+//폴리라인, 마커 클릭시 실행되는 함수
+function displayRouteInfo(index) {
+    getRouteInfo(index).then((res) => {
+        const {
+            gugunNm,
+            startSpot,
+            endSpot,
+            total,
+            url,
+            attraction,
+            link,
+            describe,
+        } = res;
 
-    naver.maps.Event.addListener(polyline, "click", function () {
-        getRouteInfo(index).then((res) => {
-            const {
-                gugunNm,
-                startSpot,
-                endSpot,
-                total,
-                url,
-                attraction,
-                link,
-                describe,
-            } = res;
-
-            document.querySelector("#image").src = url;
-            document.querySelector("#attraction").innerHTML = attraction;
-            document.querySelector("#link").href = link;
-            document.querySelectorAll("span.gugunNm").forEach((element) => {
-                element.innerHTML = gugunNm;                                                
-            });
-            
-            // 부산광역시 ...구/군 제거 로직
-            let start = startSpot.replace("부산광역시 ", "").split(" ");
-            if (start[0].includes("구") || start[0].includes("군")) {
-                start.shift();
-                start = start.join(" ");
-            }
-
-            let end = endSpot.replace("부산광역시 ", "").split(" ");
-            if (end[0].includes("구") || end[0].includes("군")) {
-                end.shift();
-                end = end.join(" ");
-            }
-            
-            document.querySelector("span.startSpot").innerHTML = start;
-            document.querySelector("span.endSpot").innerHTML = end;
-            document.querySelector("span.total").innerHTML = total;
-            document.querySelector("p.describe").innerHTML = describe;
+        document.querySelector("#image").src = url;
+        document.querySelector("#attraction").innerHTML = attraction;
+        document.querySelector("#link").href = link;
+        document.querySelectorAll("span.gugunNm").forEach((element) => {
+            element.innerHTML = gugunNm;                                                
         });
+
+        // 부산광역시 ...구/군 제거 로직
+        let start = startSpot.replace("부산광역시 ", "").split(" ");
+        if (start[0].includes("구") || start[0].includes("군")) {
+            start.shift();
+            start = start.join(" ");
+        }
+
+        let end = endSpot.replace("부산광역시 ", "").split(" ");
+        if (end[0].includes("구") || end[0].includes("군")) {
+            end.shift();
+            end = end.join(" ");
+        }
+
+        document.querySelector("span.startSpot").innerHTML = start;
+        document.querySelector("span.endSpot").innerHTML = end;
+        document.querySelector("span.total").innerHTML = total;
+        document.querySelector("p.describe").innerHTML = describe;
+    });
+}
+function addPolyline(map, polylinePath, index) {
+
+    getRouteInfo(index).then((res) => {
+        const {
+            scene
+        } = res;
+
+        // 테마에 따른 색상 값을 받는 변수
+        /*공원, 강변, 바다, 도심*/
+        let colorValue = "";
+        if (scene === "공원") {
+            colorValue = "forestgreen"      // forestgreen
+        }
+        else if (scene === "강변") {
+            colorValue = "cyan"      // mediumturquoise	
+        }
+        else if (scene === "바다") {
+            colorValue = "midnightblue"      // midnightblue
+        }
+        
+        else if (scene === "도심") {
+            colorValue = "cadetblue"      
+        }
+
+        // 폴리라인 추가
+        var polyline = new naver.maps.Polyline({
+            path: polylinePath,
+            strokeColor: colorValue,
+            strokeOpacity: 0.8,
+            strokeWeight: 6,
+            zIndex: 2,
+            clickable: true,
+            map: map,
+        });
+        // polyline 객체를 배열에 추가
+        polylineArray.push(polyline);
+        
+        // 일정 줌 레벨에서 마커로 변경되도록 마커 추가
+        addMarkers(map, polylinePath, index);
+      
+        // 폴리라인 이벤트 추가
+        addPolylineEvents(polyline, index); //polyline-data의 해당 인덱스 Json값 불러오기
+        
+        //================================================================================        
     });
 }
 
 var desktopMap, mobileMap;
 var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
 
+function togglePolylineMarkerVisibility(map, zoomThreshold) {
+    var currentZoom = map.getZoom();
+
+    if (currentZoom < zoomThreshold) { //줌 레벨에 따라 자전거도로 와 마커 중 하나만 활성화됨
+        polylineArray.forEach(polyline => polyline.setMap(null));
+        markerArray.forEach(marker => marker.setMap(map));
+    } else {
+        polylineArray.forEach(polyline => polyline.setMap(map));
+        markerArray.forEach(marker => marker.setMap(null));
+    }
+}
+
 function initMap() {
     var mapOptions = {
         center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
+        zoom: 14, //초기 줌 레벨
     };
 
     // 데스크톱 및 모바일 버전 지도 변수 초기화
@@ -96,8 +156,12 @@ function initMap() {
             const road = bikeRoad[i];
             addPolyline(map, road, i);
         }
+        naver.maps.Event.addListener(map, "zoom_changed", () => {//줌 배율에 따라 마커 또는 도로 표시
+            togglePolylineMarkerVisibility(map, 14);
+        });
+        markerArray.forEach(marker => marker.setMap(null)); //처음엔 도로만 표시
     };
-
+    
     naver.maps.Event.once(desktopMap, "init", () => addMapLayers(desktopMap));
     naver.maps.Event.once(mobileMap, "init", () => addMapLayers(mobileMap));
 }
@@ -139,7 +203,6 @@ $("#장소").change(function () {
 
 $("#풍경").change(function () {
     var filters = [];
-
     $(".combo-box").each(function () {
         filters.push($(this).val());
     });
@@ -150,13 +213,30 @@ function mapFilter(filters) {
     for (let i = 0; i < bikeRoad.length; i++) {
         getRouteInfo(i).then((res) => {
             const { gugunNm, total, scene } = res;
-
-            const distance = filters[0];
+            // 필터에서 받은 값
+            const distRaw = filters[0];
             const placement = filters[1];
             const scenary = filters[2];
 
+            // distance logic 시작
+            const totalDist = Number(total);
+            let distance = distRaw.split(" ");
+            const startDist = Number(distance[0]);
+            const endDist = Number(distance[2]);
+
+            // data의 total 값이 포함되는가를 묻는 로직
+            let isContain = false;
+            if (distance[1] === "-") {
+                isContain = Boolean(
+                    totalDist >= startDist && totalDist <= endDist
+                );
+            } else if (distance[1] === "~") {
+                isContain = Boolean(totalDist >= startDist);
+            }
+
+            // 필터링 로직
             if (
-                (distance === "" || distance === total) &&
+                (distRaw === "" || isContain) &&
                 (placement === "" || placement === gugunNm) &&
                 (scenary === "" || scenary === scene)
             ) {
@@ -180,5 +260,34 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+// ==================================================================================모바일 슬라이드 애니매이션 JQUERY===================================================================================================
 
+// 버튼 애니메이션 jQuery
+// $(function(){
+//     $("#slide-open").click(function(){
 
+//         if($("#burgur").hasClass('on')){
+//         //메뉴버튼이 "on" 클래스를 포함할 경우 "on"클래스를 제거
+//           $("#burgur").removeClass('on');
+//         } else{
+//         //메뉴버튼이 "on" 클래스를 포함하지 않을 경우 "on"클래스를 추가
+//           $("#burgur").addClass('on');
+
+//         }
+//     });
+// });
+
+// 슬라이드 애니메이션
+$("#slide-open").on("click", function () {
+    //버튼 클릭 시
+
+    if ($("#burgur").hasClass("on")) {
+        //메뉴가 X 상태일때
+
+        $("#burgur").removeClass("on"); //메뉴 원복
+        $("#filter").removeClass("on"); //슬라이드 메뉴 원복
+    } else {
+        $("#burgur").addClass("on"); //메뉴 3줄
+        $("#filter").addClass("on"); //슬라이드 메뉴 감춤
+    }
+});
