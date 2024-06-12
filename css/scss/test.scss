@@ -251,11 +251,11 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     @include laptop{
-        display: block;
+        display: none; 
     }
 
     @include desktop{
-        display: block;
+        display: none; 
     }
 }
 
@@ -447,6 +447,7 @@ body {
     //margin-right: 17vw;
     //margin-bottom: 3vw;
     a{
+        display: flex;
         padding: 30px;
         text-decoration: none;
         font-size: 23px;
@@ -473,7 +474,7 @@ body {
         //height: auto;
     }
 }
-.another_page a::after{
+/*another_page a:hover::after{
     content: "";
     position: absolute;
     top:0;
@@ -484,13 +485,13 @@ body {
     color: #ffffff;
     opacity: 0;
     transition: 1s;
-}
+}*/
 
 .another_page a:hover {
     //border: 1px solid #574fd2;
     background-color: #574fd2;
     color:#ffffff;
-    transition: .4s;
+    transition: .3s ;
 }
 
 //소개페이지 이미지 틀

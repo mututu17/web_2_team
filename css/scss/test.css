@@ -214,12 +214,12 @@ body {
 }
 @media (min-width: 1020px) {
   .modal {
-    display: block;
+    display: none;
   }
 }
 @media (min-width: 1400px) {
   .modal {
-    display: block;
+    display: none;
   }
 }
 
@@ -443,7 +443,7 @@ body {
   }
 }
 
-.another_page a::after {
+/*.another_page a::after {
   content: "";
   position: absolute;
   top: 0;
@@ -454,7 +454,7 @@ body {
   color: #ffffff;
   opacity: 0;
   transition: 1s;
-}
+}*/
 
 .another_page a:hover {
   background-color: #574fd2;
