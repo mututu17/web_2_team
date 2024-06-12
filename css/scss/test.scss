@@ -408,6 +408,7 @@ body {
     display:flex;
     width: 100%;
     height: 45px;
+    border-bottom: 2px solid lightgray;
     @include laptop {
         display:none;
     }
@@ -541,7 +542,22 @@ body {
     margin-left: 7px;
     font-size: 125%;
   }
-  
+.filter-manual { // manual 버튼
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    width: 30px;
+}
+.filter-manual-btn {
+    float: right;
+    width: 25px;
+    height: 25px;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 0;
+    background-color: #fff;
+}
 // ============================================모바일 헤더 끝========================================
 
 // ============================================모바일 바디 시작======================================
@@ -622,21 +638,6 @@ body {
 .filter-comboBox:hover {
     border-color: #b5e1f0;
     background-color: #fff;
-}
-
-.filter-manual { // manual 버튼
-    position: relative;
-    top: 7%;
-    left: 90%;
-}
-.filter-manual-btn {
-    width: 25px;
-    height: 25px;
-    border: 1.5px solid #000;
-    border-radius: 50%;
-    text-align: center;
-    margin-right: 3rem;
-    background-color: #ffffff;
 }
 
 // --------------------------필터 사이드바 드롭다운 끝-------------------------

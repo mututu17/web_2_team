@@ -115,6 +115,9 @@
             <div class="mobile-logo-box">
                 <a href="page.html"><span class="mobile-logo">ZAGZA</span></a>
             </div>
+            <div class="filter-manual">
+                <button class="filter-manual-btn" type="button">?</button>
+            </div>
         </header>
         <main id="mobile-main">
             <div class="mobile-body">
@@ -135,11 +138,9 @@
                     </div>
                     <div class="filter-item">
                         <label for="combo2">장소</label>
-                        <select id="combo2" class="filter-comboBox">
-                            <option value="2-1">해운대구</option>
-                            <option value="2-2">수영구</option>
-                            <option value="2-3">남구</option>
-                        </select>
+                        <select id="장소" class="filter-comboBox">
+                            <option value="" selected>장소</option>
+                        </select>     
                     </div>
                     <div class="filter-item">
                         <label for="combo3">풍경</label>
@@ -149,15 +150,11 @@
                             <option value="3-3">도시</option>
                         </select>
                     </div>
-                    <div class="filter-manual">
-                        <button class="filter-manual-btn" type="button">?</button>
-                    </div>
                 </div>
             </div>
-            
         </main>     
-        <!--정보 요약 창-->
 
+        <!--정보 요약 창-->
         <div class=".mobile-button-container">
             <button type="button" id="mobile-toggle-aside" class="toggle-button">정보</button>
         </div>
