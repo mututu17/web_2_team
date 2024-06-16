@@ -62,9 +62,15 @@ function displayRouteInfo(index) {
             describe,
         } = res;
 
-        document.querySelector("#image").src = url;
-        document.querySelector("#attraction").innerHTML = attraction;
-        document.querySelector("#link").href = link;
+        document.querySelectorAll("#image").forEach((element) => {
+            element.src = url;
+        });
+        document.querySelectorAll("#attraction").forEach((element) => {
+        element.innerHTML = attraction;
+        });
+        document.querySelectorAll("#link").forEach((element) => {
+        element.href = link;
+        });
         document.querySelectorAll("span.gugunNm").forEach((element) => {
             element.innerHTML = gugunNm;                                                
         });

@@ -253,11 +253,23 @@ body {
 @media (min-width: 1020px) {
   .modal-content {
     display: block;
+    background-color: #F0F9FC;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 60%;
   }
 }
 @media (min-width: 1400px) {
   .modal-content {
     display: block;
+    background-color: #F0F9FC;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 60%;
   }
 }
 
@@ -296,7 +308,7 @@ body {
 
 .main_cont {
   display: none;
-  background-image: url(/images/bikeback.jpg);
+  background-image: url(../../images/bikeback.jpg);
   background-position: center center;
   opacity: 0.9;
 }
@@ -801,7 +813,7 @@ body {
   margin: 0;
   position: relative;
   overflow: hidden;
-  background-image: url(/images/bikeback_page.png);
+  background-image: url(../../images/bikeback_page.png);
   background-repeat: no-repeat;
   background-position: bottom center;
   font-family: "Jua", sans-serif;
