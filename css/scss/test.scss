@@ -856,12 +856,12 @@ body {
 
 
 #mobile-main_page {                   //소개페이지 메인부분
-    
-    height:100%;
+    height: calc(100% - 47px);
 }
 
-.mobile-body_page{                      //소개페이지 배경
-    height:100%;
+.mobile-body_page{        
+    display: absolute;              //소개페이지 배경
+    height: 100%;
     width: 100%;
     margin: 0;
     position:relative;         
