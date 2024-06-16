@@ -153,6 +153,7 @@ function addPolyline(map, polylinePath, index) {
 var Measure = function(buttons) { //생성자
     this.$btnDistance = buttons.distance; //거리 측정을 위해 인스턴스 초기화
     this._mode = null;
+    this._polylines = []; //그리기로 그려진 폴리라인을 담을 배열
     this._bindDOMEvents(); //DOM이벤트 바인딩
 };
 
@@ -201,8 +202,8 @@ $.extend(Measure.prototype, {
             var path = this._polyline.getPath(),
                 lastCoord = path.getAt(path.getLength() - 1),
                 distance = this._polyline.getDistance();
-
-            delete this._polyline;
+                this._polylines.push(this._polyline); //배열에 완성된 폴리라인을 추가
+                delete this._polyline;
 
             if (lastCoord) { //마지막 총 거리를 마커로 표시함 
                 this._addMileStone(lastCoord, this._fromMetersToText(distance), {
@@ -214,7 +215,7 @@ $.extend(Measure.prototype, {
         }
 
         this.$btnDistance.removeClass('control-on').blur();
-
+        this.$btnDistance.text('자전거도로 그리기');
         this.map.setCursor('auto');
 
         delete this._lastDistance;
@@ -258,7 +259,7 @@ $.extend(Measure.prototype, {
         msElement.css('font-size', '11px');
         this._ms.push(ms);
     },
-
+//
     _onClickDistance: function(e) { //점선에서 클릭하면 실선으로 표시
         var map = this.map,
             coord = e.coord;
@@ -276,7 +277,6 @@ $.extend(Measure.prototype, {
 
             $(document).on('mousemove.measure', this._onMouseMoveDistance.bind(this));
             this._distanceListeners.push(naver.maps.Event.addListener(map, 'rightclick', this._finishDistance.bind(this)));
-
             this._polyline = new naver.maps.Polyline({
                 strokeColor: '#f00',
                 strokeWeight: 5,
@@ -327,11 +327,13 @@ $.extend(Measure.prototype, {
             map = this.map,
             mode = this._mode;
 
-        if (btn.hasClass('control-on')) {
-            btn.removeClass('control-on');
-        } else {
-            btn.addClass('control-on');
-        }
+            if (btn.hasClass('control-on')) {
+                btn.removeClass('control-on');
+                btn.text('자전거도로 그리기'); // 모드 비활성화 시 텍스트 변경
+            } else {
+                btn.addClass('control-on');
+                btn.text('도로 삭제하기'); // 모드 활성화 시 텍스트 변경
+            }
 
         this._clearMode(mode);
 
@@ -346,7 +348,7 @@ $.extend(Measure.prototype, {
     },
     _clearMode: function(mode) {
         if (!mode) return;
-
+        
         if (mode === 'distance') {
             if (this._polyline) {
                 this._polyline.setMap(null);
@@ -359,10 +361,15 @@ $.extend(Measure.prototype, {
                 }
                 delete this._ms;
             }
+            if (this._polylines) {
+                for (var i = 0, ii = this._polylines.length; i < ii; i++) {
+                    this._polylines[i].setMap(null);
+                }
+                this._polylines = [];
+            }
         }
     }
 });
-
 
 function addBikeRoute(map, polylinePath, index) {
     addPolyline(map, polylinePath, index);
