@@ -722,7 +722,7 @@ body {
 }
 .toggle-button {
     border-radius: 15px;
-    border: 1px;
+    border: 1px solid;
     background-color: skyblue;
     padding: 5px;
     font-family: "paybooc-Light", sans-serif;
@@ -732,7 +732,6 @@ body {
     width: 70px;
     height: 40px;
     font-size: 16px;
-    border: none;
     cursor: pointer;
 }
 #mobile-container.open {
