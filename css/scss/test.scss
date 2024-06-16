@@ -240,7 +240,29 @@ body {
 #manual_btn:hover{
     cursor: pointer;
 }
+//팝업창 페이드 인 아웃 animation
+@keyframes fadein {
+    from{
+        opacity: 0;
+    }
 
+    to{
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeout {
+    from{
+        opacity: 1;
+    }
+
+    to{
+        opacity: 0;
+    }
+}
+
+//사용방법 팝업창
 .modal {
     display: none;
     position: fixed;
@@ -250,6 +272,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #000000b3;
+    animation: fadein .5s;
     @include laptop{
         display: none; 
     }
@@ -261,12 +284,13 @@ body {
 
 .modal-content {
     display: none;
-    background-color: #fefefe;
+    background-color: #F0F9FC;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 30%;
     height: 60%;
+    
     //width: 550px;
     //height: 600px;
     text-align: center;
@@ -283,8 +307,7 @@ body {
 .modal_frame{
     display: none;
     justify-content: center;
-    //padding: 0 50px;
-    //margin-left: 30px;
+    
     @include laptop{
         display: flex;
     }
@@ -294,6 +317,7 @@ body {
     }
 
 }
+
 .close {
     position: absolute;
     right:35%;
@@ -309,6 +333,7 @@ body {
         display: block;
     }
 }
+
 
 // 소개페이지 전체
 .main_cont{
@@ -455,6 +480,7 @@ body {
         text-decoration: none;
         font-size: 23px;
         text-align: center;
+        justify-content: center;
         //margin: 0 auto;
         margin-top: 35px;
         width: 300px;
@@ -544,6 +570,31 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+   
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.wrapper-page {
+    width: 100%;
+    height: 100%;
+    @include laptop {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+// 모바일 요소 container
+.container-page{
+    width: 100%;
+    height: 100%;
    
     @include laptop {
         display: none;
@@ -682,16 +733,63 @@ body {
     position: relative;
     top: 7px;
     left: 0px;
-  }
+}
   
-  .mobile-logo {
+.mobile-logo {
     font-family: "Anta", sans-serif;
     text-decoration: none;
     vertical-align: middle;
     font-weight: 600;
     color: #070068;
+    margin-left: 7px;
+    font-size: 125%;
+}
+
+
+
+
+.mobile-logo-box_page {                   //2는 소개 페이지 영역.
+    position: relative;
+    display:flex;
+    left: 5px;
+    margin-top: 6px;
     margin-left: 3px;
-    font-size: 150%;
+    animation: navbarBottom 1s forwards;
+    img{
+        height: 80%;
+        //margin-top: 4px;
+    }
+    
+    // @include laptop {
+    //     display: none;
+    // }
+
+    // @include desktop {
+    //     display: none;
+    // }
+  }
+  
+.mobile-logo_page {
+    font-family: "Anta", sans-serif;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 5px;
+    font-weight: 600;
+    color: #070068;
+    font-size: 2.5vh;
+    margin-top: 6px;
+    margin-left: 3px;
+    //margin-left: 7px;
+    // @include laptop {
+    //     display: none;
+    // }
+
+    // @include desktop {
+    //     display: none;
+    // }
+
+    
+
   }
   // ===============모바일 메뉴얼 버튼================
 .filter-manual { 
@@ -755,6 +853,95 @@ body {
     overflow: hidden;
     z-index:1;
 }
+
+
+#mobile-main_page {                   //소개페이지 메인부분
+    
+    height:100%;
+}
+
+.mobile-body_page{                      //소개페이지 배경
+    height:100%;
+    width: 100%;
+    margin: 0;
+    position:relative;         
+    overflow: hidden;
+    background-image: url(/images/bikeback_page.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    font-family: "Jua", sans-serif;
+}
+
+.mobile-body_page::before{              //배경에 투명한 색 깔기
+    content:"";
+    opacity:0.2;
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    background-color: #2843bd;
+}
+
+// .blue_line{
+//     color: #2218a7;
+// }
+
+.mobile-text-page{
+    text-align: center;
+    font-size: medium;
+    color: #ffffff;
+    margin-top: 50%;
+    //font-size: 10px;
+    animation: introanimation 1.2s forwards;
+    text-shadow: 3px 3px #1d1d1d36;
+
+    #pagetitle{
+        color: #ffffff;
+        //justify-content: center;
+        position: relative;
+        //padding: 30px;
+        font-size: 4vh;
+    }
+
+    #pageintro{
+        color: #ffffff;
+        //justify-content: center;
+        position: relative;
+        //padding: 30px;
+        font-size: 2vh;
+    }
+}
+
+@keyframes introanimation {
+    0% {
+        transform: translateY(-30%); 
+        opacity: 0;
+        }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        }
+}
+
+.mobile-main-links{
+    position: relative;
+    text-align: center;
+    //justify-content: center;
+    margin-top: 10%;
+    text-shadow: 1px 1px #1d1d1d36;
+    animation: intropage 1.2s forwards;
+    a{
+        
+        text-decoration: none;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        padding:8px;
+        //border-radius: 20% ;
+     }
+    
+}
+
 
 
 // 좌측 슬라이드 메뉴 css
