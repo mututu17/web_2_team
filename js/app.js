@@ -122,10 +122,10 @@ function addPolyline(map, polylinePath, index) {
         //================================================================================        
     });
 }
-var Measure = function(buttons) {
-    this.$btnDistance = buttons.distance;
+var Measure = function(buttons) { //생성자
+    this.$btnDistance = buttons.distance; //거리 측정을 위해 인스턴스 초기화
     this._mode = null;
-    this._bindDOMEvents();
+    this._bindDOMEvents(); //DOM이벤트 바인딩
 };
 
 $.extend(Measure.prototype, {
@@ -158,7 +158,7 @@ $.extend(Measure.prototype, {
         map.setCursor("url('rule.cur'), default");
     },
 
-    _finishDistance: function() {
+    _finishDistance: function() { 
         naver.maps.Event.removeListener(this._distanceListeners);
         delete this._distanceListeners;
 
@@ -176,7 +176,7 @@ $.extend(Measure.prototype, {
 
             delete this._polyline;
 
-            if (lastCoord) {
+            if (lastCoord) { //마지막 총 거리를 마커로 표시함 
                 this._addMileStone(lastCoord, this._fromMetersToText(distance), {
                     'font-size': '14px',
                     'font-weight': 'bold',
@@ -200,10 +200,10 @@ $.extend(Measure.prototype, {
         }
     },
 
-    _fromMetersToText: function(meters) {
+    _fromMetersToText: function(meters) { 
         meters = meters || 0;
 
-        var km = 1000,
+        var km = 1000, //거리가 1000m 이상이면 km로 표현
             text = meters;
 
         if (meters >= km) {
@@ -214,7 +214,7 @@ $.extend(Measure.prototype, {
         return text;
     },
 
-    _addMileStone: function(coord, text, css) {
+    _addMileStone: function(coord, text, css) { //폴리라인 두 점마다 마커로 거리 표시
         if (!this._ms) this._ms = [];
 
         var ms = new naver.maps.Marker({
@@ -227,20 +227,16 @@ $.extend(Measure.prototype, {
         });
 
         var msElement = $(ms.getElement());
-
-        if (css) {
-            msElement.css(css);
-        } else {
-            msElement.css('font-size', '11px');
-        }
+        msElement.css('font-size', '11px');
         this._ms.push(ms);
     },
 
-    _onClickDistance: function(e) {
+    _onClickDistance: function(e) { //점선에서 클릭하면 실선으로 표시
         var map = this.map,
             coord = e.coord;
 
         if (!this._polyline) {
+            //임시로 보여줄 점선 
             this._guideline = new naver.maps.Polyline({
                 strokeColor: '#f00',
                 strokeWeight: 5,
@@ -274,7 +270,7 @@ $.extend(Measure.prototype, {
         }
     },
 
-    _onMouseMoveDistance: function(e) {
+    _onMouseMoveDistance: function(e) { //마우스 움직임 처리
         var map = this.map,
             proj = this.map.getProjection(),
             coord = proj.fromPageXYToCoord(new naver.maps.Point(e.pageX, e.pageY)),
@@ -286,7 +282,6 @@ $.extend(Measure.prototype, {
 
         path.push(coord);
     },
-
     _bindMap: function(map) {},
 
     _unbindMap: function() {
@@ -321,7 +316,6 @@ $.extend(Measure.prototype, {
 
         this.startMode(newMode);
     },
-
     _clearMode: function(mode) {
         if (!mode) return;
 
