@@ -348,8 +348,8 @@ $.extend(Measure.prototype, {
         }
     }
 });
-var desktopMap, mobileMap;
-var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
+
+
 function addBikeRoute(map, polylinePath, index) {
     addPolyline(map, polylinePath, index);
     addMarkers(map, polylinePath, index);
