@@ -434,12 +434,10 @@ function initMap() {
 
     var desktopMeasures = new Measure({
         distance: $('#distance-desktop'),
-        area: $('#area-desktop')
     });
     
     var mobileMeasures = new Measure({
         distance: $('#distance-mobile'),
-        area: $('#area-mobile')
     });
     
     desktopMeasures.setMap(desktopMap);
