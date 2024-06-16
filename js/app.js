@@ -18,6 +18,9 @@ function addPolylineEvents(polyline, index) {
     naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
 
     // 인덱스를 가지고 폴리라인 클릭 이벤트 추가
+    naver.maps.Event.addListener(polyline, "touchstart", function () {
+        displayRouteInfo(index);
+    }); 
     naver.maps.Event.addListener(polyline, "click", function () {
         displayRouteInfo(index);
     }); 
@@ -70,8 +73,8 @@ function displayRouteInfo(index) {
             end = end.join(" ");
         }
 
-        document.querySelector("span.startSpot").innerHTML = start;
-        document.querySelector("span.endSpot").innerHTML = end;
+        document.querySelector("span.startSpot").innerHTML = startSpot;
+        document.querySelector("span.endSpot").innerHTML = endSpot;
         document.querySelector("span.total").innerHTML = total;
         document.querySelector("p.describe").innerHTML = describe;
     });
@@ -249,14 +252,15 @@ function mapFilter(filters) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const toggleButton = document.getElementById("mobile-toggle-aside");
+    const toggleButton = document.getElementById("mobile-container");
     const mobileAside = document.getElementById("mobile-aside");
-    
     toggleButton.addEventListener("click", function() {
         if (mobileAside.classList.contains("open")) {
             mobileAside.classList.remove("open");
+            toggleButton.classList.remove("open");
         } else {
             mobileAside.classList.add("open");
+            toggleButton.classList.add("open");
         }
     });
 });
