@@ -82,10 +82,18 @@ function displayRouteInfo(index) {
             end = end.join(" ");
         }
 
-        document.querySelector("span.startSpot").innerHTML = startSpot;
-        document.querySelector("span.endSpot").innerHTML = endSpot;
-        document.querySelector("span.total").innerHTML = total;
-        document.querySelector("p.describe").innerHTML = describe;
+        document.querySelectorAll("span.startSpot").forEach((element) => {
+            element.innerHTML = startSpot;
+        })
+        document.querySelectorAll("span.endSpot").forEach((element) => {
+            element.innerHTML = endSpot;
+        })
+        document.querySelectorAll("span.total").forEach((element) => {
+            element.innerHTML = total;
+        })
+        document.querySelectorAll("p.describe").forEach((element) => {
+            element.innerHTML = describe;
+        })
     });
 }
 

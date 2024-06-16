@@ -296,7 +296,7 @@ body {
 
 .main_cont {
   display: none;
-  background-image: url(/images/bikeback.jpg);
+  background-image: url(../../images/bikeback.jpg);
   background-position: center center;
   opacity: 0.9;
 }
@@ -791,16 +791,17 @@ body {
 }
 
 #mobile-main_page {
-  height: 100%;
+  height: calc(100% - 47px);
 }
 
 .mobile-body_page {
+  display: absolute;
   height: 100%;
   width: 100%;
   margin: 0;
   position: relative;
   overflow: hidden;
-  background-image: url(/images/bikeback_page.png);
+  background-image: url(../../images/bikeback_page.png);
   background-repeat: no-repeat;
   background-position: bottom center;
   font-family: "Jua", sans-serif;
