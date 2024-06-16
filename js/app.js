@@ -136,7 +136,220 @@ function addPolyline(map, polylinePath, index) {
         //================================================================================        
     });
 }
+var Measure = function(buttons) { //생성자
+    this.$btnDistance = buttons.distance; //거리 측정을 위해 인스턴스 초기화
+    this._mode = null;
+    this._bindDOMEvents(); //DOM이벤트 바인딩
+};
 
+$.extend(Measure.prototype, {
+    constructor: Measure,
+
+    setMap: function(map) {
+        if (this.map) {
+            this._unbindMap(this.map);
+        }
+
+        this.map = map;
+        if (map) {
+            this._bindMap(map);
+        }
+    },
+
+    startMode: function(mode) {
+        if (!mode) return;
+        if (mode === 'distance') {
+            this._startDistance();
+        }
+    },
+
+    _startDistance: function() {
+        var map = this.map;
+
+        this._distanceListeners = [
+            naver.maps.Event.addListener(map, 'click', this._onClickDistance.bind(this))
+        ];
+        map.setCursor("url('rule.cur'), default");
+    },
+
+    _finishDistance: function() { 
+        naver.maps.Event.removeListener(this._distanceListeners);
+        delete this._distanceListeners;
+
+        $(document).off('mousemove.measure');
+
+        if (this._guideline) {
+            this._guideline.setMap(null);
+            delete this._guideline;
+        }
+
+        if (this._polyline) {
+            var path = this._polyline.getPath(),
+                lastCoord = path.getAt(path.getLength() - 1),
+                distance = this._polyline.getDistance();
+
+            delete this._polyline;
+
+            if (lastCoord) { //마지막 총 거리를 마커로 표시함 
+                this._addMileStone(lastCoord, this._fromMetersToText(distance), {
+                    'font-size': '14px',
+                    'font-weight': 'bold',
+                    'color': '#f00'
+                });
+            }
+        }
+
+        this.$btnDistance.removeClass('control-on').blur();
+
+        this.map.setCursor('auto');
+
+        delete this._lastDistance;
+        this._mode = null;
+    },
+
+    finishMode: function(mode) {
+        if (!mode) return;
+        if (mode === 'distance') {
+            this._finishDistance();
+        }
+    },
+
+    _fromMetersToText: function(meters) { 
+        meters = meters || 0;
+
+        var km = 1000, //거리가 1000m 이상이면 km로 표현
+            text = meters;
+
+        if (meters >= km) {
+            text = parseFloat((meters / km).toFixed(1)) + 'km';
+        } else {
+            text = parseFloat(meters.toFixed(1)) + 'm';
+        }
+        return text;
+    },
+
+    _addMileStone: function(coord, text, css) { //폴리라인 두 점마다 마커로 거리 표시
+        if (!this._ms) this._ms = [];
+
+        var ms = new naver.maps.Marker({
+            position: coord,
+            icon: {
+                content: '<div style="display:inline-block;padding:5px;text-align:center;background-color:#fff;border:1px solid #000;"><span>' + text + '</span></div>',
+                anchor: new naver.maps.Point(-5, -5)
+            },
+            map: this.map
+        });
+
+        var msElement = $(ms.getElement());
+        msElement.css('font-size', '11px');
+        this._ms.push(ms);
+    },
+
+    _onClickDistance: function(e) { //점선에서 클릭하면 실선으로 표시
+        var map = this.map,
+            coord = e.coord;
+
+        if (!this._polyline) {
+            //임시로 보여줄 점선 
+            this._guideline = new naver.maps.Polyline({
+                strokeColor: '#f00',
+                strokeWeight: 5,
+                strokeStyle: [4, 4],
+                strokeOpacity: 0.6,
+                path: [coord],
+                map: map
+            });
+
+            $(document).on('mousemove.measure', this._onMouseMoveDistance.bind(this));
+            this._distanceListeners.push(naver.maps.Event.addListener(map, 'rightclick', this._finishDistance.bind(this)));
+
+            this._polyline = new naver.maps.Polyline({
+                strokeColor: '#f00',
+                strokeWeight: 5,
+                strokeOpacity: 0.8,
+                path: [coord],
+                map: map
+            });
+
+            this._lastDistance = this._polyline.getDistance();
+        } else {
+            this._guideline.setPath([e.coord]);
+            this._polyline.getPath().push(coord);
+
+            var distance = this._polyline.getDistance();
+
+            this._addMileStone(coord, this._fromMetersToText(distance - this._lastDistance));
+
+            this._lastDistance = distance;
+        }
+    },
+
+    _onMouseMoveDistance: function(e) { //마우스 움직임 처리
+        var map = this.map,
+            proj = this.map.getProjection(),
+            coord = proj.fromPageXYToCoord(new naver.maps.Point(e.pageX, e.pageY)),
+            path = this._guideline.getPath();
+
+        if (path.getLength() === 2) {
+            path.pop();
+        }
+
+        path.push(coord);
+    },
+    _bindMap: function(map) {},
+
+    _unbindMap: function() {
+        this.unbindAll();
+    },
+
+    _bindDOMEvents: function() {
+        this.$btnDistance.on('click.measure', this._onClickButton.bind(this, 'distance'));
+    },
+
+    _onClickButton: function(newMode, e) {
+        e.preventDefault();
+
+        var btn = $(e.target),
+            map = this.map,
+            mode = this._mode;
+
+        if (btn.hasClass('control-on')) {
+            btn.removeClass('control-on');
+        } else {
+            btn.addClass('control-on');
+        }
+
+        this._clearMode(mode);
+
+        if (mode === newMode) {
+            this._mode = null;
+            return;
+        }
+
+        this._mode = newMode;
+
+        this.startMode(newMode);
+    },
+    _clearMode: function(mode) {
+        if (!mode) return;
+
+        if (mode === 'distance') {
+            if (this._polyline) {
+                this._polyline.setMap(null);
+                delete this._polyline;
+            }
+            this._finishDistance();
+            if (this._ms) {
+                for (var i = 0, ii = this._ms.length; i < ii; i++) {
+                    this._ms[i].setMap(null);
+                }
+                delete this._ms;
+            }
+        }
+    }
+});
+var desktopMap, mobileMap;
+var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
 function addBikeRoute(map, polylinePath, index) {
     addPolyline(map, polylinePath, index);
     addMarkers(map, polylinePath, index);
@@ -198,6 +411,19 @@ function initMap() {
     mobileMap = new naver.maps.Map("map-mobile", mapOptions);
     mobileMap.id = 'Mobile'
 
+    var desktopMeasures = new Measure({
+        distance: $('#distance-desktop'),
+        area: $('#area-desktop')
+    });
+    
+    var mobileMeasures = new Measure({
+        distance: $('#distance-mobile'),
+        area: $('#area-mobile')
+    });
+    
+    desktopMeasures.setMap(desktopMap);
+    mobileMeasures.setMap(mobileMap);
+
     // 자전거 레이어 및 폴리라인 추가
     const addMapLayers = (map) => {
         bicycleLayer.setMap(map);
@@ -228,12 +454,6 @@ $(window).resize(() => {
         naver.maps.Event.trigger(desktopMap, "resize");
     }
 });
-
-// 그리기 기능 관련
-naver.maps.onJSContentLoaded = () => {
-    new naver.maps.drawing.DrawingManager({ map: desktopMap });
-    new naver.maps.drawing.DrawingManager({ map: mobileMap });
-};
 
 // 필터 관련 코드 시작
 $("#거리순").change(function () {
