@@ -253,11 +253,23 @@ body {
 @media (min-width: 1020px) {
   .modal-content {
     display: block;
+    background-color: #F0F9FC;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 60%;
   }
 }
 @media (min-width: 1400px) {
   .modal-content {
     display: block;
+    background-color: #F0F9FC;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 60%;
   }
 }
 

@@ -297,10 +297,22 @@ body {
     
     @include laptop{
         display: block;
+        background-color: #F0F9FC;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+        height: 60%;
     }
 
     @include desktop{
         display: block;
+        background-color: #F0F9FC;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+        height: 60%;
     }
 }
 
