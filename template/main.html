@@ -128,14 +128,14 @@
                     </div>
                 </div>
                 <div class="mobile-logo-box">
-                    <a href="page.html"><span class="mobile-logo">ZAGZA</span></a>
-                </div>
-                <div class="filter-manual">
-                    <button class="filter-manual-btn" type="button">?</button>
-                </div>
-                <div class=".mobile-button-container">
-                    <button type="button" id="mobile-toggle-aside" class="toggle-button">정보</button>
-                </div>
+                <a href="page.html"><span class="mobile-logo">zagza</span></a>
+            </div>
+            <div class="filter-manual">
+                <button class="filter-manual-btn" type="button">?</button>
+            </div>
+            <div id="mobile-container" class="closed">
+                <button type="button" id="mobile-toggle-aside" class="toggle-button">정보</button>
+            </div>  
             </header>
             <main id="mobile-main">
                 <div class="mobile-body">
@@ -175,26 +175,24 @@
                 </div>
             </main>
 
-            <!--정보 요약 창-->
-            <aside id="mobile-aside" class="closed">
-                <div class="mobile-aside-container">
-                    <div class="mobile-image-wrapper">
-                        <img src="../images/송정.png" id="mobile-image" class="mobile-image">
-                    </div>
-                    <!--이미지 옆 설명텍스트-->
-                    <div class="mobile-text-info">
-                        <p style="font-weight: bolder; font-size: 110%;"><a href="#" id="linkT" class="mobile-link"
-                                target="_blank">관광지명</a></p>
-                        <hr>
-                        <p><span style="font-weight: bolder;">거리:</span> 00km </p>
-                        <hr>
-                        <p><span style="font-weight: bolder;">시작 위치:</span> 부산광역시 ㅇㅇ동 ㅇㅇ구</p>
-                        <hr>
-                        <p><span style="font-weight: bolder;">도착 위치:</span> </p>
-                        <hr>
-                        <p>간단한 설명</p>
-                        <hr>
-                    </div>
+        <!--정보 요약 창-->
+        <aside id="mobile-aside" class="closed">
+            <div class="mobile-aside-container">
+                <div class="mobile-image-wrapper">
+                    <img src="../images/송정.png" id="mobile-image" class="mobile-image">
+                </div>
+                <!--이미지 옆 설명텍스트-->
+                <div class="mobile-text-info"> 
+                    <p style="font-weight: bolder; font-size: 110%;"><a href="#" id="linkT" class="mobile-link" target="_blank">관광지명</a></p>
+                    <hr>
+                    <p><span style="font-weight: bolder;">거리:</span> <span class="total"></span>KM</p>
+                    <hr>
+                    <p><span style="font-weight: bolder;">시작 위치:</span> <span class="gugunNm"></span><span class="startSpot"></span></p>
+                    <hr>
+                    <p><span style="font-weight: bolder;">도착 위치:</span> <span class="gugunNm"></span><br><span class="endSpot"></span></p>
+                    <hr>
+                    <p>간단한 설명</p>
+                    <hr>
                 </div>
             </aside>
         </div>
