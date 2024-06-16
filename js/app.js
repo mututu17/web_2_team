@@ -4,8 +4,10 @@ const getRouteInfo = async (index) => {
     );
     return route[index];
 };
-var polylineArray = [];
-var markerArray = []; //마커를 담을 배열
+let polylineArrayForPC = [];        // PC에서 폴리라인 담을 배열
+let markerArrayForPC = [];          // PC에서 마커를 담을 배열
+let polylineArrayForMobile = [];    // 모바일에서 폴리라인을 담을 배열
+let markerArrayForMobile = [];      // 모바일에서 마커를 담을 배열
 
 // 자전거 도로 클릭시 변화하는 코드를 함수로 정의
 function addPolylineEvents(polyline, index) {
@@ -18,24 +20,34 @@ function addPolylineEvents(polyline, index) {
     naver.maps.Event.addListener(polyline, "mouseup", unhighlight);
 
     // 인덱스를 가지고 폴리라인 클릭 이벤트 추가
+    naver.maps.Event.addListener(polyline, "touchstart", function () {
+        displayRouteInfo(index);
+    }); 
     naver.maps.Event.addListener(polyline, "click", function () {
         displayRouteInfo(index);
     }); 
 }
 function addMarkers(map, polylinePath, index) {
 
-    var midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
-    var midMarker = new naver.maps.Marker({
+    let midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
+    let midMarker = new naver.maps.Marker({
         position: polylinePath[midIndex],
         map: map,
+        visible: false                                  // 처음 만들어질 땐 invisible
     });
 
-    markerArray.push(midMarker);
+    if (map.id === 'PC') {
+        markerArrayForPC.push(midMarker);
+    }
+    else if (map.id === 'Mobile') {
+        markerArrayForMobile.push(midMarker);
+    }
     // 인덱스를 가지고 마커 클릭 이벤트 추가
     naver.maps.Event.addListener(midMarker, "click", function () {
         displayRouteInfo(index);
     });
 }
+
 //폴리라인, 마커 클릭시 실행되는 함수
 function displayRouteInfo(index) {
     getRouteInfo(index).then((res) => {
@@ -70,12 +82,13 @@ function displayRouteInfo(index) {
             end = end.join(" ");
         }
 
-        document.querySelector("span.startSpot").innerHTML = start;
-        document.querySelector("span.endSpot").innerHTML = end;
+        document.querySelector("span.startSpot").innerHTML = startSpot;
+        document.querySelector("span.endSpot").innerHTML = endSpot;
         document.querySelector("span.total").innerHTML = total;
         document.querySelector("p.describe").innerHTML = describe;
     });
 }
+
 function addPolyline(map, polylinePath, index) {
 
     getRouteInfo(index).then((res) => {
@@ -111,11 +124,12 @@ function addPolyline(map, polylinePath, index) {
             map: map,
         });
         // polyline 객체를 배열에 추가
-        polylineArray.push(polyline);
-        
-        // 일정 줌 레벨에서 마커로 변경되도록 마커 추가
-        addMarkers(map, polylinePath, index);
-      
+        if (map.id === 'PC') {
+            polylineArrayForPC.push(polyline);
+        }
+        else if (map.id === 'Mobile') {
+            polylineArrayForMobile.push(polyline);
+        }
         // 폴리라인 이벤트 추가
         addPolylineEvents(polyline, index); //polyline-data의 해당 인덱스 Json값 불러오기
         
@@ -123,30 +137,66 @@ function addPolyline(map, polylinePath, index) {
     });
 }
 
-var desktopMap, mobileMap;
-var bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
+function addBikeRoute(map, polylinePath, index) {
+    addPolyline(map, polylinePath, index);
+    addMarkers(map, polylinePath, index);
+}
 
-function togglePolylineMarkerVisibility(map, zoomThreshold) {
-    var currentZoom = map.getZoom();
+let desktopMap, mobileMap;
+let bicycleLayer = new naver.maps.BicycleLayer(); // 자전거 레이어 표현 변수
 
-    if (currentZoom < zoomThreshold) { //줌 레벨에 따라 자전거도로 와 마커 중 하나만 활성화됨
-        polylineArray.forEach(polyline => polyline.setMap(null));
-        markerArray.forEach(marker => marker.setMap(map));
-    } else {
-        polylineArray.forEach(polyline => polyline.setMap(map));
-        markerArray.forEach(marker => marker.setMap(null));
+// pastZoom: trigger 전의 줌 레벨, currentZoom: trigger 후의 줌 레벨
+function togglePolylineMarkerVisibility(zoomThreshold, pastZoom, currentZoom) {
+    // map에 따른 array 객체 설정
+    let currentPolylineArray = [];
+    let currentMarkerArray = [];
+    if (($(window).width() <= 768)) {   // 모바일일 때 array 설정 
+        currentPolylineArray = polylineArrayForMobile;
+        currentMarkerArray = markerArrayForMobile;
+    }
+    else {                              // PC일 때 array 설정
+        currentZoom = desktopMap.getZoom();
+        currentPolylineArray = polylineArrayForPC;
+        currentMarkerArray = markerArrayForPC;
+    }
+
+    // zoomThreshold값을 기준으로 current값과 past값은 반대에 있어야 함
+
+    // 폴리라인 -> 마커
+    if (currentZoom < zoomThreshold && pastZoom >= zoomThreshold) { //줌 레벨에 따라 자전거도로 와 마커 중 하나만 활성화됨
+        
+        // PC
+        currentMarkerArray.forEach((marker, index) => {
+            marker.setVisible(currentPolylineArray[index].getVisible());                       // 폴리라인의 현재 필터링 상태(visible 값)을 marker에 적용
+        });                 
+        currentPolylineArray.forEach(polyline => polyline.setVisible(false));                  // 폴리라인은 안 보이게 만듦   
+
+        
+        
+    } 
+    // 마커 -> 폴리라인
+    else if (currentZoom >= zoomThreshold && pastZoom < zoomThreshold) {
+
+        // PC
+        currentPolylineArray.forEach((polyline, index) => {
+            polyline.setVisible(currentMarkerArray[index].getVisible());                       // 마커의 현재 필터링 상태(visible 값)을 폴리라인에 적용
+        }); 
+        currentMarkerArray.forEach(marker => marker.setVisible(false));
+
     }
 }
 
 function initMap() {
     var mapOptions = {
         center: new naver.maps.LatLng(35.18097447459887, 129.11777658205753),
-        zoom: 14, //초기 줌 레벨
+        zoom: 13, //초기 줌 레벨
     };
 
     // 데스크톱 및 모바일 버전 지도 변수 초기화
     desktopMap = new naver.maps.Map("map-desktop", mapOptions);
+    desktopMap.id = 'PC';
     mobileMap = new naver.maps.Map("map-mobile", mapOptions);
+    mobileMap.id = 'Mobile'
 
     // 자전거 레이어 및 폴리라인 추가
     const addMapLayers = (map) => {
@@ -154,12 +204,15 @@ function initMap() {
 
         for (let i = 0; i < bikeRoad.length; i++) {
             const road = bikeRoad[i];
-            addPolyline(map, road, i);
+            addBikeRoute(map, road, i);
         }
-        naver.maps.Event.addListener(map, "zoom_changed", () => {//줌 배율에 따라 마커 또는 도로 표시
-            togglePolylineMarkerVisibility(map, 14);
+        
+        let pastZoom = map.getZoom();                                                   // 초기 pastZoom 설정
+        naver.maps.Event.addListener(map, "zoom_changed", () => {                       //줌 배율에 따라 마커 또는 도로 표시
+            let currentZoom = map.getZoom();                                            // trigger 발생ㅅ하면 currentZoom 갱신
+            togglePolylineMarkerVisibility(13, pastZoom, currentZoom);                  // 줌 임계값이 13보다 크면(줌이 더 되면) 폴리라인, 작으면(줌이 덜 되면) 마커
+            pastZoom = currentZoom;                                                     // pastZoom 갱신
         });
-        markerArray.forEach(marker => marker.setMap(null)); //처음엔 도로만 표시
     };
     
     naver.maps.Event.once(desktopMap, "init", () => addMapLayers(desktopMap));
@@ -184,32 +237,75 @@ naver.maps.onJSContentLoaded = () => {
 
 // 필터 관련 코드 시작
 $("#거리순").change(function () {
-    var filters = [];
-
-    $(".combo-box").each(function () {
-        filters.push($(this).val());
-    });
+    let filters = [];
+    
+    if (($(window).width() <= 768)) {   // 모바일일 때
+        $(".filter-comboBox").each(function () {
+            filters.push($(this).val());
+        });
+    }
+    else {
+        $(".combo-box").each(function () {
+            filters.push($(this).val());
+        });
+    }
+    
     mapFilter(filters);
 });
 
 $("#장소").change(function () {
-    var filters = [];
+    let filters = [];
 
-    $(".combo-box").each(function () {
-        filters.push($(this).val());
-    });
+    if (($(window).width() <= 768)) {   // 모바일일 때
+        $(".filter-comboBox").each(function () {
+            filters.push($(this).val());
+        });
+    }
+    else {
+        $(".combo-box").each(function () {
+            filters.push($(this).val());
+        });
+    }
+
     mapFilter(filters);
 });
 
 $("#풍경").change(function () {
-    var filters = [];
-    $(".combo-box").each(function () {
-        filters.push($(this).val());
-    });
+    let filters = [];
+
+    if (($(window).width() <= 768)) {   // 모바일일 때
+        console.log("mobile filter started");
+        $(".filter-comboBox").each(function () {
+            filters.push($(this).val());
+        });
+    }
+    else {
+        $(".combo-box").each(function () {
+            filters.push($(this).val());
+        });
+    }
+
     mapFilter(filters);
 });
 
+// 모바일과 PC는 따로놀아야됨
 function mapFilter(filters) {
+    // map에 따른 array 객체와 currentZoom 설정
+    let currentZoom;                    // 현재 줌 레벨 받아오기
+    let currentPolylineArray = [];
+    let currentMarkerArray = [];
+    if (($(window).width() <= 768)) {   // 모바일일 때 array 설정
+        currentZoom = mobileMap.getZoom();  
+        console.log("mobile zoom level: " + currentZoom);
+        currentPolylineArray = polylineArrayForMobile;
+        currentMarkerArray = markerArrayForMobile;
+    }
+    else {                              // PC일 때 array 설정
+        currentZoom = desktopMap.getZoom();
+        currentPolylineArray = polylineArrayForPC;
+        currentMarkerArray = markerArrayForPC;
+    }
+               
     for (let i = 0; i < bikeRoad.length; i++) {
         getRouteInfo(i).then((res) => {
             const { gugunNm, total, scene } = res;
@@ -234,29 +330,45 @@ function mapFilter(filters) {
                 isContain = Boolean(totalDist >= startDist);
             }
 
+            // 줌 임계값이 14보다 크면(줌이 더 되면) 폴리라인, 작으면(줌이 덜 되면) 마커
             // 필터링 로직
-            if (
-                (distRaw === "" || isContain) &&
-                (placement === "" || placement === gugunNm) &&
-                (scenary === "" || scenary === scene)
-            ) {
-                polylineArray[i].setVisible(true);
-            } else {
-                polylineArray[i].setVisible(false);
+            if (currentZoom >= 13) {    // 폴리라인 필터링 (줌 레벨 13 이상)
+                if (
+                    (distRaw === "" || isContain) &&
+                    (placement === "" || placement === gugunNm) &&
+                    (scenary === "" || scenary === scene)
+                ) {
+                    currentPolylineArray[i].setVisible(true);
+                    
+                } else {
+                    currentPolylineArray[i].setVisible(false);
+                }
+            }
+            else {                      // 마커 필터링 (줌 레벨 13 미만)
+                if (
+                    (distRaw === "" || isContain) &&
+                    (placement === "" || placement === gugunNm) &&
+                    (scenary === "" || scenary === scene)
+                ) {
+                    currentMarkerArray[i].setVisible(true);
+                } else {
+                    currentMarkerArray[i].setVisible(false);
+                }
             }
         });
     }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const toggleButton = document.getElementById("mobile-toggle-aside");
+    const toggleButton = document.getElementById("mobile-container");
     const mobileAside = document.getElementById("mobile-aside");
-    
     toggleButton.addEventListener("click", function() {
         if (mobileAside.classList.contains("open")) {
             mobileAside.classList.remove("open");
+            toggleButton.classList.remove("open");
         } else {
             mobileAside.classList.add("open");
+            toggleButton.classList.add("open");
         }
     });
 });
