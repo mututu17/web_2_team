@@ -178,7 +178,7 @@ body {
   background: linear-gradient(to bottom, #dfdfdf 100%, #ffffff);
 }
 
-#manual_btn {
+.desktop-manual_btn {
   display: none;
   position: absolute;
   border-radius: 50%;
@@ -188,12 +188,12 @@ body {
   top: 2%;
 }
 @media (min-width: 1020px) {
-  #manual_btn {
+  .desktop-manual_btn {
     display: inline;
   }
 }
 @media (min-width: 1400px) {
-  #manual_btn {
+  .desktop-manual_btn {
     display: inline;
   }
 }
