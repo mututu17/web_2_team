@@ -150,15 +150,15 @@ function addPolyline(map, polylinePath, index) {
         //================================================================================        
     });
 }
-var Measure = function(buttons) { //생성자
+var Drawing = function(buttons) { //생성자
     this.$btnDistance = buttons.distance; //거리 측정을 위해 인스턴스 초기화
     this._mode = null;
     this._polylines = []; //그리기로 그려진 폴리라인을 담을 배열
     this._bindDOMEvents(); //DOM이벤트 바인딩
 };
 
-$.extend(Measure.prototype, {
-    constructor: Measure,
+$.extend(Drawing.prototype, {
+    constructor: Drawing,
 
     setMap: function(map) {
         if (this.map) {
@@ -191,7 +191,7 @@ $.extend(Measure.prototype, {
         naver.maps.Event.removeListener(this._distanceListeners);
         delete this._distanceListeners;
 
-        $(document).off('mousemove.measure');
+        $(document).off('mousemove.drawing');
 
         if (this._guideline) {
             this._guideline.setMap(null);
@@ -275,7 +275,7 @@ $.extend(Measure.prototype, {
                 map: map
             });
 
-            $(document).on('mousemove.measure', this._onMouseMoveDistance.bind(this));
+            $(document).on('mousemove.drawing', this._onMouseMoveDistance.bind(this));
             this._distanceListeners.push(naver.maps.Event.addListener(map, 'rightclick', this._finishDistance.bind(this)));
             this._polyline = new naver.maps.Polyline({
                 strokeColor: '#f00',
@@ -317,7 +317,7 @@ $.extend(Measure.prototype, {
     },
 
     _bindDOMEvents: function() {
-        this.$btnDistance.on('click.measure', this._onClickButton.bind(this, 'distance'));
+        this.$btnDistance.on('click.drawing', this._onClickButton.bind(this, 'distance'));
     },
 
     _onClickButton: function(newMode, e) {
@@ -432,16 +432,16 @@ function initMap() {
     mobileMap = new naver.maps.Map("map-mobile", mapOptions);
     mobileMap.id = 'Mobile'
 
-    var desktopMeasures = new Measure({
+    var desktopDrawings = new Drawing({
         distance: $('#distance-desktop'),
     });
     
-    var mobileMeasures = new Measure({
+    var mobileDrawings = new Drawing({
         distance: $('#distance-mobile'),
     });
     
-    desktopMeasures.setMap(desktopMap);
-    mobileMeasures.setMap(mobileMap);
+    desktopDrawings.setMap(desktopMap);
+    mobileDrawings.setMap(mobileMap);
 
     // 자전거 레이어 및 폴리라인 추가
     const addMapLayers = (map) => {
