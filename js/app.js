@@ -205,11 +205,6 @@ $.extend(Drawing.prototype, {
             var path = this._polyline.getPath(),
                 lastCoord = path.getAt(path.getLength() - 1),
                 distance = this._polyline.getDistance();
-                this._polylines.push(this._polyline); // 배열에 완성된 폴리라인을 추가
-                this._ms.push(this._currentMs); // 배열에 마일스톤 추가
-                this._currentMs = []; // 현재 마일스톤 초기화
-                delete this._polyline;
-
             if (lastCoord) { //마지막 총 거리를 마커로 표시함 
                 this._addMileStone(lastCoord, this._fromMetersToText(distance), {
                     'font-size': '14px',
@@ -217,6 +212,10 @@ $.extend(Drawing.prototype, {
                     'color': '#f00'
                 });
             }
+            this._polylines.push(this._polyline); // 배열에 완성된 폴리라인을 추가
+                this._ms.push(this._currentMs); // 배열에 마일스톤 추가
+                this._currentMs = []; // 현재 마일스톤 초기화
+                delete this._polyline;
         }
 
         this.$btnDrawing.removeClass('control-on').blur();
@@ -248,7 +247,7 @@ $.extend(Drawing.prototype, {
         return text;
     },
 
-    _addMileStone: function(coord, text, css) { //폴리라인 두 점마다 마커로 거리 표시
+    _addMileStone: function(coord, text, css) { //폴리라인 두 점마다 마일스톤으로 거리 표시
         var ms = new naver.maps.Marker({
             position: coord,
             icon: {
@@ -260,7 +259,7 @@ $.extend(Drawing.prototype, {
 
         var msElement = $(ms.getElement());
         msElement.css('font-size', '11px');
-        this._currentMs.push(ms);
+        this._currentMs.push(ms); //생성된 마일스톤은 배열에 임시로 담김
     },
 //
     _onClickDrawing: function(e) { //점선에서 클릭하면 실선으로 표시
@@ -329,14 +328,14 @@ $.extend(Drawing.prototype, {
         e.preventDefault();
 
         if (this._polylines.length > 0) {
-            var lastPolyline = this._polylines.pop();
-            lastPolyline.setMap(null);
+            var lastPolyline = this._polylines.pop(); //배열에서 마지막 요소만 빼서 
+            lastPolyline.setMap(null); //비활성화 시킴
         }
 
         if (this._ms.length > 0) {
-            var lastMilestones = this._ms.pop();
+            var lastMilestones = this._ms.pop(); //배열에서 마지막 요소만 빼서 
             for (var i = 0; i < lastMilestones.length; i++) {
-                lastMilestones[i].setMap(null);
+                lastMilestones[i].setMap(null); //비활성화 시킴
             }
         }
 
