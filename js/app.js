@@ -151,8 +151,8 @@ function addPolyline(map, polylinePath, index) {
     });
 }
 var Drawing = function(buttons) { //생성자
-    this.$btnDrawing = buttons.drawing; //거리 측정을 위해 인스턴스 초기화
-    this.$btnDelete = buttons.delete; //자전거 도로 삭제
+    this.$btnDrawing = buttons.drawing; //자전거도로 그리기 버튼
+    this.$btnDelete = buttons.delete; //그렸던 도로 개별 삭제 버튼
     this._mode = null;
     this._polylines = []; //그리기로 그려진 폴리라인을 담을 배열
     this._ms = []; // 그리기로 그려진 마일스톤을 폴리라인 단위로 담을 배열
@@ -161,7 +161,7 @@ var Drawing = function(buttons) { //생성자
 };
 
 $.extend(Drawing.prototype, {
-    constructor: Drawing,
+    constructor: Drawing, 
 
     setMap: function(map) {
         if (this.map) {
@@ -190,7 +190,7 @@ $.extend(Drawing.prototype, {
         map.setCursor("url('rule.cur'), default");
     },
 
-    _finishDrawing: function() { 
+    _finishDrawing: function() { //그리기가 끝날 때를 처리하는 함수
         naver.maps.Event.removeListener(this._drawingListeners);
         delete this._drawingListeners;
 
@@ -226,7 +226,7 @@ $.extend(Drawing.prototype, {
         this._mode = null;
     },
 
-    finishMode: function(mode) {
+    finishMode: function(mode) { 
         if (!mode) return;
         if (mode === 'drawing') {
             this._finishDrawing();
@@ -262,7 +262,7 @@ $.extend(Drawing.prototype, {
         this._currentMs.push(ms); //생성된 마일스톤은 배열에 임시로 담김
     },
 //
-    _onClickDrawing: function(e) { //점선에서 클릭하면 실선으로 표시
+    _onClickDrawing: function(e) { //클릭해서 도로를 그리는 함수
         var map = this.map,
             coord = e.coord;
 
@@ -277,7 +277,7 @@ $.extend(Drawing.prototype, {
                 map: map
             });
 
-            $(document).on('mousemove.drawing', this._onMouseMoveDrawing.bind(this));
+            $(document).on('mousemove.drawing', this._onMouseMoveDrawing.bind(this)); //점선에서 클릭하면 실선으로 표시
             this._drawingListeners.push(naver.maps.Event.addListener(map, 'rightclick', this._finishDrawing.bind(this)));
             this._polyline = new naver.maps.Polyline({
                 strokeColor: '#f00',
@@ -324,7 +324,7 @@ $.extend(Drawing.prototype, {
         this.$btnDelete.on('click.delete', this._deleteOne.bind(this)); 
         //삭제 버튼 클릭 시 _deleteAll 실행
     },
-    _deleteOne: function(e) {
+    _deleteOne: function(e) { //그렸던 개별 자전거 도로를 하나씩 지우는 버튼
         e.preventDefault();
 
         if (this._polylines.length > 0) {
@@ -341,7 +341,7 @@ $.extend(Drawing.prototype, {
 
         this._clearMode(this._mode);
     },
-    _onClickButton: function(newMode, e) {
+    _onClickButton: function(newMode, e) { //자전거 도로 그리기 버튼 
         e.preventDefault();
 
         var btn = $(e.target),
@@ -367,7 +367,7 @@ $.extend(Drawing.prototype, {
 
         this.startMode(newMode);
     },
-    _clearMode: function(mode) {
+    _clearMode: function(mode) { //그리기가 끝날 때 처리
         if (!mode) return;
         
         if (mode === 'drawing') {
@@ -447,12 +447,12 @@ function initMap() {
     mobileMap = new naver.maps.Map("map-mobile", mapOptions);
     mobileMap.id = 'Mobile'
 
-    var desktopDrawings = new Drawing({
+    var desktopDrawings = new Drawing({ //desktop 그리기 기능 
         drawing: $('#drawing-desktop'),
         delete: $('#delete-desktop'),
     });
     
-    var mobileDrawings = new Drawing({
+    var mobileDrawings = new Drawing({ //mobile 그리기 기능
         drawing: $('#drawing-mobile'),
         delete: $('#delete-mobile'),
     });
