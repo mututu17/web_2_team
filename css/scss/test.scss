@@ -141,7 +141,11 @@ body {
 .navbar_menu a:first-child{
     border-left: none;
 }
-  
+
+// 데스크탑 그림 그리기 버튼
+.desktop-drawing-buttons { 
+    display: none;
+
 
 
 //nav태그 내려오는 애니메이션
