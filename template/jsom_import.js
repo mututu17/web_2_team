@@ -1,1 +1,0 @@
-import route from './route.json';
