@@ -5,12 +5,11 @@ $("#slide-open").on("click", function(){  //버튼 클릭 시
 
       $("#burgur").removeClass('on'); //메뉴 원복
       $("#filter").removeClass('on');  //슬라이드 메뉴 원복
-      $("#mobile-drawing-buttons").removeClass('on');
     
     } else{
 
       $("#burgur").addClass('on');    //메뉴 3줄
       $("#filter").addClass('on');     //슬라이드 메뉴 감춤
-     $("#mobile-drawing-buttons").addClass('on');
+    
     }
 });
