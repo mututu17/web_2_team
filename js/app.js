@@ -43,7 +43,7 @@ function addMarkers(map, polylinePath, index) {
             markerColor = "turquoise"       // mediumturquoise	
         }
         else if (scene === "바다") {
-            markerColor = "#00498c"         // cobalt blue
+            markerColor = "#00008B"         // 진한 파랑
         }
         
         else if (scene === "도심") {
@@ -146,10 +146,10 @@ function addPolyline(map, polylinePath, index) {
             colorValue = "forestgreen"      // forestgreen
         }
         else if (scene === "강변") {
-            colorValue = "cyan"      // mediumturquoise	
+            colorValue = "turquoise"      // mediumturquoise	
         }
         else if (scene === "바다") {
-            colorValue = "midnightblue"      // midnightblue
+            colorValue = "#00008B"      // 진한 파랑
         }
         
         else if (scene === "도심") {
