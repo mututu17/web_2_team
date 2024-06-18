@@ -28,52 +28,23 @@ function addPolylineEvents(polyline, index) {
     }); 
 }
 function addMarkers(map, polylinePath, index) {
-    getRouteInfo(index).then((res) => {
-        const {
-            scene
-        } = res;
 
-        // 테마에 따른 색상 값을 받는 변수
-        /*공원, 강변, 바다, 도심*/
-        let markerColor = "";
-        if (scene === "공원") {
-            markerColor = "forestgreen"      // forestgreen
-        }
-        else if (scene === "강변") {
-            markerColor = "turquoise"       // mediumturquoise	
-        }
-        else if (scene === "바다") {
-            markerColor = "#00008B"         // 진한 파랑
-        }
-        
-        else if (scene === "도심") {
-            markerColor = "cadetblue"      
-        }
+    let midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
+    let midMarker = new naver.maps.Marker({
+        position: polylinePath[midIndex],
+        map: map,
+        visible: false                                  // 처음 만들어질 땐 invisible
+    });
 
-        let midIndex = Math.floor(polylinePath.length / 2); // polylinepath 중간에 마커를 찍음
-      
-        let midMarker = new naver.maps.Marker({
-            position: polylinePath[midIndex],
-            icon: {
-                content: '<div class="markerForTheme" style="background-color:'+ markerColor + ';"><img src="../images/logo.png" alt="자전거 마커"></div>',        // 테마마다 마커 스타일 변경
-                size: new naver.maps.Size(28, 28),                      // css height, width 와 동일
-                anchor: new naver.maps.Point(14, 14),                   // size의 절반값
-            },
-            map: map,
-            visible: false                                  // 처음 만들어질 땐 invisible
-        });
-
-        if (map.id === 'PC') {
-            markerArrayForPC.push(midMarker);
-        }
-        else if (map.id === 'Mobile') {
-            markerArrayForMobile.push(midMarker);
-        }
-        // 인덱스를 가지고 마커 클릭 이벤트 추가
-        naver.maps.Event.addListener(midMarker, "click", function () {
-            displayRouteInfo(index);
-        });
-
+    if (map.id === 'PC') {
+        markerArrayForPC.push(midMarker);
+    }
+    else if (map.id === 'Mobile') {
+        markerArrayForMobile.push(midMarker);
+    }
+    // 인덱스를 가지고 마커 클릭 이벤트 추가
+    naver.maps.Event.addListener(midMarker, "click", function () {
+        displayRouteInfo(index);
     });
 }
 
@@ -146,10 +117,10 @@ function addPolyline(map, polylinePath, index) {
             colorValue = "forestgreen"      // forestgreen
         }
         else if (scene === "강변") {
-            colorValue = "turquoise"      // mediumturquoise	
+            colorValue = "cyan"      // mediumturquoise	
         }
         else if (scene === "바다") {
-            colorValue = "#00008B"      // 진한 파랑
+            colorValue = "midnightblue"      // midnightblue
         }
         
         else if (scene === "도심") {
@@ -157,7 +128,7 @@ function addPolyline(map, polylinePath, index) {
         }
 
         // 폴리라인 추가
-        let polyline = new naver.maps.Polyline({
+        var polyline = new naver.maps.Polyline({
             path: polylinePath,
             strokeColor: colorValue,
             strokeOpacity: 0.8,
@@ -179,15 +150,18 @@ function addPolyline(map, polylinePath, index) {
         //================================================================================        
     });
 }
-var Measure = function(buttons) { //생성자
-    this.$btnDistance = buttons.distance; //거리 측정을 위해 인스턴스 초기화
+var Drawing = function(buttons) { //생성자
+    this.$btnDrawing = buttons.drawing; //자전거도로 그리기 버튼
+    this.$btnDelete = buttons.delete; //그렸던 도로 개별 삭제 버튼
     this._mode = null;
     this._polylines = []; //그리기로 그려진 폴리라인을 담을 배열
+    this._ms = []; // 그리기로 그려진 마일스톤을 폴리라인 단위로 담을 배열
+    this._currentMs = []; // 현재 그리기 중인 마일스톤
     this._bindDOMEvents(); //DOM이벤트 바인딩
 };
 
-$.extend(Measure.prototype, {
-    constructor: Measure,
+$.extend(Drawing.prototype, {
+    constructor: Drawing, 
 
     setMap: function(map) {
         if (this.map) {
@@ -202,25 +176,25 @@ $.extend(Measure.prototype, {
 
     startMode: function(mode) {
         if (!mode) return;
-        if (mode === 'distance') {
-            this._startDistance();
+        if (mode === 'drawing') {
+            this._startDrawing();
         }
     },
 
-    _startDistance: function() {
+    _startDrawing: function() {
         var map = this.map;
 
-        this._distanceListeners = [
-            naver.maps.Event.addListener(map, 'click', this._onClickDistance.bind(this))
+        this._drawingListeners = [
+            naver.maps.Event.addListener(map, 'click', this._onClickDrawing.bind(this))
         ];
         map.setCursor("url('rule.cur'), default");
     },
 
-    _finishDistance: function() { 
-        naver.maps.Event.removeListener(this._distanceListeners);
-        delete this._distanceListeners;
+    _finishDrawing: function() { //그리기가 끝날 때를 처리하는 함수
+        naver.maps.Event.removeListener(this._drawingListeners);
+        delete this._drawingListeners;
 
-        $(document).off('mousemove.measure');
+        $(document).off('mousemove.drawing');
 
         if (this._guideline) {
             this._guideline.setMap(null);
@@ -231,9 +205,6 @@ $.extend(Measure.prototype, {
             var path = this._polyline.getPath(),
                 lastCoord = path.getAt(path.getLength() - 1),
                 distance = this._polyline.getDistance();
-                this._polylines.push(this._polyline); //배열에 완성된 폴리라인을 추가
-                delete this._polyline;
-
             if (lastCoord) { //마지막 총 거리를 마커로 표시함 
                 this._addMileStone(lastCoord, this._fromMetersToText(distance), {
                     'font-size': '14px',
@@ -241,20 +212,24 @@ $.extend(Measure.prototype, {
                     'color': '#f00'
                 });
             }
+            this._polylines.push(this._polyline); // 배열에 완성된 폴리라인을 추가
+                this._ms.push(this._currentMs); // 배열에 마일스톤 추가
+                this._currentMs = []; // 현재 마일스톤 초기화
+                delete this._polyline;
         }
 
-        this.$btnDistance.removeClass('control-on').blur();
-        this.$btnDistance.text('자전거도로 그리기');
+        this.$btnDrawing.removeClass('control-on').blur();
+        this.$btnDrawing.text('자전거 도로 그리기');
         this.map.setCursor('auto');
 
         delete this._lastDistance;
         this._mode = null;
     },
 
-    finishMode: function(mode) {
+    finishMode: function(mode) { 
         if (!mode) return;
-        if (mode === 'distance') {
-            this._finishDistance();
+        if (mode === 'drawing') {
+            this._finishDrawing();
         }
     },
 
@@ -272,9 +247,7 @@ $.extend(Measure.prototype, {
         return text;
     },
 
-    _addMileStone: function(coord, text, css) { //폴리라인 두 점마다 마커로 거리 표시
-        if (!this._ms) this._ms = [];
-
+    _addMileStone: function(coord, text, css) { //폴리라인 두 점마다 마일스톤으로 거리 표시
         var ms = new naver.maps.Marker({
             position: coord,
             icon: {
@@ -286,10 +259,10 @@ $.extend(Measure.prototype, {
 
         var msElement = $(ms.getElement());
         msElement.css('font-size', '11px');
-        this._ms.push(ms);
+        this._currentMs.push(ms); //생성된 마일스톤은 배열에 임시로 담김
     },
 //
-    _onClickDistance: function(e) { //점선에서 클릭하면 실선으로 표시
+    _onClickDrawing: function(e) { //클릭해서 도로를 그리는 함수
         var map = this.map,
             coord = e.coord;
 
@@ -304,8 +277,8 @@ $.extend(Measure.prototype, {
                 map: map
             });
 
-            $(document).on('mousemove.measure', this._onMouseMoveDistance.bind(this));
-            this._distanceListeners.push(naver.maps.Event.addListener(map, 'rightclick', this._finishDistance.bind(this)));
+            $(document).on('mousemove.drawing', this._onMouseMoveDrawing.bind(this)); //점선에서 클릭하면 실선으로 표시
+            this._drawingListeners.push(naver.maps.Event.addListener(map, 'rightclick', this._finishDrawing.bind(this)));
             this._polyline = new naver.maps.Polyline({
                 strokeColor: '#f00',
                 strokeWeight: 5,
@@ -327,7 +300,7 @@ $.extend(Measure.prototype, {
         }
     },
 
-    _onMouseMoveDistance: function(e) { //마우스 움직임 처리
+    _onMouseMoveDrawing: function(e) { //마우스 움직임 처리
         var map = this.map,
             proj = this.map.getProjection(),
             coord = proj.fromPageXYToCoord(new naver.maps.Point(e.pageX, e.pageY)),
@@ -346,10 +319,29 @@ $.extend(Measure.prototype, {
     },
 
     _bindDOMEvents: function() {
-        this.$btnDistance.on('click.measure', this._onClickButton.bind(this, 'distance'));
+        this.$btnDrawing.on('click.drawing', this._onClickButton.bind(this, 'drawing'));
+        //자전거도로 그리기 버튼 클릭 시 _onclickButton 실행
+        this.$btnDelete.on('click.delete', this._deleteOne.bind(this)); 
+        //삭제 버튼 클릭 시 _deleteAll 실행
     },
+    _deleteOne: function(e) { //그렸던 개별 자전거 도로를 하나씩 지우는 버튼
+        e.preventDefault();
 
-    _onClickButton: function(newMode, e) {
+        if (this._polylines.length > 0) {
+            var lastPolyline = this._polylines.pop(); //배열에서 마지막 요소만 빼서 
+            lastPolyline.setMap(null); //비활성화 시킴
+        }
+
+        if (this._ms.length > 0) {
+            var lastMilestones = this._ms.pop(); //배열에서 마지막 요소만 빼서 
+            for (var i = 0; i < lastMilestones.length; i++) {
+                lastMilestones[i].setMap(null); //비활성화 시킴
+            }
+        }
+
+        this._clearMode(this._mode);
+    },
+    _onClickButton: function(newMode, e) { //자전거 도로 그리기 버튼 
         e.preventDefault();
 
         var btn = $(e.target),
@@ -361,7 +353,7 @@ $.extend(Measure.prototype, {
                 btn.text('자전거도로 그리기'); // 모드 비활성화 시 텍스트 변경
             } else {
                 btn.addClass('control-on');
-                btn.text('도로 삭제하기'); // 모드 활성화 시 텍스트 변경
+                btn.text('취소'); // 모드 활성화 시 텍스트 변경
             }
 
         this._clearMode(mode);
@@ -375,26 +367,20 @@ $.extend(Measure.prototype, {
 
         this.startMode(newMode);
     },
-    _clearMode: function(mode) {
+    _clearMode: function(mode) { //그리기가 끝날 때 처리
         if (!mode) return;
         
-        if (mode === 'distance') {
+        if (mode === 'drawing') {
             if (this._polyline) {
                 this._polyline.setMap(null);
                 delete this._polyline;
             }
-            this._finishDistance();
-            if (this._ms) {
-                for (var i = 0, ii = this._ms.length; i < ii; i++) {
-                    this._ms[i].setMap(null);
+            this._finishDrawing();
+            if (this._currentMs) {
+                for (var i = 0, ii = this._currentMs.length; i < ii; i++) {
+                    this._currentMs[i].setMap(null);
                 }
-                delete this._ms;
-            }
-            if (this._polylines) {
-                for (var i = 0, ii = this._polylines.length; i < ii; i++) {
-                    this._polylines[i].setMap(null);
-                }
-                this._polylines = [];
+                this._currentMs = [];
             }
         }
     }
@@ -461,16 +447,18 @@ function initMap() {
     mobileMap = new naver.maps.Map("map-mobile", mapOptions);
     mobileMap.id = 'Mobile'
 
-    var desktopMeasures = new Measure({
-        distance: $('#distance-desktop'),
+    var desktopDrawings = new Drawing({ //desktop 그리기 기능 
+        drawing: $('#drawing-desktop'),
+        delete: $('#delete-desktop'),
     });
     
-    var mobileMeasures = new Measure({
-        distance: $('#distance-mobile'),
+    var mobileDrawings = new Drawing({ //mobile 그리기 기능
+        drawing: $('#drawing-mobile'),
+        delete: $('#delete-mobile'),
     });
     
-    desktopMeasures.setMap(desktopMap);
-    mobileMeasures.setMap(mobileMap);
+    desktopDrawings.setMap(desktopMap);
+    mobileDrawings.setMap(mobileMap);
 
     // 자전거 레이어 및 폴리라인 추가
     const addMapLayers = (map) => {
@@ -483,8 +471,7 @@ function initMap() {
         
         let pastZoom = map.getZoom();                                                   // 초기 pastZoom 설정
         naver.maps.Event.addListener(map, "zoom_changed", () => {                       //줌 배율에 따라 마커 또는 도로 표시
-            let currentZoom = map.getZoom();                                            // trigger 발생하면 currentZoom 갱신
-            console.log("현재 Zoom level: " + currentZoom);
+            let currentZoom = map.getZoom();                                            // trigger 발생ㅅ하면 currentZoom 갱신
             togglePolylineMarkerVisibility(13, pastZoom, currentZoom);                  // 줌 임계값이 13보다 크면(줌이 더 되면) 폴리라인, 작으면(줌이 덜 되면) 마커
             pastZoom = currentZoom;                                                     // pastZoom 갱신
         });
@@ -522,76 +509,28 @@ $("#거리순").change(function () {
     mapFilter(filters);
 });
 
-/**장소 필터에 따라 맵 움직이는 함수 */ 
-function moveMapForFilter(map, placeFilter) {
-
-    switch(placeFilter) {
-        case "부산광역시 수영구":
-            map.morph(new naver.maps.LatLng(35.1455383782275, 129.113125189097), 12);
-            break;
-        case "부산광역시 강서구":
-            map.morph(new naver.maps.LatLng(35.11747262855339, 128.8976639577871), 12);  // 강서구 좌표
-            console.log("강서구 이동 완료");
-            break;
-        case "부산광역시 남구":
-            map.morph(new naver.maps.LatLng(35.1365226602861, 129.084238267311), 12);  // 남구 좌표
-            console.log("남구 이동 완료");
-            break;
-        case "부산광역시 사하구":
-            map.morph(new naver.maps.LatLng(35.1044479031499, 128.974932970702), 12);  // 사하구 좌표
-            console.log("사하구 이동 완료");
-            break;
-        case "부산광역시 사상구":
-            map.morph(new naver.maps.LatLng(35.1525493288331, 128.991447758162), 12);  // 사상구 좌표
-            console.log("강서구 이동 완료");
-            break;
-        case "부산광역시 북구":
-            map.morph(new naver.maps.LatLng(35.197295941285, 128.990036594502), 12);  // 강서구 좌표
-            console.log("강서구 이동 완료");
-            break;
-        case "부산광역시 기장군":
-            map.morph(new naver.maps.LatLng(35.2444181044945, 129.222422056732), 12);  // 강서구 좌표
-            console.log("강서구 이동 완료");
-            break;
-        case "부산광역시 해운대구":
-            map.morph(new naver.maps.LatLng(35.1630666685425, 129.16359608401), 12);  // 강서구 좌표
-            console.log("강서구 이동 완료");
-            break;
-        case "부산광역시 서구":
-            map.morph(new naver.maps.LatLng(35.0979235209887, 129.024298440459), 12);  // 강서구 좌표
-            console.log("강서구 이동 완료");
-            break;
-        case "부산광역시 부산진구":
-            map.morph(new naver.maps.LatLng(35.1628554465167, 129.053165443787), 12);  // 강서구 좌표
-            console.log("강서구 이동 완료");
-            break;
-    }
-    
-}
-
 $("#장소").change(function () {
     let filters = [];
+
     if (($(window).width() <= 768)) {   // 모바일일 때
         $(".filter-comboBox").each(function () {
             filters.push($(this).val());
         });
-        mapFilter(filters);
-        moveMapForFilter(mobileMap, $(this).val());
     }
     else {
         $(".combo-box").each(function () {
             filters.push($(this).val());
         });
-        mapFilter(filters);
-        moveMapForFilter(desktopMap, $(this).val());
     }
-    
+
+    mapFilter(filters);
 });
 
 $("#풍경").change(function () {
     let filters = [];
 
     if (($(window).width() <= 768)) {   // 모바일일 때
+        console.log("mobile filter started");
         $(".filter-comboBox").each(function () {
             filters.push($(this).val());
         });
@@ -647,8 +586,6 @@ function mapFilter(filters) {
                 isContain = Boolean(totalDist >= startDist);
             }
 
-            
-
             // 줌 임계값이 14보다 크면(줌이 더 되면) 폴리라인, 작으면(줌이 덜 되면) 마커
             // 필터링 로직
             if (currentZoom >= 13) {    // 폴리라인 필터링 (줌 레벨 13 이상)
@@ -690,20 +627,4 @@ document.addEventListener("DOMContentLoaded", function() {
             toggleButton.classList.add("open");
         }
     });
-});
-
-// 모바일 슬라이드 애니메이션 
-$("#slide-open").on("click", function(){  //버튼 클릭 시
-
-    if($("#burgur").hasClass('on')){ //메뉴가 X 상태일때
-
-      $("#burgur").removeClass('on'); //메뉴 원복
-      $("#filter").removeClass('on');  //슬라이드 메뉴 원복
-    
-    } else{
-
-      $("#burgur").addClass('on');    //메뉴 3줄
-      $("#filter").addClass('on');     //슬라이드 메뉴 감춤
-    
-    }
 });
